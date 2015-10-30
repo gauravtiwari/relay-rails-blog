@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A sample graphql relay powered blog",
   "main": "components",
+  "private": true,
   "scripts": {
     "test": "npm test"
   },
