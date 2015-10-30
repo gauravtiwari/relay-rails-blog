@@ -1,0 +1,19 @@
+{
+  "name": "graphql-blog",
+  "version": "1.0.0",
+  "description": "A sample graphql relay powered blog",
+  "main": "components",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gauravtiwari/relay-rails-blog.git"
+  },
+  "author": "Gaurav Tiwari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gauravtiwari/relay-rails-blog/issues"
+  },
+  "homepage": "https://github.com/gauravtiwari/relay-rails-blog#readme"
+}

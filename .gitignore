@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+*dump
+/node_modules
