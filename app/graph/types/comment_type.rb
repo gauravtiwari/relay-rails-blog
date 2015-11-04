@@ -2,8 +2,10 @@ CommentType = GraphQL::ObjectType.define do
   name "Comment"
   description "A comment to a post"
 
-  field :id, !types.ID, "The unique ID of this comment"
+  interfaces [NodeIdentification.interface]
+
+  field :id, field: GraphQL::Relay::GlobalIdField.new('Comment')
   field :body, !types.String, "The body of this comment"
-  field :post, !PostType, "The post this comment belongs to"
-  field :user, !UserType, "The user this comment belongs to"
+  field :user, !UserType, "User associated with this comment"
+  field :post, !PostType, "Post associated with this comment"
 end
