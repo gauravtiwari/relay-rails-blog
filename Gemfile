@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'graphql'
 gem 'graphql-relay'
 gem 'react-rails'
+gem 'sprockets-es6'
 gem 'browserify-rails'
 gem 'devise'
 
