@@ -5,4 +5,5 @@ CommentType = GraphQL::ObjectType.define do
   field :id, !types.ID, "The unique ID of this comment"
   field :body, !types.String, "The body of this comment"
   field :post, !PostType, "The post this comment belongs to"
+  field :user, !UserType, "The user this comment belongs to"
 end
