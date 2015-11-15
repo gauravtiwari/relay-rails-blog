@@ -6,15 +6,20 @@ RootLevelType = GraphQL::ObjectType.define do
 
   field :id, field: GraphQL::Relay::GlobalIdField.new('RootLevel')
 
-  connection :Posts, PostType.connection_type do
+  field :posts do
+    type types[PostType]
+    description "Get all posts"
     resolve ->(object, args, ctx){
-      Post.all
+      Post.includes(:user, :comments).all
     }
   end
 
-  connection :users, UserType.connection_type do
+  field :users do
+    type types[UserType]
+    description "Get all users"
     resolve ->(object, args, ctx){
-      User.all
+      User.includes(:posts, :comments).all
     }
   end
+
 end
