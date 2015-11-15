@@ -1,3 +1,4 @@
+$: << File.expand_path('../lib', __dir__)
 require File.expand_path('../boot', __FILE__)
 
 require "rails"
@@ -10,7 +11,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
-require_relative '../lib/graphql_reloader'
+require 'graphql_reloader'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
