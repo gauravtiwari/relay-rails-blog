@@ -1,0 +1,23 @@
+{
+  "name": "GraphQL Blog",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^10.2.6",
+    "browserify-incremental": "^3.0.1",
+    "classnames": "^2.1.5",
+    "jquery": "^2.1.4",
+    "jquery-ujs": "^1.0.4",
+    "material-ui": "^0.12.3",
+    "react": "^0.13.3",
+    "react-dom": "^0.14.0-rc1",
+    "react-loader": "^1.4.0",
+    "react-tap-event-plugin": "^0.1.8"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.2.2"
+  },
+  "devDependencies": {
+    "browserify-incremental": "^3.0.1"
+  }
+}
