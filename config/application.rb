@@ -20,10 +20,14 @@ Bundler.require(*Rails.groups)
 module GraphqlBlog
   class Application < Rails::Application
     config.middleware.use GraphQLReloader
-    config.browserify_rails.commandline_options = '-t [ babelify --optional es7.classProperties --plugins "./relay/schema_generator.js" ] --extension=".jsx"'
     config.autoload_paths << Rails.root.join('app/graph')
+    config.autoload_paths << Rails.root.join('app/lib')
     config.autoload_paths << Rails.root.join('app/graph/mutations')
     config.autoload_paths << Rails.root.join('app/graph/types')
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.schema_format = :sql
+
   end
 end
