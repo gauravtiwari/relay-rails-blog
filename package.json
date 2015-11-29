@@ -1,17 +1,18 @@
 {
-  "name": "GraphQL Blog",
+  "name": "GraphqlBlog",
   "dependencies": {
-    "babelify": "^6.3.0",
-    "browserify": "^10.2.6",
+    "babel-relay-plugin": "^0.4.1",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
     "browserify-incremental": "^3.0.1",
-    "classnames": "^2.1.5",
+    "classnames": "^2.2.1",
     "jquery": "^2.1.4",
     "jquery-ujs": "^1.0.4",
-    "material-ui": "^0.12.3",
-    "react": "^0.13.3",
-    "react-dom": "^0.14.0-rc1",
-    "react-loader": "^1.4.0",
-    "react-tap-event-plugin": "^0.1.8"
+    "material-ui": "^0.13.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-relay": "^0.5.0",
+    "react-tap-event-plugin": "^0.2.1"
   },
   "license": "MIT",
   "engines": {
