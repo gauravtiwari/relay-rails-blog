@@ -8,23 +8,23 @@
 
 
 User.create!(
-  name: "Gaurav Tiwari",
+  name: "John Doe",
   password: "password",
-  email: "gaurav@gauravtiwari.co.uk"
+  email: "john@example.com"
 )
 
 
 User.create!(
-  name: "Parul Singh",
+  name: "Mary Smith",
   password: "password",
-  email: "parul@parul.co.uk"
+  email: "mary@example.com"
 )
 
 
 User.create!(
-  name: "Sheshan Tiwari",
+  name: "Sam Smith",
   password: "password",
-  email: "sheshan@sheshan.co.uk"
+  email: "sam@example.com"
 )
 
 10.times do

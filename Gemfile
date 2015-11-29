@@ -25,8 +25,8 @@ gem 'passenger'
 
 gem 'graphql'
 gem 'graphql-relay'
-gem 'sprockets-es6'
-gem 'browserify-rails'
+gem 'graphql-batch'
+gem "therubyracer"
 gem 'devise'
 
 group :development, :test do
@@ -41,4 +41,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
