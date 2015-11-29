@@ -3,7 +3,7 @@ class GraphqlController < ApplicationController
   protect_from_forgery :except => [:create]
 
   def create
-    puts '-' * 100, RelaySchema.prettify(params[:query]), '-' * 100
+    puts params[:query]
     result = RelaySchema.execute(params[:query], debug: true, variables: params[:variables])
     render json: result
   end
