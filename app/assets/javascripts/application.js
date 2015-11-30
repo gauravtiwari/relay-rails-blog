@@ -2,12 +2,12 @@
 //= require components
 //= require tracker
 //= require react
-//= require react-server
 //= require turbolinks
+//= require react-server
 //= require react_ujs
 
 // Setup React in global scope
-var React = window.React = global.React = require('react/addons');
+var React = window.React = global.React = require('react');
 window.$ = window.jQuery = require('jquery')
 require('jquery-ujs')
 

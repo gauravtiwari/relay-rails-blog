@@ -1,7 +1,3 @@
-// Require React
-React = require('react/addons');
-
-// import material UI
 import mui from 'material-ui';
 let Toolbar = mui.Toolbar;
 let ToolbarGroup = mui.ToolbarGroup;
@@ -51,32 +47,32 @@ const NavBar = React.createClass({
     let fontStyles = {
       paddingLeft: '0px',
       marginRight: '10px',
-      color: '#fff'
+      color: '#333'
     };
 
     let toolbarTitleStyles = {
       fontSize: '16px',
-      color: '#fff'
+      color: '#333'
     };
 
     let betaStyles = {
       fontSize: '11px',
-      color: '#fff'
+      color: '#333'
     };
 
-    return (
+    return(
       <div className="nav bg-horizon">
         <div className="container">
           <Toolbar style={toolbarStyles} className="nav--toolbar">
             <ToolbarGroup key={0} float="left">
               <a href="/" className="link bold">
-                <ToolbarTitle text="Demo Blog" style={toolbarTitleStyles}  />
+                <ToolbarTitle text="Blog application" style={toolbarTitleStyles}  />
               </a>
               <span style={betaStyles}>BETA</span>
             </ToolbarGroup>
             <ToolbarGroup key={1} float="right">
               <FontIcon className="muidocs-icon-custom-github" style={fontStyles} hoverColor={Colors.white} />
-              <a href="https://github.com/gauravtiwari/graphql-blog" target="_blank" className="github--link">
+              <a href="https://github.com/gauravtiwari/techhire" target="_blank" className="github--link">
                 <ToolbarTitle text="Code" style={toolbarTitleStyles}  />
               </a>
             </ToolbarGroup>

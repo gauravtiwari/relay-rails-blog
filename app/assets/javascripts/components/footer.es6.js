@@ -1,6 +1,4 @@
 // Require React
-React = require('react/addons');
-
 import mui from 'material-ui';
 
 // Material Component

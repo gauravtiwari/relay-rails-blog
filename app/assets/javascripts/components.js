@@ -1,5 +1,4 @@
-// Babel polyfill
-require("babelify/polyfill");
+
 
 // Setup app into global name space
 var app = window.app = global.app = {};
@@ -11,5 +10,6 @@ var Footer = require('./components/footer.es6.js');
 // Include into app namespace
 app.NavBar = NavBar;
 app.Footer = Footer;
+
 
 
