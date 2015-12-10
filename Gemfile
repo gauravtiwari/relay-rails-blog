@@ -9,7 +9,7 @@ gem 'pg'
 gem 'passenger'
 
 # Asset compilation and NPM modules
-gem 'browserify-rails', '2.0.2'
+gem 'browserify-rails', '1.5.0'
 gem 'sass-rails'
 gem 'uglifier'
 
@@ -52,4 +52,3 @@ group :development do
   gem 'foreman'
   gem 'figaro'
 end
-
