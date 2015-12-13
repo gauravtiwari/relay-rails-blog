@@ -1,11 +1,8 @@
 var React = require('react');
 var Relay = require('react-relay');
-class Post extends React.Component {
-  constructor() {
-   super();
-   this._handleLike = this._handleLike.bind(this);
-  }
+var Comment = require('./comment.es6.js');
 
+class Post extends React.Component {
   render() {
     var {post} = this.props;
     return (
@@ -13,8 +10,10 @@ class Post extends React.Component {
          <div className='container'>
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
-               <h2 className='section-heading'>{ post.title }</h2>
-               { post.body }
+               <h2 className='section-heading'>
+                { post.title }
+                </h2>
+                <div dangerouslySetInnerHTML={{__html: post.body }} />
                <div className="post-preview show">
                  <div className="post-meta">
                    <span>
@@ -24,14 +23,18 @@ class Post extends React.Component {
                    <span className="counters">
                      Comments: { post.comments_count }
                    </span>
-                   <div>
-                      {this.props.post.viewerDoesLike
-                        ? 'You like this'
-                        : <button onClick={this._handleLike}>Like this</button>
-                      }
-                    </div>
+                   <span className="counters">
+                     Votes: { post.votes_count }
+                   </span>
                  </div>
                </div>
+             </div>
+           </div>
+           <div className='row'>
+             <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
+              {post.comments.edges.map(({node}) => (
+                <Comment key={node.id} comment={node} root={post} />
+              ))}
              </div>
            </div>
          </div>
@@ -62,13 +65,7 @@ var PostContainer = Relay.createContainer(Post, {
             comments(first: $count, order: "-id") {
               edges {
                 node {
-                  id,
-                  body,
-                  votes_count,
-                  user {
-                    id,
-                    name
-                  }
+                  ${Comment.getFragment('comment')}
                 }
               },
             }
