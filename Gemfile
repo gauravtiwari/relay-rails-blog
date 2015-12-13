@@ -15,11 +15,6 @@ gem 'uglifier'
 
 # Setup react and dependencies
 gem 'therubyracer', platforms: :ruby
-#gem 'react-rails'
-
-# Setup Octokit and HTTP cache
-gem 'sidekiq'
-gem 'redis'
 
 # Graphql
 gem 'graphql'
@@ -55,9 +50,6 @@ gem 'local_time'
 
 # React
 gem 'react-rails', '~> 1.5.0'
-
-#Secure headers HTTPS headers
-gem "secure_headers", :require => 'secure_headers'
 
 # Fake data
 gem 'faker'
