@@ -5,7 +5,7 @@ class Comment extends React.Component {
   render() {
     var {comment} = this.props;
     return (
-      <div className='media comment'>
+      <div key={comment.id} className='media comment'>
         <div className='media-body'>
           <h4 className='media-heading'>
             { comment.user.name }
@@ -24,12 +24,12 @@ module.exports = Comment;
 
 var CommentContainer = Relay.createContainer(Comment, {
     fragments: {
-        post: () => Relay.QL`
+        comment: () => Relay.QL`
           fragment on Comment {
-            id,
             body,
+            created_at,
             user {
-              id, name
+              name
             }
           }
         `

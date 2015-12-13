@@ -102,6 +102,9 @@ GEM
     identity_cache (0.2.5)
       activerecord (>= 3.2)
       ar_transaction_changes (~> 1.0)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     js-routes (1.1.2)
       railties (>= 3.2)
       sprockets-rails
@@ -233,6 +236,7 @@ DEPENDENCIES
   graphql
   graphql-relay (= 0.5.0)
   identity_cache
+  jquery-turbolinks
   js-routes
   kgio
   local_time

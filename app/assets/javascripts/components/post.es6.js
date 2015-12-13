@@ -16,9 +16,11 @@ class Post extends React.Component {
                 <div dangerouslySetInnerHTML={{__html: post.body }} />
                <div className="post-preview show">
                  <div className="post-meta">
-                   <span>
-                     Posted by: <a href="#">{ post.user.name }</a>
-                     { LocalTime.relativeTimeAgo(new Date(post.created_at)) }
+                   <span className="author">
+                     Posted by: <em>{ post.user.name }</em>
+                   </span>
+                   <span className="date">
+                    { LocalTime.relativeTimeAgo(new Date(post.created_at)) }
                    </span>
                    <span className="counters">
                      Comments: { post.comments_count }
@@ -32,6 +34,7 @@ class Post extends React.Component {
            </div>
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
+              <h1> Comments </h1>
               {post.comments.edges.map(({node}) => (
                 <Comment key={node.id} comment={node} root={post} />
               ))}
@@ -57,7 +60,6 @@ var PostContainer = Relay.createContainer(Post, {
             body,
             created_at,
             comments_count,
-            viewerDoesLike,
             votes_count,
             user {
               name
@@ -65,6 +67,7 @@ var PostContainer = Relay.createContainer(Post, {
             comments(first: $count, order: "-id") {
               edges {
                 node {
+                  id,
                   ${Comment.getFragment('comment')}
                 }
               },

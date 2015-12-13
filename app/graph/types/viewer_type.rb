@@ -1,13 +1,16 @@
 ViewerType = GraphQL::ObjectType.define do
+
+  # Hack to support root queries
   name 'Viewer'
   description 'Unassociated root queries'
-
   interfaces [NodeIdentification.interface]
 
-  field :id, field: GraphQL::Relay::GlobalIdField.new('Viewer')
+  # `id` exposes the UUID
+  global_id_field :id
 
+  # Fetch all posts
   connection :posts, PostType.connection_type do
-    # Add pagination:
+    # Add pagination: // TODO
     argument :page, types.Int
 
     resolve ->(object, args, ctx){
@@ -15,8 +18,9 @@ ViewerType = GraphQL::ObjectType.define do
     }
   end
 
+  # Fetch all users
   connection :users, UserType.connection_type do
-    # Add pagination:
+    # Add pagination: // TODO
     argument :page, types.Int
 
     resolve ->(object, args, ctx){

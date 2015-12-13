@@ -37,6 +37,9 @@ gem 'graphql-relay', '0.5.0'
 # Javascript routes
 gem 'js-routes'
 
+# Jquery turblinks
+gem 'jquery-turbolinks'
+
 # Authorization
 gem 'pundit'
 

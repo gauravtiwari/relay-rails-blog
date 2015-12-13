@@ -1,8 +1,11 @@
 class Comment < ActiveRecord::Base
 
+  include IdentityCache
   belongs_to :user
   belongs_to :post, touch: true, counter_cache: true
   has_many :votes, as: :votable
+
+  cache_belongs_to :user
 
   # Common Concern
   include Votable

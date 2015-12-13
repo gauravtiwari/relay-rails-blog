@@ -1,6 +1,7 @@
 RelaySchema = GraphQL::Schema.new(query: QueryType)
 
 module RelaySchemaHelpers
+  # Schema.json location
   SCHEMA_DIR  = Rails.root.join('app/assets/javascripts/relay/')
   SCHEMA_PATH = File.join(SCHEMA_DIR, 'schema.json')
 
@@ -17,6 +18,7 @@ module RelaySchemaHelpers
   end
 
   def generate
+    # Generate the schema on start/reload
     FileUtils.mkdir_p SCHEMA_DIR
     result = JSON.pretty_generate(RelaySchema.explain)
     unless File.exists?(SCHEMA_PATH) && File.read(SCHEMA_PATH) == result

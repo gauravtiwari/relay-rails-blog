@@ -32,7 +32,9 @@ $(document).ready(function() {
        Component={component}
        route={route}
        renderLoading={function() {
-          return <div>Loading...</div>;
+          return <div className="loader">
+            <span className="fa fa-spin fa-spinner"></span>
+          </div>;
         }} />,
       node
     );
