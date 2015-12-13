@@ -15,7 +15,7 @@ cd relay-rails-blog
 npm install
 ./start (from terminal). If you get permission error, just do chmod 777 start
 ```
-### Demo
+### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)
 * [GraphiQL query editor](https://relay-rails-blog.herokuapp.com/editor)
 
