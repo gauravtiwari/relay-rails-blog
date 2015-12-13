@@ -1,5 +1,5 @@
 
-10.times do |i|
+100.times do |i|
   User.create!(
     name: Faker::Name.name,
     username: Faker::Internet.user_name,
@@ -8,7 +8,7 @@
   )
 end
 
-10.times do
+100.times do
   Post.create!(
     title: Faker::Lorem.sentence,
     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, incidunt! Voluptatibus quasi asperiores veritatis nesciunt vitae aliquid, praesentium ratione. Repudiandae, dolor, incidunt. Amet corporis porro eveniet rem, eligendi vero, quae.
@@ -20,10 +20,10 @@ end
 end
 
 
-500.times do
+5000.times do
   Comment.create!(
     body: Faker::Lorem.sentence(10),
-    user_id: (1..10).to_a.sample,
-    post_id: (1..10).to_a.sample
+    user_id: (1..100).to_a.sample,
+    post_id: (1..100).to_a.sample
   )
 end

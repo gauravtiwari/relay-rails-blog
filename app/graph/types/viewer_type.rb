@@ -15,7 +15,7 @@ ViewerType = GraphQL::ObjectType.define do
     argument :page, types.Int
 
     resolve ->(object, args, ctx){
-      Post.includes(:user, :comments).paginate(per_page: 20, page: args[:page])
+      Post.includes(:user, :comments).paginate(per_page: args["first"], page: args["page"])
     }
   end
 
@@ -26,7 +26,7 @@ ViewerType = GraphQL::ObjectType.define do
     argument :page, types.Int
 
     resolve ->(object, args, ctx){
-      User.includes(:posts).paginate(per_page: 20, page: args[:page])
+      User.includes(:posts).paginate(per_page: args["first"], page: args["page"])
     }
   end
 
