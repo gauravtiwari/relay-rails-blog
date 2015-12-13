@@ -9,15 +9,14 @@ It's a work in progress and this repository will update as we move further with 
 **Currently**, the application only supports reading data from server. No implementations has been made in regards to updates or writes.
 
 #### Current features
-* Lists posts
-* Lists comments of the posts
+* List posts
+* List comments of the posts
 * Show author info, votes and comments count
 * Live Query editor to run graphql queries
 
 ### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)
 * [GraphiQL query editor](https://relay-rails-blog.herokuapp.com/editor)
-
 
 ### Resources
 
