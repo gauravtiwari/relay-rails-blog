@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
+  # Slug for posts
   acts_as_url :title, url_attribute: :slug
+
+  # Associations
   belongs_to :user
   has_many :comments
   has_many :votes, as: :votable

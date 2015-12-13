@@ -1,6 +1,6 @@
 UserType = GraphQL::ObjectType.define do
   name "User"
-  description "A user entry"
+  description "An user entry, returns basic user information"
 
   interfaces [NodeIdentification.interface]
   # `id` exposes the UUID

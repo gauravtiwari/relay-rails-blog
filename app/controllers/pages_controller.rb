@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def editor
+    # Render the graphiql editor
     render :layout => 'editor'
   end
 

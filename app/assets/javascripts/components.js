@@ -90,8 +90,24 @@ $(document).ready(function() {
   if ($('#editor').length > 0) {
     ReactDOM.render(<GraphiQL fetcher={graphQLFetcher} query={parameters.query || defaultQuery} />,
       document.getElementById('editor'));
+
+    // Insert Go back link on editor toolbar
+    var back_button = $('<div />', {
+                        "class": 'back right',
+                          text: "Return to posts",
+                          click: function(e){
+                            e.preventDefault();
+                            window.location.href = "/"
+                          }
+                        }
+                      );
+    $(back_button).insertAfter('.execute-button');
+
+
   }
 });
 
 /***************** / GraphiQL EDITOR *****************/
+
+
 

@@ -10,7 +10,7 @@
         {
           "kind": "OBJECT",
           "name": "Query",
-          "description": "The query root of this schema. Lists out the available queries.",
+          "description": "The query root of this schema. See available queries.",
           "fields": [
             {
               "name": "node",
@@ -138,7 +138,7 @@
         {
           "kind": "OBJECT",
           "name": "User",
-          "description": "A user entry",
+          "description": "An user entry, returns basic user information",
           "fields": [
             {
               "name": "id",
@@ -225,7 +225,7 @@
         {
           "kind": "OBJECT",
           "name": "Comment",
-          "description": "A comment on the post",
+          "description": "A single comment entry returns a comment with author and total votes",
           "fields": [
             {
               "name": "id",
@@ -316,7 +316,7 @@
         {
           "kind": "OBJECT",
           "name": "Post",
-          "description": "A single post entry",
+          "description": "A single post entry returns a post with author, total votes and comments",
           "fields": [
             {
               "name": "id",

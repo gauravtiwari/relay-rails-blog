@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
 
+  # Associations
   belongs_to :user
   belongs_to :post, touch: true, counter_cache: true
   has_many :votes, as: :votable

@@ -1,5 +1,6 @@
 RelaySchema = GraphQL::Schema.new(query: QueryType)
 
+# Responsible for dumping Schema.json to app/assets/javascripts/relay/
 module RelaySchemaHelpers
   # Schema.json location
   SCHEMA_DIR  = Rails.root.join('app/assets/javascripts/relay/')

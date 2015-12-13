@@ -1,8 +1,10 @@
 class Vote < ActiveRecord::Base
 
+  # Associations
   belongs_to :user
   belongs_to :votable, polymorphic: true, touch: true, counter_cache: true
 
+  # Callbacks
   after_commit :cache_voter, on: :create
   after_destroy :delete_voter
 
