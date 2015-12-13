@@ -1,0 +1,19 @@
+/*
+  Module: Session/Login/Signup
+*/
+
+
+.login-form, .signup-form {
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 30%;
+    transform: translateY(30%);
+    .row {
+      h1 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

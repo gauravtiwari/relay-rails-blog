@@ -1,0 +1,11 @@
+<%# Post comments - partial updates %>
+<div class="edit-comment" id='comment_body_<%= comment.id %>' data-tg-refresh='comment_body_<%= comment.id %>'>
+  <%= form_for :comment, url: post_comment_path(@post, comment),  method: 'put', html: {id: 'comment_update_form', data: { tg_remote: "put", tg_refresh_on_success: "comment_#{comment.id}", tg_refresh_on_error: "comment_#{comment.id}"} }, role: 'form' do |f| %>
+    <div class='form-group'>
+      <%= f.text_area :body, value: comment.body, class: 'form-control', rows: '3' %>
+    </div>
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <%= f.button 'Cancel', class: 'btn btn-primary', href: post_comment_path(@post, comment), data: { tg_remote: "get", tg_refresh_on_success: "comment_#{comment.id}", tg_refresh_on_error: "comment_#{comment.id}"}  %>
+  <% end %>
+</div>
+<%# Post comments - partial updates %>

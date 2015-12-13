@@ -4,11 +4,23 @@ QueryType = GraphQL::ObjectType.define do
 
   field :node, field: NodeIdentification.field
 
-  field :root, RootLevelType do
-    resolve -> (obj, args, ctx) { RootLevel::STATIC }
+  field :root, ViewerType do
+    resolve -> (obj, args, ctx) { Viewer::STATIC }
   end
 
   field :current_user, UserType do
-    resolve -> (obj, args, ctx) { User.first }
+    description  "Returns current signed in user object"
+    resolve -> (obj, args, ctx) {
+      User.first
+    }
   end
+
+  field :user_signed_in, types.Boolean do
+    description  "Returns if a user is signed in"
+    resolve -> (obj, args, ctx) {
+      return false unless cookies.signed['user.id'].present?
+      true
+    }
+  end
+
 end

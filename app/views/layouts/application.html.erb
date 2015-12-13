@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Rails, Graphql and React.js powered blog</title>
-    <meta name="description" content="A blog application written in react.js, rails and graphql tutorial"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <!--[if IE]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="imagetoolbar" content="no" />
+    <title>GraphQL, Relay and Rails Powered Blog</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %><%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GraphQL, Relay and Rails Powered Blog Demo">
+    <meta name="author" content="Developer">
+    <meta name="current_user" id="<%= current_user.try(:id) %>" name="<%= current_user.try(:name) %>" email="<%= current_user.try(:email) %>">
+    <meta name="logged_in" authenticated="<%= user_signed_in? %>" />
+    <meta name="env" env="<%= Rails.env %>" />
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com/" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <%= favicon_link_tag 'favicon.ico' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
-    <meta name="env" data-env="<%= Rails.env %>">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <% if Rails.env.production? %>
-      <script type="text/javascript">
-        !function(g,s,q,r,d){r=g[r]=g[r]||function(){(r.q=r.q||[]).push(
-        arguments)};d=s.createElement(q);q=s.getElementsByTagName(q)[0];
-        d.src='//d1l6p2sc9645hc.cloudfront.net/tracker.js';q.parentNode.
-        insertBefore(d,q)}(window,document,'script','_gs');
-        _gs('GSN-715128-G');
-      </script>
-    <% end %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-
-    <%= csrf_meta_tags %>
-    <%= yield :head %>
-
   </head>
-
-  <body class="<%= controller_name %> <%= action_name %>">
-    <%= react_component 'app.NavBar', {prerender: true} %>
-    <div class="content">
-      <%= yield %>
-    </div>
-    <%= react_component 'app.Footer', {prerender: true} %>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Blog</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to('Home', root_path) %>
+            </li>
+            <% if current_user %>
+              <li>
+                <%= link_to(current_user.name, '#') %>
+              </li>
+              <li>
+                <%= link_to "Logout", '/logout'  %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Signup', '/signup' %>
+              </li>
+              <li>
+                <%= link_to 'Login', '/login' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <%= yield %>
   </body>
 </html>

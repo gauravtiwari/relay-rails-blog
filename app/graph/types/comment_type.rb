@@ -4,7 +4,8 @@ CommentType = GraphQL::ObjectType.define do
 
   interfaces [NodeIdentification.interface]
 
-  field :id, field: GraphQL::Relay::GlobalIdField.new('Comment')
+  global_id_field :id
   field :body, types.String, "The body of this comment"
-  field :user, UserType, "User associated with this post"
+  field :votes_count, types.String,  "The total number of votes on this comment"
+  field :user, UserType, "User of this post"
 end

@@ -1,7 +1,9 @@
 var Relay = require('react-relay');
 var PostsRoute = {
   queries: {
-    posts: () => Relay.QL` query { root } `,
+    root: () => Relay.QL` query {
+      root
+    } `,
   },
   params: {
   },

@@ -15,29 +15,52 @@ gem 'uglifier'
 
 # Setup react and dependencies
 gem 'therubyracer', platforms: :ruby
-gem 'react-rails'
+#gem 'react-rails'
 
 # Setup Octokit and HTTP cache
 gem 'sidekiq'
 gem 'redis'
 
-# Setup caching and Marshalling
-gem 'readthis'
-gem 'hiredis'
-gem 'oj'
+# Caching
+gem 'dalli'
+gem 'kgio'
+gem 'identity_cache'
+gem 'cityhash'        # optional, for faster hashing (C-Ruby only)
 
 # Throttle Malacious requests
 gem 'rack-attack'
 
 # Graphql
 gem 'graphql'
-gem 'graphql-relay'
+gem 'graphql-relay', '0.5.0'
+
+# Javascript routes
+gem 'js-routes'
+
+# Authorization
+gem 'pundit'
 
 # User auth
 gem 'devise'
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+
+# Pagination
+
+gem 'will_paginate'
+
 #Speed up links
 gem 'turbolinks', github: 'rails/turbolinks'
+
+# Slug
+gem 'stringex'
+
+# Time
+gem 'local_time'
+
+# React
+gem 'react-rails', '~> 1.5.0'
 
 #Secure headers HTTPS headers
 gem "secure_headers", :require => 'secure_headers'
@@ -48,6 +71,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'faker'
   gem 'web-console'
   gem 'foreman'
   gem 'figaro'

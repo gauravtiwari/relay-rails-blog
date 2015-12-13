@@ -1,0 +1,39 @@
+/*
+  Module: Votes
+*/
+
+.user-actions {
+  margin-bottom: 30px;
+  display: block;
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      list-style: none;
+      a {
+        text-decoration: none;
+        .fa-trash {
+          color: #ff4c4c;
+        }
+      }
+      &.voted {
+        color: #337ab7;
+        a {
+          color: #337ab7;
+        }
+      }
+    }
+  }
+}
+
+.post-preview {
+  &.show {
+    .post-meta {
+      margin-bottom: 20px;
+      float:none;
+      display: block;
+    }
+  }
+}

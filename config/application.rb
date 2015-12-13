@@ -12,6 +12,7 @@ require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 require 'graphql_reloader'
+require 'relay_component_mount'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -39,6 +40,8 @@ module GraphqlBlog
       replay_console: true,
     }
 
+    config.react.view_helper_implementation = RelayComponentMount # Defaults to RelayComponentMount
+
     # Configure rails g to skip helper/assets files
     config.generators do |g|
       g.assets = false
@@ -46,6 +49,8 @@ module GraphqlBlog
       g.view_specs      false
       g.helper_specs    false
     end
+
+    config.identity_cache_store = :dalli_store
 
     # Setup sidekiq
     config.active_job.queue_adapter = :sidekiq

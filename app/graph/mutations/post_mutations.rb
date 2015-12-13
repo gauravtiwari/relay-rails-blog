@@ -6,16 +6,15 @@ module PostMutations
     input_field :user_id, !types.ID
 
     return_field :postEdge, PostType.edge_type
-    return_field :root, RootLevelType
+    return_field :post, PostType
 
     resolve -> (inputs, ctx) {
-      root = RootLevel::STATIC
       post = Post.create({body: inputs[:body], user_id: inputs[:user_id]})
 
       connection = GraphQL::Relay::RelationConnection.new(root, {})
       edge = GraphQL::Relay::Edge.new(post, connection)
 
-      { root: root, postEdge: edge }
+      { post: post, postEdge: edge }
     }
   end
 
@@ -40,12 +39,12 @@ module PostMutations
 
     input_field :id, !types.ID
     return_field :deletedId, !types.ID
-    return_field :root, RootLevelType
+    return_field :post, PostType
 
     resolve -> (inputs, ctx) {
       post = NodeIdentification.object_from_id_proc.call(inputs[:id])
       post.destroy
-      { root: RootLevel::STATIC, deletedId: inputs[:id] }
+      { post: post, deletedId: inputs[:id] }
     }
   end
 end
