@@ -27,7 +27,7 @@ It's a work in progress and this repository will update as we move further with 
 
 ### TODOs
 
-* Add relay mutations to edit/update/destroy data state
+* Add relay mutations to edit/update/destroy model states
 * Add user session management and authorization
 * Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
 * Add a react native app
