@@ -1,4 +1,4 @@
-### WIP: Webblog powered by Rails, react, graphql and Relay.(Still in development)
+### WIP: Webblog powered by Rails, react, graphql and Relay.
 
 To run the application, please just clone the repo and run it like so:
 
