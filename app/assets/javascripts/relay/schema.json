@@ -10,7 +10,7 @@
         {
           "kind": "OBJECT",
           "name": "Query",
-          "description": "The query root of this schema",
+          "description": "The query root of this schema. Lists out the available queries.",
           "fields": [
             {
               "name": "node",
@@ -41,7 +41,7 @@
             },
             {
               "name": "root",
-              "description": null,
+              "description": "Root object to get viewer related collections",
               "args": [
 
               ],
@@ -225,7 +225,7 @@
         {
           "kind": "OBJECT",
           "name": "Comment",
-          "description": "A comment to a post",
+          "description": "A comment on the post",
           "fields": [
             {
               "name": "id",
@@ -436,7 +436,7 @@
             },
             {
               "name": "comments",
-              "description": null,
+              "description": "All comments association with this post. Returns comments collection and accepts arguments.",
               "args": [
                 {
                   "name": "first",
@@ -685,7 +685,7 @@
         {
           "kind": "OBJECT",
           "name": "Viewer",
-          "description": "Unassociated root queries",
+          "description": "Support unassociated root queries that fetches collections. Supports fetching posts and users collection",
           "fields": [
             {
               "name": "id",
@@ -707,7 +707,7 @@
             },
             {
               "name": "posts",
-              "description": null,
+              "description": "Post connection to fetch paginated posts collection. Supports below aruguments",
               "args": [
                 {
                   "name": "first",
@@ -780,7 +780,7 @@
             },
             {
               "name": "users",
-              "description": null,
+              "description": "Users connection to fetch paginated users collection. Supports below aruguments",
               "args": [
                 {
                   "name": "first",

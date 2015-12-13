@@ -1,6 +1,11 @@
 var React = require('react');
 var Relay = require('react-relay');
 
+/*
+  Component: Comment
+  Renders a single comment with author name
+*/
+
 class Comment extends React.Component {
   render() {
     var {comment} = this.props;
@@ -20,7 +25,13 @@ class Comment extends React.Component {
     );
   }
 }
+
 module.exports = Comment;
+
+/*
+  Relay Container: Comment
+  Defines data need for this component
+*/
 
 var CommentContainer = Relay.createContainer(Comment, {
     fragments: {

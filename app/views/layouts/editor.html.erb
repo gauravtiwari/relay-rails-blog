@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GraphQL Editor</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GraphQL, Relay and Rails Powered Blog Demo">
+    <meta name="author" content="Developer">
+    <meta name="current_user" id="<%= current_user.try(:id) %>" name="<%= current_user.try(:name) %>" email="<%= current_user.try(:email) %>">
+    <meta name="logged_in" authenticated="<%= user_signed_in? %>" />
+    <meta name="env" env="<%= Rails.env %>" />
+    <link rel="dns-prefetch" href="https://oss.maxcdn.com/" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

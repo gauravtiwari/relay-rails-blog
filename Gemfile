@@ -21,15 +21,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'sidekiq'
 gem 'redis'
 
-# Caching
-gem 'dalli'
-gem 'kgio'
-gem 'identity_cache'
-gem 'cityhash'        # optional, for faster hashing (C-Ruby only)
-
-# Throttle Malacious requests
-gem 'rack-attack'
-
 # Graphql
 gem 'graphql'
 gem 'graphql-relay', '0.5.0'

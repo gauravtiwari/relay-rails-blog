@@ -1,7 +1,7 @@
 CommentType = GraphQL::ObjectType.define do
 
   name "Comment"
-  description "A comment to a post"
+  description "A comment on the post"
 
   interfaces [NodeIdentification.interface]
   # `id` exposes the UUID for fetching/re-fetching

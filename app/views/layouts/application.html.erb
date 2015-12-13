@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Blog</a>
+          <a class="navbar-brand" href="/">Demo Blog</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,6 +41,10 @@
             <li>
               <%= link_to('Home', root_path) %>
             </li>
+            <li>
+              <%= link_to('Query editor', editor_path) %>
+            </li>
+            <!-- Use it later
             <% if current_user %>
               <li>
                 <%= link_to(current_user.name, '#') %>
@@ -56,6 +60,7 @@
                 <%= link_to 'Login', '/login' %>
               </li>
             <% end %>
+            !-->
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -63,5 +68,10 @@
       <!-- /.container -->
     </nav>
     <%= yield %>
+    <footer>
+      <div class="container">
+        <p class="copyright text-muted">Rails, Relay, GraphQL and Postgres powered blog</p>
+      </div>
+    </footer>
   </body>
 </html>

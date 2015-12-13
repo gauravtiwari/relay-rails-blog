@@ -18,6 +18,7 @@ PostType = GraphQL::ObjectType.define do
 
   # Define a connection on comments
   connection :comments, CommentType.connection_type do
+    description "All comments association with this post. Returns comments collection and accepts arguments."
     resolve ->(object, args, ctx){
       object.comments.includes(:user)
     }

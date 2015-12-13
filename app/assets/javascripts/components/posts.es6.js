@@ -2,6 +2,11 @@ var React = require('react');
 var Relay = require('react-relay');
 var PostPreview = require('./post_preview.es6.js');
 
+/*
+  Component: Posts
+  Renders a collection of posts
+*/
+
 class Posts extends React.Component {
   render() {
     const {root} = this.props;
@@ -14,12 +19,17 @@ class Posts extends React.Component {
               ))}
           </div>
         </div>
-        <hr />
       </div>
     );
   }
 }
+
 module.exports = Posts;
+
+/*
+  Relay Container: Posts
+  Defines data need for this component
+*/
 
 var PostsContainer = Relay.createContainer(Posts, {
     initialVariables: {
@@ -27,19 +37,19 @@ var PostsContainer = Relay.createContainer(Posts, {
       order: "-id"
     },
     fragments: {
-        root: () => Relay.QL`
-            fragment on Viewer {
+      root: () => Relay.QL`
+        fragment on Viewer {
+          id,
+          posts(first: $count, order: $order) {
+            edges {
+              node {
                 id,
-                posts(first: $count, order: $order) {
-                    edges {
-                        node {
-                            id,
-                            ${PostPreview.getFragment('post')}
-                        }
-                    }
-                }
+                ${PostPreview.getFragment('post')}
+              }
             }
-        `
+          }
+        }
+      `
     }
 });
 

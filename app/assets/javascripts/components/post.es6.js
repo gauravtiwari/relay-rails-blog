@@ -2,12 +2,18 @@ var React = require('react');
 var Relay = require('react-relay');
 var Comment = require('./comment.es6.js');
 
+/*
+  Component: Post
+  Renders single post with author and comments
+*/
+
 class Post extends React.Component {
   render() {
     var {post} = this.props;
     return (
        <article>
          <div className='container'>
+
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
                <h2 className='section-heading'>
@@ -32,6 +38,7 @@ class Post extends React.Component {
                </div>
              </div>
            </div>
+
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
               <h1> Comments </h1>
@@ -40,12 +47,19 @@ class Post extends React.Component {
               ))}
              </div>
            </div>
+
          </div>
        </article>
     );
   }
 }
+
 module.exports = Post;
+
+/*
+  Relay Container: Post
+  Defines data need for this post
+*/
 
 var PostContainer = Relay.createContainer(Post, {
     initialVariables: {

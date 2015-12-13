@@ -2,7 +2,7 @@ ViewerType = GraphQL::ObjectType.define do
 
   # Hack to support root queries
   name 'Viewer'
-  description 'Unassociated root queries'
+  description 'Support unassociated root queries that fetches collections. Supports fetching posts and users collection'
   interfaces [NodeIdentification.interface]
 
   # `id` exposes the UUID
@@ -10,6 +10,7 @@ ViewerType = GraphQL::ObjectType.define do
 
   # Fetch all posts
   connection :posts, PostType.connection_type do
+    description 'Post connection to fetch paginated posts collection. Supports below aruguments'
     # Add pagination: // TODO
     argument :page, types.Int
 
@@ -20,6 +21,7 @@ ViewerType = GraphQL::ObjectType.define do
 
   # Fetch all users
   connection :users, UserType.connection_type do
+    description 'Users connection to fetch paginated users collection. Supports below aruguments'
     # Add pagination: // TODO
     argument :page, types.Int
 

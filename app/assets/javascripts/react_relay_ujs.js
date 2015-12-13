@@ -1,3 +1,5 @@
+// Temporary HACK: Reuse react_ujs to render relay components
+
 /*globals React, Turbolinks*/
 
 // Unobtrusive scripting adapter for React

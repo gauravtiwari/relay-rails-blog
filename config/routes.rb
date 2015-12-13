@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     post "/", to: "graphql#create"
   end
 
+  get '/editor', to: 'pages#editor', as: :editor
+
   resources :posts do
     resources :comments
   end

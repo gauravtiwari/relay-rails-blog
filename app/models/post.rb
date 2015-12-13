@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
 
-  include IdentityCache
   acts_as_url :title, url_attribute: :slug
   belongs_to :user
   has_many :comments
@@ -8,9 +7,6 @@ class Post < ActiveRecord::Base
 
   # Common Concern
   include Votable
-
-  cache_has_many :comments, :embed => true
-  cache_belongs_to :user
 
   # Basic validation
   validates_presence_of :body, :user_id, :slug

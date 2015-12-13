@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
   end
 
+  def editor
+    render :layout => 'editor'
+  end
+
 end
