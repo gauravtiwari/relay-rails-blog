@@ -59,13 +59,15 @@ gem 'react-rails', '~> 1.5.0'
 #Secure headers HTTPS headers
 gem "secure_headers", :require => 'secure_headers'
 
+# Fake data
+gem 'faker'
+
 group :production do
   gem 'rails_12factor'
 end
 
 group :development do
   gem 'spring'
-  gem 'faker'
   gem 'web-console'
   gem 'foreman'
   gem 'figaro'
