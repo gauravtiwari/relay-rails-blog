@@ -15,23 +15,9 @@ PostType = GraphQL::ObjectType.define do
   field :created_at, types.String, "The time at which this post was created"
   field :user, UserType, "User of this post"
 
-  field :viewerDoesLike do
-    type types.Boolean
-    resolve ->(object, args, ctx){
-      current_user = ctx[:current_user]
-      object.voted? current_user.id
-    }
-  end
-
   connection :comments, CommentType.connection_type do
     resolve ->(object, args, ctx){
       object.fetch_comments
-    }
-  end
-
-  connection :votes, VoteType.connection_type do
-    resolve ->(object, args, ctx){
-      object.fetch_votes
     }
   end
 

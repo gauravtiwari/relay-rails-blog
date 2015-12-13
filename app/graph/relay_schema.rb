@@ -1,4 +1,4 @@
-RelaySchema = GraphQL::Schema.new(query: QueryType, mutation: MutationType)
+RelaySchema = GraphQL::Schema.new(query: QueryType)
 
 module RelaySchemaHelpers
   SCHEMA_DIR  = Rails.root.join('app/assets/javascripts/relay/')

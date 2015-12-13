@@ -14,13 +14,4 @@ QueryType = GraphQL::ObjectType.define do
       User.first
     }
   end
-
-  field :user_signed_in, types.Boolean do
-    description  "Returns if a user is signed in"
-    resolve -> (obj, args, ctx) {
-      return false unless cookies.signed['user.id'].present?
-      true
-    }
-  end
-
 end
