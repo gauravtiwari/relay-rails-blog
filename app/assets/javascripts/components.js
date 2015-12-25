@@ -52,7 +52,7 @@ import GraphiQL from 'graphiql';
 import fetch from 'isomorphic-fetch';
 
 // Render <GraphiQL /> into the body.
-var defaultQuery = "# Use GraphQL to query data from \n# a Ruby on Rails backend\n\n query Viewer {\n # Find all posts \n  root  {\n    # And get data\n   posts(first: 20, page: 1)  {\n  edges  {\n  node{\n  id,\n   title,\n   body,\n    # for user you can access\n   user {\n      name     \n},\n    # for comments you can access\n comments(first: 5, order: \"-id\")  {\n edges {\n node {\n id, body, user {\n id, name  \n}  \n}  \n}  \n}        \n}     \n}     \n}     \n}  \n\n}\n\n";
+var defaultQuery = "# Use GraphQL to query data from \n# a Ruby on Rails backend\n\n query Viewer {\n # Find all posts \n  root  {\n    # And get data\n   posts(first: 20)  {\n  edges  {\n  node{\n  id,\n   title,\n   body,\n    # for user you can access\n   user {\n      name     \n},\n    # for comments you can access\n comments(first: 5, order: \"-id\")  {\n edges {\n node {\n id, body, user {\n id, name  \n}  \n}  \n}  \n}        \n}     \n}     \n}     \n}  \n\n}\n\n";
 
 // Parse the search string to get url parameters.
  var search = window.location.search;
