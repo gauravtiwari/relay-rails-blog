@@ -365,20 +365,6 @@
               "deprecationReason": null
             },
             {
-              "name": "body",
-              "description": "The body of this post",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "comments_count",
               "description": "The total numner of comments on this post",
               "args": [
@@ -500,6 +486,20 @@
             {
               "name": "excerpt",
               "description": "The short description of this post",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "body",
+              "description": "The body of this post",
               "args": [
 
               ],

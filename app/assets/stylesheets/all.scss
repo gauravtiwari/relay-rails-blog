@@ -6,10 +6,11 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
+  line-height: 1.4;
 }
 p {
   line-height: 1.5;
-  margin: 30px 0;
+  margin: 0;
 }
 p a {
   text-decoration: underline;
@@ -48,6 +49,8 @@ hr.small {
   position: relative;
   width: 100%;
   z-index: 3;
+  box-shadow: 0 0 1px rgba(0,0,0,0.15);
+  margin-bottom: 80px;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .navbar-custom .navbar-brand {
@@ -209,6 +212,9 @@ hr.small {
 .post-preview {
   border-bottom: 1px solid #eee;
   overflow: hidden;
+  p {
+    margin: 0;
+  }
 }
 .post-preview > a {
   color: #404040;
@@ -233,6 +239,7 @@ hr.small {
   font-size: 13px;
   margin-top: 0;
   font-weight: 400;
+  margin-bottom: 10px;
   margin-top: 10px;
   li {
     list-style: none;
@@ -255,8 +262,8 @@ hr.small {
 }
 .section-heading {
   font-size: 36px;
-  margin-top: 60px;
   font-weight: 700;
+  margin-bottom: 40px;
 }
 .caption {
   text-align: center;
