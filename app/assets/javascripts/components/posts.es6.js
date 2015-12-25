@@ -8,6 +8,11 @@ var PostPreview = require('./post_preview.es6.js');
 */
 
 class Posts extends React.Component {
+  constructor(props) {
+   super(props);
+   this._handleScrollLoad = this._handleScrollLoad.bind(this);
+   this.state = {loading: false, done: false}
+  }
 
   componentDidMount() {
     this._handleScrollLoad();
@@ -15,7 +20,6 @@ class Posts extends React.Component {
 
   render() {
     const {root} = this.props;
-    console.log(root)
     return (
       <div className="container">
         <div className="row">
@@ -25,18 +29,39 @@ class Posts extends React.Component {
               ))}
           </div>
         </div>
+        {this.state.loading ?  <div className="loadmore">
+            <span className="fa fa-spin fa-spinner"></span>
+          </div> : ''}
+        {this.state.done ?  <div className="loadmore-done">
+            <p>No more posts to load</p>
+          </div> : ''}
       </div>
     );
   }
 
   _handleScrollLoad() {
-    const {root} = this.props;
     $(window).scroll(function() {
-      if ($(window).scrollTop() === $(document).height() - $(window).height()) {
-        console.log(root);
-        root.relay.setVariables({
-          after: root.posts.edges.slice(-1).pop().cursor
-        });
+      if (App.scrolledToBottom() && !this.state.loading) {
+        if(this.props.root.posts.pageInfo.hasNextPage) {
+          this.setState({
+            loading: true
+          });
+          this.props.relay.setVariables({
+            count: this.props.relay.variables.count + 20
+          }, readyState => {
+            if (readyState.done) {
+              this.setState({
+                loading: false
+              })
+            }
+          });
+        } else {
+          if(!this.state.done) {
+            this.setState({
+              done: true
+            });
+          }
+        }
       }
     }.bind(this));
   }
@@ -51,7 +76,7 @@ module.exports = Posts;
 
 var PostsContainer = Relay.createContainer(Posts, {
     initialVariables: {
-      count: 10,
+      count: 20,
       order: "-id"
     },
     fragments: {
@@ -60,7 +85,6 @@ var PostsContainer = Relay.createContainer(Posts, {
           id,
           posts(first: $count, order: $order) {
             edges {
-              cursor,
               node {
                 id,
                 ${PostPreview.getFragment('post')}
@@ -68,7 +92,6 @@ var PostsContainer = Relay.createContainer(Posts, {
             }
             pageInfo {
               hasNextPage
-              hasPreviousPage
             }
           }
         }

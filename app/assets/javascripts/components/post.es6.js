@@ -8,12 +8,22 @@ var Comment = require('./comment.es6.js');
 */
 
 class Post extends React.Component {
+
+  constructor(props) {
+   super(props);
+   this._handleScrollLoad = this._handleScrollLoad.bind(this);
+   this.state = { loading: false, done: false }
+  }
+
+  componentDidMount() {
+    this._handleScrollLoad();
+  }
+
   render() {
     var {post} = this.props;
     return (
        <article>
          <div className='container'>
-
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
                <h2 className='section-heading'>
@@ -38,7 +48,10 @@ class Post extends React.Component {
                </div>
              </div>
            </div>
+         </div>
 
+         <div className="comments-container">
+          <div className='container'>
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
               <h1> Comments </h1>
@@ -46,11 +59,45 @@ class Post extends React.Component {
                 <Comment key={node.id} comment={node} root={post} />
               ))}
              </div>
+             </div>
            </div>
-
+           {this.state.loading ?  <div className="loadmore">
+               <span className="fa fa-spin fa-spinner"></span>
+             </div> : ''}
+           {this.state.done ?  <div className="loadmore-done">
+               <p>No more comments to load</p>
+             </div> : ''}
          </div>
+
        </article>
     );
+  }
+
+  _handleScrollLoad() {
+    $(window).scroll(function() {
+      if (App.scrolledToBottom() && !this.state.loading) {
+        if(this.props.post.comments.pageInfo.hasNextPage) {
+          this.setState({
+            loading: true
+          });
+          this.props.relay.setVariables({
+            count: this.props.relay.variables.count + 20
+          }, readyState => {
+            if (readyState.done) {
+              this.setState({
+                loading: false
+              })
+            }
+          });
+        } else {
+          if(!this.state.done) {
+            this.setState({
+              done: true
+            });
+          }
+        }
+      }
+    }.bind(this));
   }
 }
 
@@ -63,7 +110,7 @@ module.exports = Post;
 
 var PostContainer = Relay.createContainer(Post, {
     initialVariables: {
-      count: 1000
+      count: 20
     },
     fragments: {
         post: () => Relay.QL`
@@ -85,6 +132,9 @@ var PostContainer = Relay.createContainer(Post, {
                   ${Comment.getFragment('comment')}
                 }
               },
+              pageInfo {
+                hasNextPage
+              }
             }
           }
         `

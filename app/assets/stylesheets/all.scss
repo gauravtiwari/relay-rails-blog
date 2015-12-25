@@ -6,7 +6,6 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #404040;
-  overflow: auto;
 }
 p {
   line-height: 1.5;
@@ -278,8 +277,9 @@ footer .list-inline {
 }
 footer .copyright {
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   margin-bottom: 0;
+  color: #bbb;
 }
 .floating-label-form-group {
   font-size: 14px;
@@ -417,9 +417,6 @@ body {
 .post-body {
   font-size: 18px;
 }
-.container {
-  padding-bottom: 100px;
-}
 .media-heading {
   margin-bottom: 15px;
   color: #666;
@@ -445,4 +442,20 @@ body {
   z-index: 20;
   text-align: center;
   font-size: 40px;
+}
+.loadmore, .loadmore-done {
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+.loadmore-done {
+  p {
+    font-size: 20px;
+    font-style: italic;
+    color: #bbb;
+  }
+}
+.comments-container {
+  background-color: #f2f2f2;
+  margin-top: 20px;
 }

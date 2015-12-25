@@ -1,6 +1,5 @@
 //= require_self
 //= require app
-//= require params
 //= require jquery.turbolinks
 //= require js-routes
 //= require local_time

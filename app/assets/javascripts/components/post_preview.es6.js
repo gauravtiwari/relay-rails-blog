@@ -24,6 +24,12 @@ class PostPreview extends React.Component {
             <span className="date">
               | { LocalTime.relativeTimeAgo(new Date(post.created_at)) }
             </span>
+            <span className="count comments">
+              <span>|</span> Comments: { post.comments_count }
+            </span>
+            <span className="count votes">
+              <span>|</span> Votes: { post.votes_count }
+            </span>
           </p>
         </div>
     );
