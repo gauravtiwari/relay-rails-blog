@@ -1,9 +1,9 @@
 NodeIdentification = GraphQL::Relay::GlobalNodeIdentification.define do
   # Given a UUID & the query context,
   # return the corresponding application object
-  object_from_id -> (id) do
+  object_from_id -> (id, ctx) do
     type, id = NodeIdentification.from_global_id(id)
-    type.constantize.find(id)
+    Object.const_get(type).find(id)
   end
 
   # Given an application object,

@@ -18,7 +18,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Graphql
 gem 'graphql'
-gem 'graphql-relay', '0.5.0'
+gem 'graphql-relay'
 
 # Javascript routes
 gem 'js-routes'
@@ -34,10 +34,6 @@ gem 'devise'
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
-
-# Pagination
-
-gem 'will_paginate'
 
 #Speed up links
 gem 'turbolinks', github: 'rails/turbolinks'

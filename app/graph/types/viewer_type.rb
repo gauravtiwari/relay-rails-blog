@@ -11,22 +11,16 @@ ViewerType = GraphQL::ObjectType.define do
   # Fetch all posts
   connection :posts, PostType.connection_type do
     description 'Post connection to fetch paginated posts collection. Supports below aruguments'
-    # Add pagination: // TODO
-    argument :page, types.Int
-
     resolve ->(object, args, ctx){
-      Post.includes(:user, :comments).paginate(per_page: args["first"], page: args["page"])
+      Post.includes(:user, :comments)
     }
   end
 
   # Fetch all users
   connection :users, UserType.connection_type do
     description 'Users connection to fetch paginated users collection. Supports below aruguments'
-    # Add pagination: // TODO
-    argument :page, types.Int
-
     resolve ->(object, args, ctx){
-      User.includes(:posts).paginate(per_page: args["first"], page: args["page"])
+      User.includes(:posts)
     }
   end
 

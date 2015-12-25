@@ -758,16 +758,6 @@
                     "ofType": null
                   },
                   "defaultValue": null
-                },
-                {
-                  "name": "page",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
                 }
               ],
               "type": {
@@ -828,16 +818,6 @@
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "page",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1363,49 +1343,49 @@
           "enumValues": [
             {
               "name": "SCALAR",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "OBJECT",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "INTERFACE",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "UNION",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "ENUM",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "INPUT_OBJECT",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "LIST",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "NON_NULL",
-              "description": "The kinds of types in this GraphQL system",
+              "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             }

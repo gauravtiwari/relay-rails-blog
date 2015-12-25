@@ -8,8 +8,14 @@ var PostPreview = require('./post_preview.es6.js');
 */
 
 class Posts extends React.Component {
+
+  componentDidMount() {
+    this._handleScrollLoad();
+  }
+
   render() {
     const {root} = this.props;
+    console.log(root)
     return (
       <div className="container">
         <div className="row">
@@ -21,6 +27,18 @@ class Posts extends React.Component {
         </div>
       </div>
     );
+  }
+
+  _handleScrollLoad() {
+    const {root} = this.props;
+    $(window).scroll(function() {
+      if ($(window).scrollTop() === $(document).height() - $(window).height()) {
+        console.log(root);
+        root.relay.setVariables({
+          after: root.posts.edges.slice(-1).pop().cursor
+        });
+      }
+    }.bind(this));
   }
 }
 
@@ -42,10 +60,15 @@ var PostsContainer = Relay.createContainer(Posts, {
           id,
           posts(first: $count, order: $order) {
             edges {
+              cursor,
               node {
                 id,
                 ${PostPreview.getFragment('post')}
               }
+            }
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
             }
           }
         }
