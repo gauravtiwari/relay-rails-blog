@@ -11,6 +11,7 @@ It's a work in progress and this repository will update as we move further with 
 #### Current features
 * List posts
 * List comments of the posts
+* Infinite Scroll - posts and comments
 * Show author info, votes and comments count
 * Live Query editor to run graphql queries
 
