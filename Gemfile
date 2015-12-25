@@ -47,6 +47,12 @@ gem 'local_time'
 # React
 gem 'react-rails', '~> 1.5.0'
 
+
+# Caching
+gem 'rack-cache'
+gem 'kgio'
+gem 'dalli'
+
 # Fake data
 gem 'faker'
 
