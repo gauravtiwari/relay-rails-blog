@@ -12,7 +12,7 @@ ViewerType = GraphQL::ObjectType.define do
   connection :posts, PostType.connection_type do
     description 'Post connection to fetch paginated posts collection. Supports below aruguments'
     resolve ->(object, args, ctx){
-      Post.includes(:user, :comments)
+      Post.includes(:user)
     }
   end
 
