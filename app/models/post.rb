@@ -18,4 +18,8 @@ class Post < ActiveRecord::Base
     slug # or whatever you set :url_attribute to
   end
 
+  def self.popular
+    order(votes_count: :desc, comments_count: :desc)
+  end
+
 end

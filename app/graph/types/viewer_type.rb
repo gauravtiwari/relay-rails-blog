@@ -10,17 +10,10 @@ ViewerType = GraphQL::ObjectType.define do
 
   # Fetch all posts
   connection :posts, PostType.connection_type do
-    description 'Post connection to fetch paginated posts collection. Supports below aruguments'
+    argument :filter, types.String
+    description 'Post connection to fetch paginated posts collection.'
     resolve ->(object, args, ctx){
-      Post.includes(:user)
-    }
-  end
-
-  # Fetch all users
-  connection :users, UserType.connection_type do
-    description 'Users connection to fetch paginated users collection. Supports below aruguments'
-    resolve ->(object, args, ctx){
-      User.includes(:posts)
+      args["filter"] ? Post.send(args["filter"]).includes(:user) : Post.includes(:user)
     }
   end
 

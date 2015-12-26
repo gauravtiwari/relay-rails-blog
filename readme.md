@@ -1,4 +1,4 @@
-### WIP: Blog application powered by Rails, react, graphql and Relay.
+### WIP: Demo blog application powered by Rails, react, graphql and Relay.
 
 This blog is an exploration excerise to understand two new technologies - GraphQL and Relay. We are using standard rails application together with npm for handling front-end dependencies.
 
