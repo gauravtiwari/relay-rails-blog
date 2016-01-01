@@ -17,7 +17,7 @@ class Post extends React.Component {
    this._handleScrollLoad = this._handleScrollLoad.bind(this);
    this._handleCreate = this._handleCreate.bind(this);
    this._handleVote = this._handleVote.bind(this);
-   this.state = { loading: false, done: false, voted:  this.props.post.voted }
+   this.state = { loading: false, done: false }
   }
 
   componentDidMount() {
@@ -28,8 +28,8 @@ class Post extends React.Component {
     var {post} = this.props;
 
     var voted = classNames({
-      'fa fa-thumbs-up voted': this.state.voted,
-      'fa fa-thumbs-o-up': !this.state.voted
+      'fa fa-thumbs-up voted': this.props.post.voted,
+      'fa fa-thumbs-o-up': !this.props.post.voted
     });
 
     return (
@@ -90,12 +90,10 @@ class Post extends React.Component {
 
   _handleVote(event) {
     if(App.loggedIn()) {
-      if(this.state.voted) {
+      if(this.props.post.voted) {
         Relay.Store.update(new PostUnVoteMutation({post: this.props.post}))
-        this.setState({voted: !this.state.voted});
       } else {
         Relay.Store.update(new PostVoteMutation({post: this.props.post}))
-        this.setState({voted: !this.state.voted});
       }
     } else {
       window.location.href = Routes.new_user_session_path();

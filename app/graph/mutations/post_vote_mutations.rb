@@ -13,7 +13,7 @@ module PostVoteMutations
         user: user
       })
 
-      { post: votable }
+      { post: NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx) }
     }
   end
 
