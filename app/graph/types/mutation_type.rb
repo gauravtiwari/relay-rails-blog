@@ -1,7 +1,7 @@
 MutationType = GraphQL::ObjectType.define do
-  name 'Mutation Type'
+  name 'Mutation'
 
-  field :EditComment, field: Comment::CreateCommentMutation::Edit.field
-  field :DestroyComment, field: Comment::CreateCommentMutation::Destroy.field
-  field :CreateComment, field: Comment::CreateCommentMutation::Create.field
+  field :EditComment, field: CommentMutations::Edit.field
+  field :DestroyComment, field: CommentMutations::Destroy.field
+  field :CreateComment, field: CommentMutations::Create.field
 end
