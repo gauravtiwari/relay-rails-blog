@@ -4,6 +4,10 @@ This blog is an exploration excerise to understand two new technologies - GraphQ
 
 It's a work in progress and this repository will update as we move further with this application. The intention is to explore the integration to stage where we can get a clear understanding about these two new technologies and how they might fit in a real world application and framework.
 
+# Tutorial:
+1. **Introduction:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-getting-started-955a49d251de
+2. **Part1:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-creating-types-and-schema-b3f9b232ccfc#.6micmekh2
+
 ### Running/Developing locally
 To run the application, please just clone the repo and run it like so:
 
