@@ -6,7 +6,7 @@ It's a work in progress and this repository will update as we move further with 
 
 ### Status
 
-**Currently**, the application only supports reading data from server. No implementations has been made in regards to updates or writes.
+**Currently**, the application supports reading and creating data from and on server. No implementations has been made in regards to updates or writes.
 
 #### Current features
 * List posts
@@ -14,6 +14,7 @@ It's a work in progress and this repository will update as we move further with 
 * Infinite Scroll - posts and comments
 * Show author info, votes and comments count
 * Live Query editor to run graphql queries
+* Mutations to create comments and votes
 
 ### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)
@@ -29,7 +30,7 @@ It's a work in progress and this repository will update as we move further with 
 ### TODOs
 
 * Add relay mutations to edit/update/destroy model states
-* Add user session management and authorization
+* Add user authorization
 * Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
 * Add a react native app
 * Probably more...
