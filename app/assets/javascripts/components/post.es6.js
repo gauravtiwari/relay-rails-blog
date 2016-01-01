@@ -80,6 +80,7 @@ class Post extends React.Component {
     if(App.loggedIn()) {
       if(event.keyCode === 13 && event.target.value.length > 10) {
         Relay.Store.update(new CreateCommentMutation({post: this.props.post, body: event.target.value}))
+        event.target.value = '';
       }
     } else {
       window.location.href = Routes.new_user_session_path();
