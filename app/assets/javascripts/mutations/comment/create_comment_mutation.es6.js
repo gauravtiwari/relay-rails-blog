@@ -46,4 +46,24 @@ export default class extends Relay.Mutation  {
             body: this.props.body
         };
     }
+
+    getOptimisticResponse() {
+        const {post, body} = this.props;
+
+        return {
+            post: {
+                id: post.id,
+                comments_count: parseInt(post.comments_count) + 1
+            },
+            commentEdge: {
+                node: {
+                    body: body,
+                    created_at: new Date().toUTCString(),
+                    user: {
+                        name: App.CurrentUser().name
+                    }
+                }
+            }
+        };
+    }
 }

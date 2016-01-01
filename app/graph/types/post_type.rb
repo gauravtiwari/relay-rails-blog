@@ -18,8 +18,8 @@ PostType = GraphQL::ObjectType.define do
   # Define a connection on comments
   connection :comments, CommentType.connection_type do
     description "All comments association with this post. Returns comments collection and accepts arguments."
-    resolve ->(object, args, ctx){
-      object.comments.includes(:user)
+    resolve ->(post, args, ctx){
+      post.comments.includes(:user)
     }
   end
 
@@ -27,16 +27,25 @@ PostType = GraphQL::ObjectType.define do
   field :excerpt do
     type types.String
     description "The short description of this post"
-    resolve -> (object, arguments, context) {
-      truncate(object.body, length: 150, escape: false)
+    resolve -> (post, arguments, ctx) {
+      truncate(post.body, length: 150, escape: false)
+    }
+  end
+
+  # Custom field using resolve block
+  field :voted do
+    type types.Boolean
+    description "The short description of this post"
+    resolve -> (post, arguments, ctx) {
+      ctx[:current_user] ? post.voted?(ctx[:current_user].id) : false
     }
   end
 
   field :body do
     type types.String
     description "The body of this post"
-    resolve -> (object, arguments, context) {
-      simple_format(object.body)
+    resolve -> (post, arguments, ctx) {
+      simple_format(post.body)
     }
   end
 

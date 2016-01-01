@@ -7,7 +7,7 @@ App.CurrentUser = ->
     $('meta[name=current_user]').attr('id')
 
   name:
-    $('meta[name=current_user]').attr('name')
+    $('meta[name=current_user]').attr('username')
 
   email:
     $('meta[name=current_user]').attr('email')

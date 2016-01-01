@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   # Associations
   has_many :posts
+  has_many :votes
   has_many :comments
 
 end

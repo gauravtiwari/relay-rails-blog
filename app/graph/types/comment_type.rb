@@ -13,4 +13,12 @@ CommentType = GraphQL::ObjectType.define do
   field :votes_count, types.String,  "The total number of votes on this comment"
   field :user, UserType, "Owner of this comment"
 
+  # Custom field using resolve block
+  field :voted do
+    type types.Boolean
+    description "The short description of this post"
+    resolve -> (comment, arguments, ctx) {
+      ctx[:current_user] ? comment.voted?(ctx[:current_user].id) : false
+    }
+  end
 end
