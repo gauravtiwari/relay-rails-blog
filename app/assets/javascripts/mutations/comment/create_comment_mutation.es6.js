@@ -1,4 +1,6 @@
 import Relay from 'react-relay';
+var showdown  = require('showdown');
+var converter = new showdown.Converter();
 
 export default class extends Relay.Mutation  {
 
@@ -57,7 +59,7 @@ export default class extends Relay.Mutation  {
             },
             commentEdge: {
                 node: {
-                    body: body,
+                    body: converter.makeHtml(body),
                     created_at: new Date().toUTCString(),
                     user: {
                         name: App.CurrentUser().name
