@@ -1,6 +1,7 @@
 var React = require('react');
 var Relay = require('react-relay');
 var Comment = require('./comment.es6.js');
+import CreateCommentMutation from '../mutations/comment/create_comment_mutation.es6.js';
 
 /*
   Component: Post
@@ -12,6 +13,7 @@ class Post extends React.Component {
   constructor(props) {
    super(props);
    this._handleScrollLoad = this._handleScrollLoad.bind(this);
+   this._handleCreate = this._handleCreate.bind(this);
    this.state = { loading: false, done: false }
   }
 
@@ -55,6 +57,7 @@ class Post extends React.Component {
            <div className='row'>
              <div className='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1'>
               <h1> Comments </h1>
+              <textarea className="add-comment" onKeyDown={this._handleCreate} />
               {post.comments.edges.map(({node}) => (
                 <Comment key={node.id} comment={node} root={post} />
               ))}
@@ -71,6 +74,16 @@ class Post extends React.Component {
 
        </article>
     );
+  }
+
+  _handleCreate(event) {
+    if(App.loggedIn()) {
+      if(event.keyCode === 13 && event.target.value.length > 10) {
+        Relay.Store.update(new CreateCommentMutation({post: this.props.post, body: event.target.value}))
+      }
+    } else {
+      window.location.href = Routes.new_user_session_path();
+    }
   }
 
   _handleScrollLoad() {

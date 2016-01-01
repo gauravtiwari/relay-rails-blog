@@ -494,3 +494,19 @@ body {
 		}
 	}
 }
+
+.form-container {
+  max-width: 300px;
+  margin: 0 auto;
+  h2 {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  input {
+    margin-bottom: 10px;
+  }
+  .actions {
+    margin-top: 20px;
+  }
+}
