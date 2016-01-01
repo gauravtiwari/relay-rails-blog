@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 CommentType = GraphQL::ObjectType.define do
 
   name "Comment"
@@ -8,7 +10,6 @@ CommentType = GraphQL::ObjectType.define do
   global_id_field :id
 
   # Expose fields associated with Comment model
-  field :body, types.String, "The main body of this comment"
   field :created_at, types.String, "The date on which the comment was posted"
   field :votes_count, types.String,  "The total number of votes on this comment"
   field :user, UserType, "Owner of this comment"
@@ -19,6 +20,14 @@ CommentType = GraphQL::ObjectType.define do
     description "The short description of this post"
     resolve -> (comment, arguments, ctx) {
       ctx[:current_user] ? comment.voted?(ctx[:current_user].id) : false
+    }
+  end
+
+  field :body do
+    type types.String
+    description "The body of this comment"
+    resolve -> (comment, arguments, ctx) {
+      simple_format(comment.body)
     }
   end
 end

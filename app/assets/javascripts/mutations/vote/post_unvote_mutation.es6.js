@@ -34,4 +34,15 @@ export default class extends Relay.Mutation  {
             votable_id: this.props.post.id
         };
     }
+
+    getOptimisticResponse() {
+        const {post} = this.props;
+        return {
+            post: {
+                id: post.id,
+                votes_count: parseInt(post.votes_count) - 1,
+                voted: false
+            }
+        };
+    }
 }
