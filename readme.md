@@ -1,23 +1,26 @@
-### WIP: Demo blog application powered by Rails, react, graphql and Relay.
+### WIP: Part 1 blog application powered by Rails, react, graphql and Relay.
 
 This blog is an exploration excerise to understand two new technologies - GraphQL and Relay. We are using standard rails application together with npm for handling front-end dependencies.
 
 It's a work in progress and this repository will update as we move further with this application. The intention is to explore the integration to stage where we can get a clear understanding about these two new technologies and how they might fit in a real world application and framework.
 
-### Status
+### Running locally
+To run the application, please just clone the repo and run it like so:
 
-**Currently**, the application only supports reading data from server. No implementations has been made in regards to updates or writes.
+```
+git clone -b blog/part1 git@github.com:gauravtiwari/relay-rails-blog.git blog
+cd blog
+npm install
+bundle install
+rake db:create db:migrate db:seed
+./start (from terminal). If you get permission error, just do chmod 777 start
+```
 
-#### Current features
-* List posts
-* List comments of the posts
-* Infinite Scroll - posts and comments
-* Show author info, votes and comments count
-* Live Query editor to run graphql queries
-
-### Demo Links
-* [Demo blog](https://relay-rails-blog.herokuapp.com/)
-* [GraphiQL query editor](https://relay-rails-blog.herokuapp.com/editor)
+#### In this part 1
+* Models, Controllers and Views
+* Styles and helper scripts
+* GraphQL types
+* Schema generation
 
 ### Resources
 
@@ -26,20 +29,3 @@ It's a work in progress and this repository will update as we move further with 
 * [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) & [graphql-relay-ruby](https://github.com/rmosolgo/graphql-relay-ruby): For defining GraphQL schema and Relay implementation in Ruby GraphQL classes, and getting Rails to speak GraphQL.
 * ```browserify-rails```: Command-line options required to do transpilation, e.g., —plugin, etc.
 
-### TODOs
-
-* Add relay mutations to edit/update/destroy model states
-* Add user session management and authorization
-* Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
-* Add a react native app
-* Probably more...
-
-### Running locally
-To run the application, please just clone the repo and run it like so:
-
-```
-git clone git@github.com:gauravtiwari/relay-rails-blog.git
-cd relay-rails-blog
-npm install
-./start (from terminal). If you get permission error, just do chmod 777 start
-```
