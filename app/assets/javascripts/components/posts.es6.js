@@ -30,18 +30,18 @@ class Posts extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			<div className="posts-filters">
-				<ul className="filters">
-					<li className={classes}>
-						<a onClick={this._loadFilter.bind(this, "popular", null)}>
-							Popular posts
-						</a>
-					</li>
-					<li>
-						<a onClick={this._loadFilter.bind(this, null, "-id")}>Reset</a>
-					</li>
-				</ul>
-			</div>
+    			<div className="posts-filters">
+    				<ul className="filters">
+    					<li className={classes}>
+    						<a onClick={this._loadFilter.bind(this, "popular", null)}>
+    							Popular posts
+    						</a>
+    					</li>
+    					<li>
+    						<a onClick={this._loadFilter.bind(this, null, "-id")}>Reset</a>
+    					</li>
+    				</ul>
+    			</div>
 			{root.posts.edges.map(({node}) => (
 				<PostPreview key={node.id} post={node} root={root} />
 			))}

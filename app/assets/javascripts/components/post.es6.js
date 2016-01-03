@@ -147,9 +147,6 @@ module.exports = Post;
 */
 
 var PostContainer = Relay.createContainer(Post, {
-    initialVariables: {
-      count: 20
-    },
     fragments: {
         post: () => Relay.QL`
           fragment on Post {
