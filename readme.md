@@ -6,7 +6,11 @@ It's a work in progress and this repository will update as we move further with 
 
 ### Status
 
-**Currently**, the application supports reading and creating data from and on server. No implementations has been made in regards to updates or writes.
+**Currently**, the application supports reading and creating data from and on server.
+
+# Tutorial:
+1. **Introduction:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-getting-started-955a49d251de
+2. **Part1:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-creating-types-and-schema-b3f9b232ccfc#.6micmekh2
 
 #### Current features
 * List posts
