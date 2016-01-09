@@ -20,9 +20,7 @@ app.PostRoute = PostRoute;
 // TEMPORARY HACK: Inject current user object to request header
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('/graphql', {
-    headers: {
-      currentUserId: localStorage.getItem('current_user_id')
-    },
+    credentials: 'same-origin'
   })
 );
 
@@ -108,6 +106,3 @@ $(document).ready(function() {
 });
 
 /***************** / GraphiQL EDITOR *****************/
-
-
-
