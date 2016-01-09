@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
-  get '/editor', to: 'pages#editor', as: :editor
   scope '/graphql' do
     post "/", to: "graphql#create"
   end
