@@ -9,7 +9,7 @@ gem 'pg'
 gem 'passenger'
 
 # Asset compilation and NPM modules
-gem 'browserify-rails', '1.5.0'
+gem 'browserify-rails'
 gem 'sass-rails'
 gem 'uglifier'
 

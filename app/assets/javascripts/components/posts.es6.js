@@ -12,7 +12,6 @@ class Posts extends React.Component {
   constructor(props) {
    super(props);
    this._handleScrollLoad = this._handleScrollLoad.bind(this);
-   this._loadFilter = this._loadFilter.bind(this);
    this.state = {loading: false, done: false, popular: false}
   }
 
@@ -21,30 +20,14 @@ class Posts extends React.Component {
   }
 
   render() {
-  	var classes = classNames({
-  		'filter': true,
-  		'active': this.state.popular
-  	});
     const {root} = this.props;
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    			<div className="posts-filters">
-    				<ul className="filters">
-    					<li className={classes}>
-    						<a onClick={this._loadFilter.bind(this, "popular", null)}>
-    							Popular posts
-    						</a>
-    					</li>
-    					<li>
-    						<a onClick={this._loadFilter.bind(this, null, "-id")}>Reset</a>
-    					</li>
-    				</ul>
-    			</div>
-			{root.posts.edges.map(({node}) => (
-				<PostPreview key={node.id} post={node} root={root} />
-			))}
+      			{root.posts.edges.map(({node}) => (
+      				<PostPreview key={node.id} post={node} root={root} />
+      			))}
           </div>
         </div>
         {this.state.loading ?  <div className="loadmore">
@@ -83,14 +66,6 @@ class Posts extends React.Component {
       }
     }.bind(this));
   }
-
-  _loadFilter(filter, order) {
-  	this.setState({ popular: !this.state.popular })
-  	this.props.relay.setVariables({
-  	  filter: filter,
-  	  order: order
-  	});
-  }
 }
 
 module.exports = Posts;
@@ -103,14 +78,13 @@ module.exports = Posts;
 var PostsContainer = Relay.createContainer(Posts, {
     initialVariables: {
       count: 20,
-      order: "-id",
-      filter: null
+      order: "-id"
     },
     fragments: {
       root: () => Relay.QL`
         fragment on Viewer {
           id,
-          posts(first: $count, order: $order, filter: $filter) {
+          posts(first: $count, order: $order) {
             edges {
               node {
                 id,
@@ -127,4 +101,3 @@ var PostsContainer = Relay.createContainer(Posts, {
 });
 
 module.exports = PostsContainer;
-
