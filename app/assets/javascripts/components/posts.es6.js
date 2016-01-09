@@ -1,7 +1,6 @@
 var React = require('react');
 var Relay = require('react-relay');
 var PostPreview = require('./post_preview.es6.js');
-var classNames = require('classnames');
 
 /*
   Component: Posts

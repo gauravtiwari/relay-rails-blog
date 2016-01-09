@@ -12,7 +12,6 @@ require "action_view/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 require 'graphql_reloader'
-require 'relay_component_mount'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,7 +22,6 @@ module GraphqlBlog
     config.middleware.use GraphQLReloader
     config.autoload_paths << Rails.root.join('app/graph')
     config.autoload_paths << Rails.root.join('app/lib')
-    config.autoload_paths << Rails.root.join('app/graph/mutations')
     config.autoload_paths << Rails.root.join('app/graph/types')
     config.active_record.raise_in_transactional_callbacks = true
 
@@ -40,8 +38,6 @@ module GraphqlBlog
       replay_console: true,
     }
 
-    config.react.view_helper_implementation = RelayComponentMount # Defaults to RelayComponentMount
-
     # Configure rails g to skip helper/assets files
     config.generators do |g|
       g.assets = false
@@ -54,7 +50,5 @@ module GraphqlBlog
     config.browserify_rails.commandline_options = "-t babelify --extension=\"es6.js\""
     config.browserify_rails.source_map_environments << "development"
     config.browserify_rails.evaluate_node_modules = true
-
   end
-
 end
