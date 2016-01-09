@@ -6,7 +6,8 @@ module RelaySchemaHelpers
   SCHEMA_DIR  = Rails.root.join('app/assets/javascripts/relay/')
   SCHEMA_PATH = File.join(SCHEMA_DIR, 'schema.json')
 
-  def explain
+  def execute_introspection_query
+    # Cache the query result
     Rails.cache.fetch checksum do
       RelaySchema.execute GraphQL::Introspection::INTROSPECTION_QUERY
     end
@@ -18,19 +19,14 @@ module RelaySchemaHelpers
     Digest::SHA256.hexdigest(content).to_s
   end
 
-  def generate
+  def dump_schema
     # Generate the schema on start/reload
     FileUtils.mkdir_p SCHEMA_DIR
-    result = JSON.pretty_generate(RelaySchema.explain)
+    result = JSON.pretty_generate(RelaySchema.execute_introspection_query)
     unless File.exists?(SCHEMA_PATH) && File.read(SCHEMA_PATH) == result
       File.write(SCHEMA_PATH, result)
     end
   end
-
-  def remove
-    FileUtils.rm SCHEMA_PATH if File.exist? SCHEMA_PATH
-  end
-
 end
 
 RelaySchema.extend RelaySchemaHelpers
