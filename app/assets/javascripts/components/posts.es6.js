@@ -127,4 +127,3 @@ var PostsContainer = Relay.createContainer(Posts, {
 });
 
 module.exports = PostsContainer;
-

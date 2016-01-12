@@ -1,8 +1,5 @@
 var React = require('react');
 var Relay = require('react-relay');
-var classNames = require('classnames');
-import PostVoteMutation from '../mutations/vote/post_vote_mutation.es6.js';
-import PostUnVoteMutation from '../mutations/vote/post_unvote_mutation.es6.js';
 
 /*
 /*
@@ -13,17 +10,10 @@ import PostUnVoteMutation from '../mutations/vote/post_unvote_mutation.es6.js';
 class PostPreview extends React.Component {
   constructor(props) {
    super(props);
-   this._handleVote = this._handleVote.bind(this);
   }
 
   render() {
     var {post} = this.props;
-
-    var voted = classNames({
-      'fa fa-thumbs-up voted': this.props.post.voted,
-      'fa fa-thumbs-o-up': !this.props.post.voted
-    });
-
     return (
         <div className="post-preview">
           <a href={Routes.post_path(post.id)}>
@@ -44,10 +34,7 @@ class PostPreview extends React.Component {
             </span>
             <span className="count votes">
               <span>|</span>
-              <a onClick={this._handleVote}>
-                <span className={voted}></span>
-              </a>
-               { post.votes_count }
+              votes: { post.votes_count }
             </span>
           </p>
         </div>
