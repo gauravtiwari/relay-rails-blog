@@ -1,24 +1,22 @@
-### WIP: Demo blog application powered by Rails, react, graphql and Relay.
+### WIP: Part3 Blog application.
 
 This blog is an exploration excerise to understand two new technologies - GraphQL and Relay. We are using standard rails application together with npm for handling front-end dependencies.
 
 It's a work in progress and this repository will update as we move further with this application. The intention is to explore the integration to stage where we can get a clear understanding about these two new technologies and how they might fit in a real world application and framework.
 
-### Status
-
-**Currently**, the application supports reading and creating data from and on server.
-
 # Tutorial:
 1. **Introduction:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-getting-started-955a49d251de
 2. **Part1:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-creating-types-and-schema-b3f9b232ccfc#.6micmekh2
+2. **Part2:**
+https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-first-relay-powered-react-component-cb3f9ee95eca#.ssisfzsm0
+3. **Part3:**
+https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-dynamic-component-rendering-2be4e208ef92#.gvw5kevg1
 
 #### Current features
 * List posts
 * List comments of the posts
 * Infinite Scroll - posts and comments
 * Show author info, votes and comments count
-* Live Query editor to run graphql queries
-* Mutations to create comments and votes
 
 ### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)

@@ -43,26 +43,8 @@
               <%= link_to('Home', root_path) %>
             </li>
             <li>
-              <%= link_to('Query editor', editor_path) %>
-            </li>
-            <li>
               <%= link_to('<span class="fa fa-github"></span> Code'.html_safe, 'https://github.com/gauravtiwari/relay-rails-blog', target: '_blank') %>
             </li>
-            <% if current_user %>
-              <li>
-                <%= link_to(current_user.name, '#') %>
-              </li>
-              <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to 'Signup', new_user_registration_path %>
-              </li>
-              <li>
-                <%= link_to 'Login', new_user_session_path %>
-              </li>
-            <% end %>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
