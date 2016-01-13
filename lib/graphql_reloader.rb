@@ -6,7 +6,7 @@ class GraphQLReloader < Struct.new :app
   delegate :checksum, to: :class
 
   def call(env)
-    RelaySchema.generate
+    RelaySchema.dump_schema
     app.call(env)
   end
 end
