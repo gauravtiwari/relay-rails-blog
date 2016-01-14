@@ -2,12 +2,16 @@
 -- PostgreSQL database dump
 --
 
+-- Dumped from database version 9.5.0
+-- Dumped by pg_dump version 9.5.0
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
@@ -30,7 +34,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: comments; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE comments (
@@ -65,7 +69,7 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
--- Name: posts; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE posts (
@@ -102,7 +106,7 @@ ALTER SEQUENCE posts_id_seq OWNED BY posts.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE schema_migrations (
@@ -111,7 +115,7 @@ CREATE TABLE schema_migrations (
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE users (
@@ -162,7 +166,7 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: votes; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+-- Name: votes; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE votes (
@@ -223,7 +227,7 @@ ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regcl
 
 
 --
--- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY comments
@@ -231,7 +235,7 @@ ALTER TABLE ONLY comments
 
 
 --
--- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: posts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY posts
@@ -239,7 +243,7 @@ ALTER TABLE ONLY posts
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
@@ -247,7 +251,7 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+-- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY votes
@@ -255,98 +259,98 @@ ALTER TABLE ONLY votes
 
 
 --
--- Name: index_comments_on_post_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_comments_on_post_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_comments_on_post_id ON comments USING btree (post_id);
 
 
 --
--- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_comments_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_comments_on_user_id ON comments USING btree (user_id);
 
 
 --
--- Name: index_comments_on_votes_count; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_comments_on_votes_count; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_comments_on_votes_count ON comments USING btree (votes_count);
 
 
 --
--- Name: index_posts_on_comments_count; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_posts_on_comments_count; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_posts_on_comments_count ON posts USING btree (comments_count);
 
 
 --
--- Name: index_posts_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_posts_on_slug; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_posts_on_slug ON posts USING btree (slug);
 
 
 --
--- Name: index_posts_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_posts_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_posts_on_user_id ON posts USING btree (user_id);
 
 
 --
--- Name: index_posts_on_votes_count; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_posts_on_votes_count; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_posts_on_votes_count ON posts USING btree (votes_count);
 
 
 --
--- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
 
 
 --
--- Name: index_users_on_username; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_users_on_username; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_users_on_username ON users USING btree (username);
 
 
 --
--- Name: index_votes_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_votes_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_votes_on_user_id ON votes USING btree (user_id);
 
 
 --
--- Name: index_votes_on_votable_id_and_votable_type_and_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_votes_on_votable_id_and_votable_type_and_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_votes_on_votable_id_and_votable_type_and_user_id ON votes USING btree (votable_id, votable_type, user_id);
 
 
 --
--- Name: index_votes_on_votable_type_and_votable_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: index_votes_on_votable_type_and_votable_id; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_votes_on_votable_type_and_votable_id ON votes USING btree (votable_type, votable_id);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
@@ -388,7 +392,7 @@ ALTER TABLE ONLY votes
 -- PostgreSQL database dump complete
 --
 
-SET search_path TO "$user",public;
+SET search_path TO "$user", public;
 
 INSERT INTO schema_migrations (version) VALUES ('20151030195110');
 
