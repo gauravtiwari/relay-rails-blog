@@ -15,6 +15,8 @@ It's a work in progress and this repository will update as we move further with 
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-first-relay-powered-react-component-cb3f9ee95eca#.ssisfzsm0
 3. **Part3:**
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-dynamic-component-rendering-2be4e208ef92#.gvw5kevg1
+4. **Part4**
+https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-authentication-and-authorisation-f7c07ebb47b3#.2y1h14x2p
 
 #### Current features
 * List posts
