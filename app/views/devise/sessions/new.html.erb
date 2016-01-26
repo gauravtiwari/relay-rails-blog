@@ -1,5 +1,5 @@
 <div class="form-container">
-  <small> u: test1@example.com and p: password </small>
+  <small> u: test{1||2||3||4}@example.com and p: password </small>
   <h2>Log in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
