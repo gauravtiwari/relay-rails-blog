@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  resources :queries
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
+
 end
