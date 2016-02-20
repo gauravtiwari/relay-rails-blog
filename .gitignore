@@ -22,6 +22,3 @@ client/npm-debug.log*
 
 # Generated js bundles
 /app/assets/javascripts/generated/*
-# React on Rails
-npm-debug.log
-node_modules
