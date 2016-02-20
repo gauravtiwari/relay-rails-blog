@@ -1,4 +1,4 @@
 {
-  "plugins": ["syntax-jsx", "babel-relay-plugin-loader"],
-  "presets": ["es2015", "react"]
+  "plugins": ["babel-relay-plugin-loader"],
+  "presets": ["es2015", "stage-0", "react"]
 }
