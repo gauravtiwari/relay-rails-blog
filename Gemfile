@@ -5,9 +5,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 gem 'pg'
 
-# Setup server
-gem 'passenger'
-
 # Asset compilation and NPM modules
 gem 'sass-rails'
 gem 'uglifier'
@@ -64,3 +61,7 @@ group :development do
   gem 'foreman'
   gem 'figaro'
 end
+
+# For Heroku deployment
+gem 'rails_12factor', group: :production
+gem 'puma', group: :production

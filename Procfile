@@ -1,1 +1,1 @@
-web: bundle exec passenger start -p $PORT
+web: bundle exec puma -C config/puma.rb  -p $PORT

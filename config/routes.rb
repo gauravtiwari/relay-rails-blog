@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, skip: [:registrations],  controllers: {registrations: 'users/registrations'}
   as :user do
 
