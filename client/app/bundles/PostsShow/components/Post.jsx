@@ -1,6 +1,6 @@
 import React from 'react';
 import Relay from 'react-relay';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 
 // Import components
 import Comment from '../../Comments/components/Comments';

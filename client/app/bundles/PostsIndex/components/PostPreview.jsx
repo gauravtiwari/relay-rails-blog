@@ -1,8 +1,8 @@
 import React from 'react';
 import Relay from 'react-relay';
-import classNames from 'classNames';
+import classNames from 'classnames/bind';
 import CreatePostVote from '../../Mutations/CreatePostVote';
-import DestroyPostVote from '../../Mutations/DestroyPostVote';;
+import DestroyPostVote from '../../Mutations/DestroyPostVote';
 
 /*
 /*

@@ -1,4 +1,4 @@
-import ReactOnRails from 'react-on-rails';
+import ReactOnRails from 'react-relay-on-rails';
 import Posts from '../PostsIndex/components/Posts';
 import Post from '../PostsShow/components/Post';
 import PostsRoute from '../PostsIndex/routes/PostsRoute';
