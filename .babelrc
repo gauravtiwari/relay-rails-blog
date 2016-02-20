@@ -1,4 +1,0 @@
-{
-  "plugins": ["babel-relay-plugin-loader"],
-  "presets": ["es2015", "stage-0", "react"]
-}

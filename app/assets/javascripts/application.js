@@ -1,10 +1,11 @@
-//= require_self
+//= require generated/vendor-bundle
+//= require generated/app-bundle
 //= require app
-// require jquery.turbolinks
 //= require js-routes
 //= require local_time
 //= require environment
 //= require tracker
 //= require current_user
 //= require_tree ./policies
-// require turbolinks // Disable it until we figured it out
+//= require bootstrap-sprockets
+// require turbolinks

@@ -9,11 +9,16 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
+/tmp/*
 !/log/.keep
-/tmp
-
-*dump
-/node_modules
+!/tmp/.keep
+passenger*
+# Ignore Byebug command history file.
+.byebug_history
 # React on Rails
 npm-debug.log
 node_modules
+client/npm-debug.log*
+
+# Generated js bundles
+/app/assets/javascripts/generated/*
