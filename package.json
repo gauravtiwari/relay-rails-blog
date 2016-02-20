@@ -1,42 +1,32 @@
 {
-  "name": "GraphqlBlog",
-  "dependencies": {
-    "babel-core": "*",
-    "babel-loader": "*",
-    "babel-plugin-syntax-jsx": "*",
-    "babel-polyfill": "*",
-    "babel-preset-es2015": "*",
-    "babel-preset-react": "*",
-    "babel-preset-stage-0": "*",
-    "babel-relay-plugin": "*",
-    "babel-relay-plugin-loader": "*",
-    "babelify": "*",
-    "browserify": "*",
-    "browserify-incremental": "*",
-    "browserify-shim": "*",
-    "classnames": "*",
-    "graphiql": "*",
-    "graphql": "*",
-    "isomorphic-fetch": "*",
-    "jquery": "*",
-    "jquery-ujs": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-relay": "*",
-    "showdown": "*",
-    "webpack": "*"
-  },
-  "license": "MIT",
+  "name": "graphql-relay-blog",
+  "version": "1.0.0",
+  "description": "A blog built on graphql and relay using react_on_rails gem",
+  "main": "server.js",
   "engines": {
-    "node": "<= 4.2.6"
+    "node": "4.2.0",
+    "npm": "3.3.6"
   },
-  "devDependencies": {
-    "babel-cli": "*",
-    "browserify-incremental": "*"
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "test": "rspec && (cd client && npm run lint)",
+    "express-server": "echo 'visit http://localhost:4000' && cd client && npm start",
+    "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev"
   },
-  "metadata": {
-    "graphql": {
-      "schema": "./app/assets/javascripts/relay/schema.json"
-    }
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gauravtiwari/relay-rails-blog"
+  },
+  "keywords": [
+    "react",
+    "tutorial",
+    "comment",
+    "example"
+  ],
+  "author": "justin808",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gauravtiwari/relay-rails-blog/issues"
+  },
+  "homepage": "https://github.com/gauravtiwari/relay-rails-blog"
 }
