@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
-  get '/editor', to: 'pages#editor', as: :editor
   scope '/graphql' do
     post "/", to: "graphql#create"
   end
@@ -16,6 +15,6 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :queries
-  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/queries"
+  mount GraphiQL::Rails::Engine, at: "/editor", graphql_path: "/graphql"
 
 end
