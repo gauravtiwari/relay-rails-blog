@@ -44,9 +44,8 @@ gem 'stringex'
 # Time
 gem 'local_time'
 
-# React
-gem 'react-rails', '~> 1.5.0'
-
+# React integration
+gem 'react_on_rails', :path => "/Users/gaurav/contributions/react_on_rails"
 
 # Caching
 gem 'rack-cache'

@@ -1,9 +1,19 @@
 GIT
   remote: git://github.com/rails/turbolinks.git
-  revision: dd31f4b2996f2300631f89339ada82c65b95f4c2
+  revision: 37a7c296232d20a61bd1946f600da7f2009189db
   specs:
     turbolinks (3.0.0)
       coffee-rails
+
+PATH
+  remote: /Users/gaurav/contributions/react_on_rails
+  specs:
+    react_on_rails (3.0.2)
+      connection_pool
+      execjs (~> 2.5)
+      foreman
+      rails (>= 3.2)
+      rainbow (~> 2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -44,13 +54,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.2.3)
+    autoprefixer-rails (6.3.3)
       execjs
       json
-    babel-source (5.8.34)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.10)
     blankslate (3.1.3)
     bootstrap-sass (3.3.6)
@@ -70,9 +76,9 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     connection_pool (2.2.0)
-    dalli (2.7.5)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
-    devise (3.5.3)
+    devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -89,15 +95,15 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    graphql (0.10.8)
+    graphql (0.10.9)
       parslet (~> 1.6)
-    graphql-relay (0.6.1)
+    graphql-relay (0.6.2)
       graphql (~> 0.8)
     i18n (0.7.0)
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    js-routes (1.2.2)
+    js-routes (1.2.4)
       railties (>= 3.2)
       sprockets-rails
     json (1.8.3)
@@ -111,20 +117,20 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
     mini_portile2 (2.0.0)
-    minitest (5.8.3)
-    nokogiri (1.6.7.1)
+    minitest (5.8.4)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
-    passenger (5.0.23)
+    passenger (5.0.25)
       rack
       rake (>= 0.8.1)
     pg (0.18.4)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
-    rack-cache (1.5.1)
+    rack-cache (1.6.1)
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -145,26 +151,20 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.2)
+    rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_serve_static_assets (0.0.4)
+    rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.4)
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    rainbow (2.1.0)
     rake (10.5.0)
-    react-rails (1.5.0)
-      babel-transpiler (>= 0.7.0)
-      coffee-script-source (~> 1.8)
-      connection_pool
-      execjs
-      rails (>= 3.2)
-      tilt
     ref (2.0.0)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
@@ -175,15 +175,15 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    spring (1.6.2)
+    spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.0.0)
+    sprockets-rails (3.0.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stringex (2.5.2)
+    stringex (2.6.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -195,9 +195,9 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.4)
+    warden (1.2.6)
       rack (>= 1.0)
-    web-console (3.0.0)
+    web-console (3.1.1)
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
@@ -225,7 +225,7 @@ DEPENDENCIES
   rack-cache
   rails (= 4.2.5)
   rails_12factor
-  react-rails (~> 1.5.0)
+  react_on_rails!
   sass-rails
   spring
   stringex
