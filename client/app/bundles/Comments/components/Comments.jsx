@@ -34,17 +34,17 @@ module.exports = Comment;
 */
 
 const CommentContainer = Relay.createContainer(Comment, {
-    fragments: {
-        comment: () => Relay.QL`
-          fragment on Comment {
-            body,
-            created_at,
-            user {
-              name
-            }
-          }
-        `
-    }
+  fragments: {
+    comment: () => Relay.QL`
+      fragment on Comment {
+        body,
+        created_at,
+        user {
+          name
+        }
+      }
+    `,
+  },
 });
 
 module.exports = CommentContainer;

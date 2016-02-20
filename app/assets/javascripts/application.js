@@ -1,11 +1,9 @@
 //= require generated/vendor-bundle
 //= require generated/app-bundle
 //= require app
+//= require current_user
+//= require environment
 //= require js-routes
 //= require local_time
-//= require environment
-//= require tracker
-//= require current_user
-//= require_tree ./policies
 //= require bootstrap-sprockets
 // require turbolinks

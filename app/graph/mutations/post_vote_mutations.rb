@@ -36,4 +36,3 @@ module PostVoteMutations
     }
   end
 end
-

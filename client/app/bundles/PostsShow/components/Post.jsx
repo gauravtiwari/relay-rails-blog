@@ -92,7 +92,7 @@ class Post extends React.Component {
   }
 
   _handleVote(event) {
-    if(App.loggedIn()) {
+    if (App.loggedIn()) {
       if (this.props.post.voted) {
         Relay.Store.commitUpdate(new DestroyPostVote({ post: this.props.post }))
       } else {
@@ -106,15 +106,8 @@ class Post extends React.Component {
   _handleCreate(event) {
     if (App.loggedIn()) {
       if (event.keyCode === 13 && event.target.value.length > 10) {
-        const onSuccess = () => {
-          console.log('Mutation successful!');
-        };
-        const onFailure = (transaction) => {
-          var error = transaction.getError() || new Error('Mutation failed.');
-          console.error(error);
-        };
-        Relay.Store.commitUpdate(new CreateComment({ post: this.props.post, body: event.target.value }), {onFailure, onSuccess})
-        $(".add-comment").val("");
+        Relay.Store.commitUpdate(new CreateComment({ post: this.props.post, body: event.target.value }));
+        $('.add-comment').val('');
       }
     } else {
       window.location.href = Routes.new_user_session_path();
@@ -124,7 +117,7 @@ class Post extends React.Component {
   _handleScrollLoad() {
     $(window).scroll(function() {
       if (App.scrolledToBottom() && !this.state.loading) {
-        if(this.props.post.comments.pageInfo.hasNextPage) {
+        if (this.props.post.comments.pageInfo.hasNextPage) {
           this.setState({
             loading: true
           });
@@ -138,7 +131,7 @@ class Post extends React.Component {
             }
           });
         } else {
-          if(!this.state.done) {
+          if (!this.state.done) {
             this.setState({
               done: true
             });
@@ -156,38 +149,38 @@ module.exports = Post;
   Defines data need for this post
 */
 
-var PostContainer = Relay.createContainer(Post, {
-    initialVariables: {
-      count: 20,
-      order: "-id"
-    },
-    fragments: {
-        post: () => Relay.QL`
-          fragment on Post {
-            id,
-            title,
-            slug,
-            body,
-            voted,
-            created_at,
-            comments_count,
-            votes_count,
-            user {
-              name
-            },
-            comments(first: $count, order: "-id") {
-              edges {
-                node {
-                  id,
-                  ${Comment.getFragment("comment")}
-                }
-              },
-              pageInfo {
-                hasNextPage
-              }
+const PostContainer = Relay.createContainer(Post, {
+  initialVariables: {
+    count: 20,
+    order: "-id"
+  },
+  fragments: {
+    post: () => Relay.QL`
+      fragment on Post {
+        id,
+        title,
+        slug,
+        body,
+        voted,
+        created_at,
+        comments_count,
+        votes_count,
+        user {
+          name
+        },
+        comments(first: $count, order: "-id") {
+          edges {
+            node {
+              id,
+              ${Comment.getFragment("comment")}
             }
+          },
+          pageInfo {
+            hasNextPage
           }
-        `
+        }
+      }
+    `
     }
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Relay from 'react-relay';
 import classNames from 'classNames';
 import CreatePostVote from '../../Mutations/CreatePostVote';
-import DestroyPostVote from '../../Mutations/DestroyPostVote';
+import DestroyPostVote from '../../Mutations/DestroyPostVote';;
 
 /*
 /*
@@ -57,17 +57,10 @@ class PostPreview extends React.Component {
 
   _handleVote(event) {
     if (App.loggedIn()) {
-      const onSuccess = () => {
-        console.log('Mutation successful!');
-      };
-      const onFailure = (transaction) => {
-        var error = transaction.getError() || new Error('Mutation failed.');
-        console.error(error);
-      };
       if (this.props.post.voted) {
-        Relay.Store.commitUpdate(new CreatePostVote({ post: this.props.post }), {onFailure, onSuccess})
+        Relay.Store.commitUpdate(new DestroyPostVote({ post: this.props.post }));
       } else {
-        Relay.Store.commitUpdate(new DestroyPostVote({ post: this.props.post }), {onFailure, onSuccess})
+        Relay.Store.commitUpdate(new CreatePostVote({ post: this.props.post }));
       }
     } else {
       window.location.href = Routes.new_user_session_path();
