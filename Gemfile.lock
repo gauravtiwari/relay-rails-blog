@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/gauravtiwari/react_on_rails.git
+  revision: 63a298f986ce0764384f82605dec2fd896bd558b
+  specs:
+    react_on_rails (3.0.2)
+      connection_pool
+      execjs (~> 2.5)
+      foreman
+      rails (>= 3.2)
+      rainbow (~> 2.1)
+
+GIT
   remote: git://github.com/rmosolgo/graphql-relay-ruby.git
   revision: 0abafe6c38a845dad20348c88372197d5bd89ca8
   specs:
@@ -11,16 +22,6 @@ GIT
   specs:
     graphql (0.10.9)
       parslet (~> 1.6)
-
-PATH
-  remote: /Users/gaurav/contributions/react_on_rails
-  specs:
-    react_on_rails (3.0.2)
-      connection_pool
-      execjs (~> 2.5)
-      foreman
-      rails (>= 3.2)
-      rainbow (~> 2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -122,10 +123,8 @@ GEM
     orm_adapter (0.5.0)
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
-    passenger (5.0.25)
-      rack
-      rake (>= 0.8.1)
     pg (0.18.4)
+    puma (2.16.0)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -220,8 +219,8 @@ DEPENDENCIES
   js-routes
   kgio
   local_time
-  passenger
   pg
+  puma
   pundit
   rack-cache
   rails (= 4.2.5)

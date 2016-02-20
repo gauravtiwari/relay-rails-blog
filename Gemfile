@@ -41,7 +41,7 @@ gem 'stringex'
 gem 'local_time'
 
 # React integration
-gem 'react_on_rails', :path => "/Users/gaurav/contributions/react_on_rails"
+gem 'react_on_rails', github: "gauravtiwari/react_on_rails"
 
 # Caching
 gem 'rack-cache'
@@ -53,6 +53,7 @@ gem 'faker'
 
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development do
@@ -61,7 +62,3 @@ group :development do
   gem 'foreman'
   gem 'figaro'
 end
-
-# For Heroku deployment
-gem 'rails_12factor', group: :production
-gem 'puma', group: :production
