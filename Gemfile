@@ -16,8 +16,8 @@ gem 'uglifier'
 gem 'therubyracer', platforms: :ruby
 
 # Graphql
-gem 'graphql'
-gem 'graphql-relay'
+gem 'graphql', github: 'rmosolgo/graphql-ruby'
+gem 'graphql-relay', github: 'rmosolgo/graphql-relay-ruby'
 
 # Javascript routes
 gem 'js-routes'
@@ -35,7 +35,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 #Speed up links
-gem 'turbolinks', github: 'rails/turbolinks'
+gem 'turbolinks', '~> 5.0.0.beta'
 
 # Slug
 gem 'stringex'
