@@ -2,7 +2,7 @@
 # CurrentUser object, returning info on current logged in User
 ###
 
-App.CurrentUser = ->
+App.currentUser = ->
   id:
     $('meta[name=current_user]').attr('id')
 

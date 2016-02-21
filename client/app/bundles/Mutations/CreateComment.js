@@ -2,6 +2,8 @@ import Relay from 'react-relay';
 import showdown from 'showdown';
 const converter = new showdown.Converter();
 
+/* global App */
+
 export default class extends Relay.Mutation {
   getMutation() {
     return Relay.QL`mutation{CreateComment}`;
@@ -61,7 +63,7 @@ export default class extends Relay.Mutation {
           body: converter.makeHtml(body),
           created_at: new Date().toUTCString(),
           user: {
-            name: App.CurrentUser().name,
+            name: App.currentUser().name,
           },
         },
       },

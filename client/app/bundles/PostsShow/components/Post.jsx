@@ -8,6 +8,8 @@ import CreateComment from '../../Mutations/CreateComment';
 import CreatePostVote from '../../Mutations/CreatePostVote';
 import DestroyPostVote from '../../Mutations/DestroyPostVote';
 
+/* global LocalTime, Routes, App, $ */
+
 /*
   Component: Post
   Renders single post with author and comments
@@ -106,7 +108,11 @@ class Post extends React.Component {
   _handleCreate(event) {
     if (App.loggedIn()) {
       if (event.keyCode === 13 && event.target.value.length > 10) {
-        Relay.Store.commitUpdate(new CreateComment({ post: this.props.post, body: event.target.value }));
+        Relay.Store.commitUpdate(
+          new CreateComment({
+            post: this.props.post,
+            body: event.target.value,
+          }));
         $('.add-comment').val('');
       }
     } else {
@@ -119,21 +125,21 @@ class Post extends React.Component {
       if (App.scrolledToBottom() && !this.state.loading) {
         if (this.props.post.comments.pageInfo.hasNextPage) {
           this.setState({
-            loading: true
+            loading: true,
           });
           this.props.relay.setVariables({
-            count: this.props.relay.variables.count + 20
+            count: this.props.relay.variables.count + 20,
           }, readyState => {
             if (readyState.done) {
               this.setState({
-                loading: false
-              })
+                loading: false,
+              });
             }
           });
         } else {
           if (!this.state.done) {
             this.setState({
-              done: true
+              done: true,
             });
           }
         }
@@ -152,7 +158,7 @@ module.exports = Post;
 const PostContainer = Relay.createContainer(Post, {
   initialVariables: {
     count: 20,
-    order: "-id"
+    order: '-id',
   },
   fragments: {
     post: () => Relay.QL`
@@ -172,7 +178,7 @@ const PostContainer = Relay.createContainer(Post, {
           edges {
             node {
               id,
-              ${Comment.getFragment("comment")}
+              ${Comment.getFragment('comment')}
             }
           },
           pageInfo {
@@ -180,8 +186,8 @@ const PostContainer = Relay.createContainer(Post, {
           }
         }
       }
-    `
-    }
+    `,
+  },
 });
 
 module.exports = PostContainer;

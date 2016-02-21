@@ -3,6 +3,8 @@ import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import PostPreview from './PostPreview';
 
+/* global App, $ */
+
 /*
   Component: Posts
   Renders a collection of posts
@@ -13,7 +15,11 @@ class Posts extends React.Component {
     super(props);
     this._handleScrollLoad = this._handleScrollLoad.bind(this);
     this._loadFilter = this._loadFilter.bind(this);
-    this.state = { loading: false, done: false, popular: false }
+    this.state = {
+      loading: false,
+      done: false,
+      popular: false,
+    };
   }
 
   componentDidMount() {

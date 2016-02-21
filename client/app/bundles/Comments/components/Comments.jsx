@@ -3,6 +3,8 @@
   Renders a single comment with author name
 */
 
+/* global LocalTime */
+
 import React from 'react';
 import Relay from 'react-relay';
 

@@ -4,7 +4,8 @@ import classNames from 'classnames/bind';
 import CreatePostVote from '../../Mutations/CreatePostVote';
 import DestroyPostVote from '../../Mutations/DestroyPostVote';
 
-/*
+/* global LocalTime, Routes, App */
+
 /*
   Component: PostPreview
   Renders a post preview with author and date
