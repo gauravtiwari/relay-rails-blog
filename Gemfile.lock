@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gauravtiwari/react_on_rails.git
-  revision: ed98187d5950b40c6fbc6d4b18b30ff77f924d0c
+  revision: a93d007cda7fcc846dfc90226b16521c70a4cdb7
   specs:
     react_on_rails (3.0.2)
       connection_pool
