@@ -17,6 +17,8 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-first-relay-powered-
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-dynamic-component-rendering-2be4e208ef92#.gvw5kevg1
 4. **Part4**
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-authentication-and-authorisation-f7c07ebb47b3#.2y1h14x2p
+4. **Part5** - Integrating Webpack with `react-on-rails`
+https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c6a420b4eea#.60z7xg1j0
 
 #### Current features
 * List posts
