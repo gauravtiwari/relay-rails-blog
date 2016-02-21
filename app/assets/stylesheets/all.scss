@@ -51,6 +51,8 @@ hr.small {
   z-index: 3;
   box-shadow: 0 0 1px rgba(0,0,0,0.15);
   margin-bottom: 80px;
+  background: #f4f4f4;
+  border-bottom: 1px solid #ccc;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .navbar-custom .navbar-brand {
@@ -63,10 +65,6 @@ hr.small {
   letter-spacing: 1px;
 }
 @media only screen and (min-width: 768px) {
-  .navbar-custom {
-    background: transparent;
-    border-bottom: 1px solid transparent;
-  }
   .navbar-custom .navbar-brand {
     color: #333;
     padding: 20px;
