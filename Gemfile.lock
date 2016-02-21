@@ -11,9 +11,9 @@ GIT
 
 GIT
   remote: git://github.com/rmosolgo/graphql-relay-ruby.git
-  revision: 0abafe6c38a845dad20348c88372197d5bd89ca8
+  revision: 7a07abf4cebd5c5ffe05cfe414d30a56db2e8570
   specs:
-    graphql-relay (0.6.2)
+    graphql-relay (0.7.0)
       graphql (~> 0.8)
 
 GIT
@@ -91,7 +91,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
-    faker (1.6.1)
+    faker (1.6.2)
       i18n (~> 0.5)
     figaro (1.1.1)
       thor (~> 0.14)
