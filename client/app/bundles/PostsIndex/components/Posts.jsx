@@ -3,7 +3,7 @@ import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import PostPreview from './PostPreview';
 
-/* global App, $ */
+/* global App */
 
 /*
   Component: Posts
@@ -22,8 +22,12 @@ class Posts extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._handleScrollLoad);
+  }
+
   componentDidMount() {
-    this._handleScrollLoad();
+    window.addEventListener('scroll', this._handleScrollLoad);
   }
 
   render() {
@@ -65,30 +69,28 @@ class Posts extends React.Component {
   }
 
   _handleScrollLoad() {
-    $(window).scroll(function() {
-      if (App.scrolledToBottom() && !this.state.loading) {
-        if(this.props.root.posts.pageInfo.hasNextPage) {
-          this.setState({
-            loading: true
-          });
-          this.props.relay.setVariables({
-            count: this.props.relay.variables.count + 20
-          }, readyState => {
-            if (readyState.done) {
-              this.setState({
-                loading: false,
-              })
-            }
-          });
-        } else {
-          if (!this.state.done) {
+    if (App.scrolledToBottom() && !this.state.loading) {
+      if(this.props.root.posts.pageInfo.hasNextPage) {
+        this.setState({
+          loading: true
+        });
+        this.props.relay.setVariables({
+          count: this.props.relay.variables.count + 20
+        }, readyState => {
+          if (readyState.done) {
             this.setState({
-              done: true,
-            });
+              loading: false,
+            })
           }
+        });
+      } else {
+        if (!this.state.done) {
+          this.setState({
+            done: true,
+          });
         }
       }
-    }.bind(this));
+    }
   }
 
   _loadFilter(filter, order) {

@@ -25,8 +25,12 @@ class Post extends React.Component {
     this.state = { loading: false, done: false };
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._handleScrollLoad);
+  }
+
   componentDidMount() {
-    this._handleScrollLoad();
+    window.addEventListener('scroll', this._handleScrollLoad);
   }
 
   render() {
@@ -121,30 +125,28 @@ class Post extends React.Component {
   }
 
   _handleScrollLoad() {
-    $(window).scroll(function() {
-      if (App.scrolledToBottom() && !this.state.loading) {
-        if (this.props.post.comments.pageInfo.hasNextPage) {
-          this.setState({
-            loading: true,
-          });
-          this.props.relay.setVariables({
-            count: this.props.relay.variables.count + 20,
-          }, readyState => {
-            if (readyState.done) {
-              this.setState({
-                loading: false,
-              });
-            }
-          });
-        } else {
-          if (!this.state.done) {
+    if (App.scrolledToBottom() && !this.state.loading) {
+      if (this.props.post.comments.pageInfo.hasNextPage) {
+        this.setState({
+          loading: true,
+        });
+        this.props.relay.setVariables({
+          count: this.props.relay.variables.count + 20,
+        }, readyState => {
+          if (readyState.done) {
             this.setState({
-              done: true,
+              loading: false,
             });
           }
+        });
+      } else {
+        if (!this.state.done) {
+          this.setState({
+            done: true,
+          });
         }
       }
-    }.bind(this));
+    }
   }
 }
 

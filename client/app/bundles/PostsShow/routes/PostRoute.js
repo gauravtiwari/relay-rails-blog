@@ -8,11 +8,8 @@ import Relay from 'react-relay';
 const PostRoute = {
   queries: {
     post: () => Relay.QL` query {
-      node(id: $postId)
+      node(id: $id)
     } `,
-  },
-  params: {
-    postId: window.location.pathname.split('/')[2],
   },
   name: 'PostRoute',
 };
