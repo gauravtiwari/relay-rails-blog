@@ -5,5 +5,5 @@
 //= require environment
 //= require js-routes
 //= require local_time
-// require turbolinks
+//= require turbolinks
 //= require bootstrap-sprockets
