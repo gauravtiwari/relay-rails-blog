@@ -5,7 +5,7 @@
   "main": "server.js",
   "engines": {
     "node": "5.0.0",
-    "npm": "3.5.0"
+    "npm": "3.7.5"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-relay-plugin": "^0.7.1",
     "babel-relay-plugin-loader": "^0.7.0",
-    "bootstrap-loader": "^1.0.9",
     "classnames": "^2.2.3",
     "css-loader": "^0.23.1",
     "es5-shim": "^4.5.2",
@@ -56,9 +55,7 @@
     "jquery": "^2.2.0",
     "jquery-ujs": "^1.2.0",
     "loader-utils": "^0.2.12",
-    "lodash": "^4.3.0",
     "react": "^0.14.7",
-    "react-bootstrap": "^0.28.3",
     "react-dom": "^0.14.7",
     "react-relay": "^0.7.1",
     "react-relay-on-rails": "3.0.5",
