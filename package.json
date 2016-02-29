@@ -4,8 +4,8 @@
   "description": "A blog built on graphql and relay using react_on_rails gem",
   "main": "server.js",
   "engines": {
-    "node": "4.2.0",
-    "npm": "3.3.6"
+    "node": "5.0.0",
+    "npm": "3.5.0"
   },
   "scripts": {
     "postinstall": "cd client && npm install",
