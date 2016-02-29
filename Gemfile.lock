@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/gauravtiwari/react_on_rails.git
-  revision: a93d007cda7fcc846dfc90226b16521c70a4cdb7
+  revision: 6883cd243a8b8c15d821927f6f5a576f3d7336ee
   specs:
-    react_on_rails (3.0.2)
+    react_on_rails (3.0.5)
       connection_pool
       execjs (~> 2.5)
       foreman
@@ -11,16 +11,16 @@ GIT
 
 GIT
   remote: git://github.com/rmosolgo/graphql-relay-ruby.git
-  revision: 7a07abf4cebd5c5ffe05cfe414d30a56db2e8570
+  revision: 2fb893f2e65e12ce130a710f1d3810018072c8fd
   specs:
-    graphql-relay (0.7.0)
+    graphql-relay (0.7.1)
       graphql (~> 0.8)
 
 GIT
   remote: git://github.com/rmosolgo/graphql-ruby.git
-  revision: 803097d4016454a9b817d449506c40995594833f
+  revision: f6fc9a7b4eb03d1be7ee7669410e14044a5ad18c
   specs:
-    graphql (0.10.9)
+    graphql (0.11.0)
       parslet (~> 1.6)
 
 GEM
