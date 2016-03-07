@@ -8,25 +8,27 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-class Comment extends React.Component {
-  render() {
-    const { comment } = this.props;
-    return (
-      <div key={comment.id} className="media comment">
-        <div className="media-body">
-          <h4 className="media-heading">
-            {comment.user.name}
-            <small>
-              {LocalTime.relativeTimeAgo(new Date(comment.created_at))}
-            </small>
-          </h4>
-          <div className="comment-body" dangerouslySetInnerHTML={{ __html: comment.body }}>
-          </div>
+const Comment = function Comment(props) {
+  const { comment } = props;
+  return (
+    <div key={comment.id} className="media comment">
+      <div className="media-body">
+        <h4 className="media-heading">
+          {comment.user.name}
+          <small>
+            {LocalTime.relativeTimeAgo(new Date(comment.created_at))}
+          </small>
+        </h4>
+        <div className="comment-body" dangerouslySetInnerHTML={{ __html: comment.body }}>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+Comment.propTypes = {
+  comment: React.PropTypes.object.isRequired,
+};
 
 module.exports = Comment;
 

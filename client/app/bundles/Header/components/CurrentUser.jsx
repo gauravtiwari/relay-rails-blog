@@ -7,7 +7,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-const CurrentUser = function (props) {
+const CurrentUser = function CurrentUser(props) {
   const { root } = props;
   return (
   <nav className="navbar navbar-default navbar-custom">
@@ -22,12 +22,10 @@ const CurrentUser = function (props) {
             <a href={Routes.root_path()}>Home</a>
           </li>
           <li>
-            <a href='/editor'>Editor</a>
+            <a href="/editor">Editor</a>
           </li>
           <li>
-            <a href="#">
-              {root.current_user.name}
-            </a>
+            <a href="#">{root.current_user.name}</a>
           </li>
           <li>
             <a href={Routes.destroy_user_session_path()} data-method="delete">
@@ -35,8 +33,8 @@ const CurrentUser = function (props) {
             </a>
           </li>
           <li>
-            <a href='https://github.com/gauravtiwari/relay-rails-blog'>
-            <span className="fa fa-github"></span> Code
+            <a href="https://github.com/gauravtiwari/relay-rails-blog">
+              <span className="fa fa-github"></span> Code
             </a>
           </li>
         </ul> :
@@ -45,7 +43,7 @@ const CurrentUser = function (props) {
             <a href={Routes.root_path()}>Home</a>
           </li>
           <li>
-            <a href='/editor'>Editor</a>
+            <a href="/editor">Editor</a>
           </li>
           <li>
             <a href={Routes.new_user_registration_path()}>Signup</a>
@@ -54,7 +52,7 @@ const CurrentUser = function (props) {
             <a href={Routes.new_user_session_path()}>Login</a>
           </li>
           <li>
-            <a href='https://github.com/gauravtiwari/relay-rails-blog'>
+            <a href="https://github.com/gauravtiwari/relay-rails-blog">
             <span className="fa fa-github"></span> Code
             </a>
           </li>
@@ -63,7 +61,11 @@ const CurrentUser = function (props) {
     </div>
   </nav>
   );
-}
+};
+
+CurrentUser.propTypes = {
+  root: React.PropTypes.object.isRequired,
+};
 
 module.exports = CurrentUser;
 
