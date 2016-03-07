@@ -54,20 +54,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "current_user",
-              "description": "Returns current signed in user object",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -143,26 +129,8 @@
           "description": "An user entry, returns basic user information",
           "fields": [
             {
-              "name": "id",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "name",
-              "description": "The name of this user",
+              "name": "created_at",
+              "description": "The date this user created an account",
               "args": [
 
               ],
@@ -189,8 +157,26 @@
               "deprecationReason": null
             },
             {
-              "name": "created_at",
-              "description": "The date this user created an account",
+              "name": "id",
+              "description": null,
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The name of this user",
               "args": [
 
               ],
@@ -230,19 +216,15 @@
           "description": "A single comment entry returns a comment with author and total votes",
           "fields": [
             {
-              "name": "id",
-              "description": null,
+              "name": "body",
+              "description": "The body of this comment",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -262,15 +244,19 @@
               "deprecationReason": null
             },
             {
-              "name": "votes_count",
-              "description": "The total number of votes on this comment",
+              "name": "id",
+              "description": null,
               "args": [
 
               ],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -304,8 +290,8 @@
               "deprecationReason": null
             },
             {
-              "name": "body",
-              "description": "The body of this comment",
+              "name": "votes_count",
+              "description": "The total number of votes on this comment",
               "args": [
 
               ],
@@ -345,102 +331,14 @@
           "description": "A single post entry returns a post with author, total votes and comments",
           "fields": [
             {
-              "name": "id",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "title",
-              "description": "The title of this post",
+              "name": "body",
+              "description": "The body of this post",
               "args": [
 
               ],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "slug",
-              "description": "The slug of this post",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "comments_count",
-              "description": "The total numner of comments on this post",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "votes_count",
-              "description": "The total numner of votes on this post",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "created_at",
-              "description": "The time at which this post was created",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user",
-              "description": "Owner of this post",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -510,6 +408,34 @@
               "deprecationReason": null
             },
             {
+              "name": "comments_count",
+              "description": "The total numner of comments on this post",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "created_at",
+              "description": "The time at which this post was created",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "excerpt",
               "description": "The short description of this post",
               "args": [
@@ -518,6 +444,66 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": null,
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "slug",
+              "description": "The slug of this post",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "title",
+              "description": "The title of this post",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user",
+              "description": "Owner of this post",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -538,8 +524,8 @@
               "deprecationReason": null
             },
             {
-              "name": "body",
-              "description": "The body of this post",
+              "name": "votes_count",
+              "description": "The total numner of votes on this post",
               "args": [
 
               ],
@@ -614,20 +600,6 @@
           "description": null,
           "fields": [
             {
-              "name": "node",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Comment",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "cursor",
               "description": null,
               "args": [
@@ -641,6 +613,20 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": null,
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Comment",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -717,6 +703,20 @@
           "name": "Viewer",
           "description": "Support unassociated root queries that fetches collections. Supports fetching posts and users collection",
           "fields": [
+            {
+              "name": "current_user",
+              "description": "Returns current signed in user object",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "id",
               "description": null,
@@ -871,20 +871,6 @@
           "description": null,
           "fields": [
             {
-              "name": "node",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Post",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "cursor",
               "description": null,
               "args": [
@@ -898,6 +884,20 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "node",
+              "description": null,
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Post",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -916,7 +916,7 @@
           "description": null,
           "fields": [
             {
-              "name": "EditComment",
+              "name": "CreateComment",
               "description": null,
               "args": [
                 {
@@ -927,7 +927,7 @@
                     "name": "Non-Null",
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "EditCommentInput",
+                      "name": "CreateCommentInput",
                       "ofType": null
                     }
                   },
@@ -936,7 +936,34 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "EditCommentPayload",
+                "name": "CreateCommentPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CreatePostVote",
+              "description": null,
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": "Non-Null",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreatePostVoteInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreatePostVotePayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -970,33 +997,6 @@
               "deprecationReason": null
             },
             {
-              "name": "CreateComment",
-              "description": null,
-              "args": [
-                {
-                  "name": "input",
-                  "description": null,
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": "Non-Null",
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "CreateCommentInput",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "CreateCommentPayload",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "DestroyPostVote",
               "description": null,
               "args": [
@@ -1024,7 +1024,7 @@
               "deprecationReason": null
             },
             {
-              "name": "CreatePostVote",
+              "name": "EditComment",
               "description": null,
               "args": [
                 {
@@ -1035,7 +1035,7 @@
                     "name": "Non-Null",
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreatePostVoteInput",
+                      "name": "EditCommentInput",
                       "ofType": null
                     }
                   },
@@ -1044,7 +1044,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreatePostVotePayload",
+                "name": "EditCommentPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1558,31 +1558,6 @@
           "description": "A GraphQL schema",
           "fields": [
             {
-              "name": "types",
-              "description": "Types in this schema",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "LIST",
-                  "name": "List",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": "Non-Null",
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "__Type"
-                    }
-                  }
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "directives",
               "description": "Directives in this schema",
               "args": [
@@ -1608,6 +1583,20 @@
               "deprecationReason": null
             },
             {
+              "name": "mutationType",
+              "description": "The mutation root of this schema",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "queryType",
               "description": "The query root of this schema",
               "args": [
@@ -1626,8 +1615,8 @@
               "deprecationReason": null
             },
             {
-              "name": "mutationType",
-              "description": "The mutation root of this schema",
+              "name": "subscriptionType",
+              "description": "The subscription root of this schema",
               "args": [
 
               ],
@@ -1640,15 +1629,26 @@
               "deprecationReason": null
             },
             {
-              "name": "subscriptionType",
-              "description": "The subscription root of this schema",
+              "name": "types",
+              "description": "Types in this schema",
               "args": [
 
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "__Type",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "LIST",
+                  "name": "List",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": "Non-Null",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "__Type"
+                    }
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1667,20 +1667,6 @@
           "description": "A type in the GraphQL schema",
           "fields": [
             {
-              "name": "name",
-              "description": "The name of this type",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "description",
               "description": "What this type represents",
               "args": [
@@ -1695,18 +1681,31 @@
               "deprecationReason": null
             },
             {
-              "name": "kind",
-              "description": "The kind of this type",
+              "name": "enumValues",
+              "description": "Values for this enum",
               "args": [
-
+                {
+                  "name": "includeDeprecated",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
+                }
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
+                "kind": "LIST",
+                "name": "List",
                 "ofType": {
-                  "kind": "ENUM",
-                  "name": "__TypeKind",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": "Non-Null",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "__EnumValue",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -1744,20 +1743,6 @@
               "deprecationReason": null
             },
             {
-              "name": "ofType",
-              "description": "The modified type of this type",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "OBJECT",
-                "name": "__Type",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "inputFields",
               "description": "fields on this input object",
               "args": [
@@ -1780,8 +1765,8 @@
               "deprecationReason": null
             },
             {
-              "name": "possibleTypes",
-              "description": "Types which compose this Union or Interface",
+              "name": "interfaces",
+              "description": "Interfaces which this object implements",
               "args": [
 
               ],
@@ -1802,39 +1787,54 @@
               "deprecationReason": null
             },
             {
-              "name": "enumValues",
-              "description": "Values for this enum",
+              "name": "kind",
+              "description": "The kind of this type",
               "args": [
-                {
-                  "name": "includeDeprecated",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": "false"
-                }
+
               ],
               "type": {
-                "kind": "LIST",
-                "name": "List",
+                "kind": "NON_NULL",
+                "name": "Non-Null",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "name": "Non-Null",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "__EnumValue",
-                    "ofType": null
-                  }
+                  "kind": "ENUM",
+                  "name": "__TypeKind",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "interfaces",
-              "description": "Interfaces which this object implements",
+              "name": "name",
+              "description": "The name of this type",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ofType",
+              "description": "The modified type of this type",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "__Type",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "possibleTypes",
+              "description": "Types which compose this Union or Interface",
               "args": [
 
               ],
@@ -1927,74 +1927,6 @@
           "description": "Field on a GraphQL type",
           "fields": [
             {
-              "name": "name",
-              "description": "The name for accessing this field",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
-              "description": "The description of this field",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "type",
-              "description": "The return type of this field",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "__Type",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "isDeprecated",
-              "description": "Is this field deprecated?",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "args",
               "description": "Arguments allowed to this object",
               "args": [
@@ -2032,23 +1964,42 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
+            },
+            {
+              "name": "description",
+              "description": "The description of this field",
+              "args": [
 
-          ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "__InputValue",
-          "description": "An input for a field or InputObject",
-          "fields": [
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isDeprecated",
+              "description": "Is this field deprecated?",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "name",
-              "description": "The key for this value",
+              "description": "The name for accessing this field",
               "args": [
 
               ],
@@ -2065,6 +2016,51 @@
               "deprecationReason": null
             },
             {
+              "name": "type",
+              "description": "The return type of this field",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "__Type",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__InputValue",
+          "description": "An input for a field or InputObject",
+          "fields": [
+            {
+              "name": "defaultValue",
+              "description": "The value applied if no other value is provided",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "description",
               "description": "What this value is used for",
               "args": [
@@ -2074,6 +2070,24 @@
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The key for this value",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2095,20 +2109,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "defaultValue",
-              "description": "The value applied if no other value is provided",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -2124,25 +2124,7 @@
           "description": "A possible value for an Enum",
           "fields": [
             {
-              "name": "name",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "description",
+              "name": "deprecationReason",
               "description": null,
               "args": [
 
@@ -2156,7 +2138,7 @@
               "deprecationReason": null
             },
             {
-              "name": "deprecationReason",
+              "name": "description",
               "description": null,
               "args": [
 
@@ -2186,23 +2168,10 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [
-
-          ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "__Directive",
-          "description": "A query directive in this schema",
-          "fields": [
+            },
             {
               "name": "name",
-              "description": "The name of this directive",
+              "description": null,
               "args": [
 
               ],
@@ -2217,21 +2186,20 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "description",
-              "description": "The description for this type",
-              "args": [
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
 
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Directive",
+          "description": "A query directive in this schema",
+          "fields": [
             {
               "name": "args",
               "description": "Arguments allowed to this object",
@@ -2258,8 +2226,40 @@
               "deprecationReason": null
             },
             {
-              "name": "onOperation",
-              "description": "Does this directive apply to operations?",
+              "name": "description",
+              "description": "The description for this type",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "The name of this directive",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "onField",
+              "description": "Does this directive apply to fields?",
               "args": [
 
               ],
@@ -2294,8 +2294,8 @@
               "deprecationReason": null
             },
             {
-              "name": "onField",
-              "description": "Does this directive apply to fields?",
+              "name": "onOperation",
+              "description": "Does this directive apply to operations?",
               "args": [
 
               ],

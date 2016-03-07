@@ -11,12 +11,4 @@ QueryType = GraphQL::ObjectType.define do
     resolve -> (obj, args, ctx) { Viewer::STATIC }
   end
 
-  # Current user hack // Check GraphQL controller
-  field :current_user, UserType do
-    description  "Returns current signed in user object"
-    resolve -> (obj, args, ctx) {
-      ctx[:current_user] ? ctx[:current_user] : nil
-    }
-  end
-
 end

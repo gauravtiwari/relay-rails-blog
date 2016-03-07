@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/gauravtiwari/relay-rails-blog/issues"
   },
-  "homepage": "https://github.com/gauravtiwari/relay-rails-blog"
+  "homepage": "https://github.com/gauravtiwari/relay-rails-blog",
+  "devDependencies": {
+    "eslint-plugin-react": "^4.2.0"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^4.2.0"
+  }
 }
