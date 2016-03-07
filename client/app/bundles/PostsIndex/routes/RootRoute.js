@@ -13,5 +13,5 @@ module.exports = {
   },
   params: {
   },
-  name: 'PostsRoute',
+  name: 'RootRoute',
 };
