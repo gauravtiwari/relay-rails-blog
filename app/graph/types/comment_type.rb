@@ -17,7 +17,7 @@ CommentType = GraphQL::ObjectType.define do
   # Custom field using resolve block
   field :voted do
     type types.Boolean
-    description "The short description of this post"
+    description "Is this comment voted by current user?"
     resolve -> (comment, arguments, ctx) {
       ctx[:current_user] ? comment.voted?(ctx[:current_user].id) : false
     }
