@@ -1,8 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import classNames from 'classnames/bind';
-import CreatePostVote from '../../Mutations/CreatePostVote';
-import DestroyPostVote from '../../Mutations/DestroyPostVote';
+import VoteMutations from '../../Mutations/VoteMutations';
 
 /* global LocalTime, Routes, App */
 
@@ -34,6 +33,12 @@ class PostPreview extends React.Component {
               <div className="post-body" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
           </a>
           <p className="post-meta">
+            <span className="count votes">
+              <a onClick={this._handleVote}>
+                <span className={voted}></span>
+              </a>
+               {post.votes_count}
+            </span>
             <span className="author">
               Posted by:<em>{post.user.name}</em>
             </span>
@@ -43,13 +48,6 @@ class PostPreview extends React.Component {
             <span className="count comments">
               <span>|</span> Comments: {post.comments_count}
             </span>
-            <span className="count votes">
-              <span>|</span>
-              <a onClick={this._handleVote}>
-                <span className={voted}></span>
-              </a>
-               {post.votes_count}
-            </span>
           </p>
         </div>
     );
@@ -58,17 +56,20 @@ class PostPreview extends React.Component {
 
   _handleVote(event) {
     if (App.loggedIn()) {
-      if (this.props.post.voted) {
-        Relay.Store.commitUpdate(new DestroyPostVote({ post: this.props.post }));
-      } else {
-        Relay.Store.commitUpdate(new CreatePostVote({ post: this.props.post }));
-      }
+      Relay.Store.commitUpdate(new VoteMutations({
+        type: 'Post',
+        votable: this.props.post,
+      }));
     } else {
       window.location.href = Routes.new_user_session_path();
     }
   }
 
 }
+
+PostPreview.propTypes = {
+  post: React.PropTypes.object.isRequired,
+};
 
 module.exports = PostPreview;
 

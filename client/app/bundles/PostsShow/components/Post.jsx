@@ -3,10 +3,9 @@ import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 
 // Import components
-import Comment from '../../Comments/components/Comments';
+import Comment from '../../Comments/components/Comment';
 import CreateComment from '../../Mutations/CreateComment';
-import CreatePostVote from '../../Mutations/CreatePostVote';
-import DestroyPostVote from '../../Mutations/DestroyPostVote';
+import VoteMutations from '../../Mutations/VoteMutations';
 
 /* global LocalTime, Routes, App, $ */
 
@@ -35,7 +34,6 @@ class Post extends React.Component {
 
   render() {
     const { post } = this.props;
-
     const voted = classNames({
       'fa fa-thumbs-up voted': this.props.post.voted,
       'fa fa-thumbs-o-up': !this.props.post.voted,
@@ -52,6 +50,12 @@ class Post extends React.Component {
                 <div dangerouslySetInnerHTML={{ __html: post.body }} />
                <div className="post-preview show">
                  <div className="post-meta">
+                   <span className="counters">
+                    <a onClick={this._handleVote}>
+                      <span className={voted}></span>
+                    </a>
+                     {post.votes_count}
+                   </span>
                    <span className="author">
                      Posted by: <em>{post.user.name}</em>
                    </span>
@@ -60,12 +64,6 @@ class Post extends React.Component {
                    </span>
                    <span className="counters">
                      Comments: {post.comments_count}
-                   </span>
-                   <span className="counters">
-                    <a onClick={this._handleVote}>
-                      <span className={voted}></span>
-                    </a>
-                     {post.votes_count}
                    </span>
                  </div>
                </div>
@@ -99,11 +97,10 @@ class Post extends React.Component {
 
   _handleVote(event) {
     if (App.loggedIn()) {
-      if (this.props.post.voted) {
-        Relay.Store.commitUpdate(new DestroyPostVote({ post: this.props.post }))
-      } else {
-        Relay.Store.commitUpdate(new CreatePostVote({ post: this.props.post }))
-      }
+      Relay.Store.commitUpdate(new VoteMutations({
+        type: 'Post',
+        votable: this.props.post,
+      }));
     } else {
       window.location.href = Routes.new_user_session_path();
     }
@@ -150,6 +147,11 @@ class Post extends React.Component {
   }
 }
 
+Post.propTypes = {
+  post: React.PropTypes.object.isRequired,
+  relay: React.PropTypes.object.isRequired,
+};
+
 module.exports = Post;
 
 /*
@@ -180,6 +182,8 @@ const PostContainer = Relay.createContainer(Post, {
           edges {
             node {
               id,
+              votes_count,
+              voted,
               ${Comment.getFragment('comment')}
             }
           },
