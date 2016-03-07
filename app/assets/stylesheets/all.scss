@@ -229,8 +229,15 @@ hr.small {
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;
+  .post-meta {
+    span {
+      &.counters {
+        float: right;
+      }
+    }
+  }
 }
-.post-preview > .post-meta {
+.post-meta {
   color: #808080;
   font-size: 13px;
   margin-top: 0;
@@ -243,7 +250,7 @@ hr.small {
   span {
     margin-right: 10px;
     &.counters {
-      float: right;
+      float: left;
     }
   }
 }
