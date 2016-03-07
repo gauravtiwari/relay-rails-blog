@@ -49,11 +49,6 @@ class CurrentUser extends React.Component {
               <a href='/editor'>Editor</a>
             </li>
             <li>
-              <a href='https://github.com/gauravtiwari/relay-rails-blog'>
-              <span className="fa fa-github"></span> Code
-              </a>
-            </li>
-            <li>
               <a href={Routes.new_user_registration_path()}>Signup</a>
             </li>
             <li>
