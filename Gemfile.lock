@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/rmosolgo/graphql-ruby.git
-  revision: ab5d9c1931b6ce9bfb85138d4d137d5d5271f521
+  revision: cbc49eb0dcfdd82e0144f811b71c272304713867
   specs:
     graphql (0.11.1)
       parslet (~> 1.6)
