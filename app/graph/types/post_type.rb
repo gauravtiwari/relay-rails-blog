@@ -1,5 +1,3 @@
-include ActionView::Helpers::TextHelper
-
 PostType = GraphQL::ObjectType.define do
   name "Post"
   description "A single post entry returns a post with author, total votes and comments"
@@ -10,6 +8,8 @@ PostType = GraphQL::ObjectType.define do
   # Expose fields associated with Post model
   field :title, types.String, "The title of this post"
   field :slug, types.String, "The slug of this post"
+  field :body, types.String, "The body of this post"
+  field :excerpt, types.String, "The short description of this post"
   field :comments_count, types.String,  "The total numner of comments on this post"
   field :votes_count, types.String,  "The total numner of votes on this post"
   field :created_at, types.String, "The time at which this post was created"
@@ -24,15 +24,6 @@ PostType = GraphQL::ObjectType.define do
   end
 
   # Custom field using resolve block
-  field :excerpt do
-    type types.String
-    description "The short description of this post"
-    resolve -> (post, arguments, ctx) {
-      truncate(post.body, length: 150, escape: false)
-    }
-  end
-
-  # Custom field using resolve block
   field :voted do
     type types.Boolean
     description "Is this post voted by current user?"
@@ -40,13 +31,4 @@ PostType = GraphQL::ObjectType.define do
       ctx[:current_user] ? post.voted?(ctx[:current_user].id) : false
     }
   end
-
-  field :body do
-    type types.String
-    description "The body of this post"
-    resolve -> (post, arguments, ctx) {
-      simple_format(post.body)
-    }
-  end
-
 end

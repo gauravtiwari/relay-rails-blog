@@ -1,4 +1,8 @@
+include ActionView::Helpers::TextHelper
+
 class Post < ActiveRecord::Base
+
+  before_create :set_excerpt, unless: :excerpt?
 
   # Slug for posts
   acts_as_url :title, url_attribute: :slug
@@ -22,4 +26,13 @@ class Post < ActiveRecord::Base
     order(votes_count: :desc, comments_count: :desc)
   end
 
+  private
+
+  def excerpt?
+    excerpt.present?
+  end
+
+  def set_excerpt
+    self.excerpt = truncate(body, length: 150, escape: true)
+  end
 end
