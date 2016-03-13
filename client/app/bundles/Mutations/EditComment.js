@@ -11,6 +11,7 @@ export default class extends Relay.Mutation {
     return Relay.QL`
       fragment on EditCommentPayload {
         comment {
+          id,
           body
         }
       }
@@ -40,6 +41,7 @@ export default class extends Relay.Mutation {
 
     return {
       comment: {
+        id: this.props.id,
         body: converter.makeHtml(body),
       },
     };
