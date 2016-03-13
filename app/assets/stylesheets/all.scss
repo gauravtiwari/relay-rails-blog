@@ -499,7 +499,47 @@ body {
 		}
 	}
 }
-
+.media {
+  &.comment {
+    .media-body {
+      display: block;
+      width: 100%;
+      .comment-body {
+        display: block;
+      }
+      &.comment-form {
+        display: none;
+      }
+      .manage-links {
+        float: right;
+        font-size: 12px;
+        display: none;
+        a {
+          margin-left: 10px;
+        }
+        &.is-owner {
+          display: block;
+        }
+        .delete {
+          color: red;
+        }
+      }
+      textarea {
+        width: 100%;
+      }
+    }
+    &.editing-comment {
+      .media-body {
+        .comment-body {
+          display: none;
+        }
+        &.comment-form {
+          display: block;
+        }
+      }
+    }
+  }
+}
 .form-container {
   max-width: 400px;
   margin: 0 auto;
