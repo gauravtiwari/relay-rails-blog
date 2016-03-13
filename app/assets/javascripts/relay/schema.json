@@ -262,6 +262,20 @@
               "deprecationReason": null
             },
             {
+              "name": "is_owner",
+              "description": "Is the comment belongs to current user?",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "user",
               "description": "Owner of this comment",
               "args": [

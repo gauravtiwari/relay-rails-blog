@@ -11,6 +11,7 @@ CommentType = GraphQL::ObjectType.define do
 
   # Expose fields associated with Comment model
   field :created_at, types.String, "The date on which the comment was posted"
+  field :body, types.String, "The body of this comment"
   field :votes_count, types.String,  "The total number of votes on this comment"
   field :user, UserType, "Owner of this comment"
 
@@ -23,11 +24,11 @@ CommentType = GraphQL::ObjectType.define do
     }
   end
 
-  field :body do
-    type types.String
-    description "The body of this comment"
+  field :is_owner do
+    type types.Boolean
+    description "Is the comment belongs to current user?"
     resolve -> (comment, arguments, ctx) {
-      simple_format(comment.body)
+      ctx[:current_user] ? comment.is_owner?(ctx[:current_user].id) : false
     }
   end
 end

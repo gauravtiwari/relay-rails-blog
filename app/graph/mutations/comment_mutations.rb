@@ -62,10 +62,9 @@ module CommentMutations
 
     resolve -> (inputs, ctx) {
       comment = NodeIdentification.object_from_id_proc.call(inputs[:id], ctx)
-      valid_inputs = inputs.instance_variable_get(:@values).select { |k, _| item.respond_to? "#{k}=" }.except('id')
+      valid_inputs = inputs.instance_variable_get(:@argument_values).select { |k, _| comment.respond_to? "#{k}=" }.except('id')
         comment.update(valid_inputs)
       { comment: comment }
     }
   end
 end
-
