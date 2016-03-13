@@ -61,6 +61,7 @@ export default class extends Relay.Mutation {
       commentEdge: {
         node: {
           body: converter.makeHtml(body),
+          is_owner: true,
           created_at: new Date().toUTCString(),
           user: {
             name: App.currentUser().name,
