@@ -6,6 +6,8 @@ import classNames from 'classnames/bind';
 import Comment from '../../Comments/components/Comment';
 import CreateComment from '../../Mutations/CreateComment';
 import VoteMutations from '../../Mutations/VoteMutations';
+import showdown from 'showdown';
+const converter = new showdown.Converter();
 
 /* global LocalTime, Routes, App */
 
@@ -47,7 +49,7 @@ class Post extends React.Component {
                <h2 className="section-heading">
                 {post.title}
                 </h2>
-                <div dangerouslySetInnerHTML={{ __html: post.body }} />
+                <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(post.body) }} />
                <div className="post-preview show">
                  <div className="post-meta">
                    <span className="counters">
