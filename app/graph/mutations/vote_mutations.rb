@@ -14,9 +14,7 @@ module VoteMutations
         user: user
       })
 
-      votable.reload
-
-      { "#{votable.class.to_s.downcase}".to_sym => votable }
+      { "#{votable.class.to_s.downcase}".to_sym => NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx) }
 
     }
   end
@@ -38,9 +36,7 @@ module VoteMutations
 
       vote.destroy
 
-      votable.reload
-
-      { "#{votable.class.to_s.downcase}".to_sym => votable }
+      { "#{votable.class.to_s.downcase}".to_sym => NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx) }
     }
   end
 end
