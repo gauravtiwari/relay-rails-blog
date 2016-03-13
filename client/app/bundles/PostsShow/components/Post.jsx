@@ -7,7 +7,7 @@ import Comment from '../../Comments/components/Comment';
 import CreateComment from '../../Mutations/CreateComment';
 import VoteMutations from '../../Mutations/VoteMutations';
 
-/* global LocalTime, Routes, App, $ */
+/* global LocalTime, Routes, App */
 
 /*
   Component: Post
@@ -76,9 +76,11 @@ class Post extends React.Component {
            <div className="row">
              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
               <h1> Comments </h1>
-              <textarea className="add-comment" onKeyDown={this._handleCreate} />
+              <textarea ref="comments_form" className="add-comment"
+                onKeyDown={this._handleCreate}
+              />
               {post.comments.edges.map(({ node }) => (
-                <Comment key={node.id} comment={node} root={post} />
+                <Comment key={node.id} comment={node} post={post} />
               ))}
              </div>
              </div>
@@ -108,13 +110,13 @@ class Post extends React.Component {
 
   _handleCreate(event) {
     if (App.loggedIn()) {
-      if (event.keyCode === 13 && event.target.value.length > 10) {
+      if (event.keyCode === 13) {
         Relay.Store.commitUpdate(
           new CreateComment({
             post: this.props.post,
             body: event.target.value,
           }));
-        $('.add-comment').val('');
+        this.refs.comments_form.value = '';
       }
     } else {
       window.location.href = Routes.new_user_session_path();
