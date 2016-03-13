@@ -27,6 +27,8 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c
 * Show author info, votes and comments count
 * Live Query editor to run graphql queries
 * Mutations to create comments and votes
+* Edit and Update comments
+* Add a react native app [https://github.com/gauravtiwari/graphql-blog-mobile](https://github.com/gauravtiwari/graphql-blog-mobile)
 
 ### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)
@@ -40,11 +42,7 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c
 * ```browserify-rails```: Command-line options required to do transpilation, e.g., —plugin, etc.
 
 ### TODOs
-
-* Add relay mutations to edit/update/destroy model states
-* Add user authorization
 * Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
-* Add a react native app
 * Probably more...
 
 ### Running locally
