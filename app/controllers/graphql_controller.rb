@@ -1,6 +1,4 @@
 class GraphqlController < ApplicationController
-  # Ignore CSRF, rely on some auth token
-  protect_from_forgery :except => [:create]
   before_action :set_current_user
 
   def create

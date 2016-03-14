@@ -7,6 +7,9 @@ App.loggedIn = ->
  else
   return false
 
+App.csrfToken = ->
+  return $('[name="csrf-token"]').attr('content')
+
 App.scrolledToBottom = ->
   $(window).scrollTop() > $(document).height() - $(window).height() - 200
 
