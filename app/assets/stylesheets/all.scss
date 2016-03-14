@@ -212,6 +212,26 @@ hr.small {
   overflow: hidden;
   p {
     margin: 0;
+    &.post-meta {
+      margin-bottom: 10px;
+    }
+  }
+  .tags {
+    margin: 5px 0;
+    .tag {
+      &.active {
+        background: #00ab6b;
+        color: #fff;
+      }
+    }
+    .post-tag,
+    .tag {
+      font-size: 13px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      padding: 5px 15px;
+      margin-right: 10px;
+      border-radius: 25px;
+    }
   }
 }
 .post-preview a:hover {
@@ -222,7 +242,7 @@ hr.small {
 }
 .post-preview > a > .post-title {
   font-size: 30px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 .post-preview > a > .post-subtitle {
@@ -469,17 +489,23 @@ body {
   background-color: #fafafa;
   margin-top: 20px;
 }
+.posts-filters {
+  h3 {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+}
 .filters {
 	list-style: none;
-	text-align: right;
+	text-align: center;
 	li {
 		display: inline-block;
-		margin-left: 11px;
+		margin: 10px;
 		font-size: 13px;
 		border: 1px solid rgba(0,0,0,0.15);
 		padding: 10px 20px;
 		border-radius: 25px;
-		cursor: pointer;
 		&:hover {
 			border-color: rgba(0,0,0,0.3);
 			a {

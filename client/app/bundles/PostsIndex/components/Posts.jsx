@@ -3,7 +3,7 @@ import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import PostPreview from './PostPreview';
 
-/* global App */
+/* global App, Routes */
 
 /*
   Component: Posts
@@ -15,11 +15,18 @@ class Posts extends React.Component {
     super(props);
     this._handleScrollLoad = this._handleScrollLoad.bind(this);
     this._loadFilter = this._loadFilter.bind(this);
+    this._loadTaggedPosts = this._loadTaggedPosts.bind(this);
     this.state = {
       loading: false,
       done: false,
       popular: false,
     };
+  }
+
+  componentWillMount() {
+    if (this.props.relay.route.params && this.props.relay.route.params.id) {
+      this._loadTaggedPosts();
+    }
   }
 
   componentWillUnmount() {
@@ -37,11 +44,27 @@ class Posts extends React.Component {
     });
 
     const { root } = this.props;
+
+    const tags = root.tags.map((tag) => {
+      return (<li key={Math.random()} className={
+                window.location.pathname === Routes.tag_path(tag) ?
+                  'tag active' : 'tag'
+                }><a href={Routes.tag_path(tag)}>
+                {tag}
+              </a></li>
+            );
+    });
     return (
       <div className="container">
         <div className="row">
-          <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div className="col-lg-7 col-md-7">
+            {root.posts.edges.map(({ node }) => (
+              <PostPreview key={node.id} post={node} root={root} />
+            ))}
+          </div>
+          <div className="col-lg-5 col-md-5">
             <div className="posts-filters">
+              <h3>Post categories</h3>
               <ul className="filters">
                 <li className={classes}>
                   <a onClick={this._loadFilter.bind(this, "popular", null)}>
@@ -49,13 +72,11 @@ class Posts extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a onClick={this._loadFilter.bind(this, null, "-id")}>Reset</a>
+                  <a href={Routes.root_path()}>Reset</a>
                 </li>
+                {tags}
               </ul>
             </div>
-            {root.posts.edges.map(({ node }) => (
-              <PostPreview key={node.id} post={node} root={root} />
-            ))}
           </div>
         </div>
         {this.state.loading ? <div className="loadmore">
@@ -93,6 +114,12 @@ class Posts extends React.Component {
     }
   }
 
+  _loadTaggedPosts() {
+    this.props.relay.setVariables({
+      tag: this.props.relay.route.params.id,
+    });
+  }
+
   _loadFilter(filter, order) {
     this.setState({
       popular: !this.state.popular,
@@ -116,12 +143,14 @@ const PostsContainer = Relay.createContainer(Posts, {
     count: 20,
     order: '-id',
     filter: null,
+    tag: null,
   },
   fragments: {
     root: () => Relay.QL`
       fragment on Viewer {
         id,
-        posts(first: $count, order: $order, filter: $filter) {
+        tags,
+        posts(first: $count, order: $order, filter: $filter, tag: $tag) {
           edges {
             node {
               id,

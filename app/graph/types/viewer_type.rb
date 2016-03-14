@@ -11,9 +11,24 @@ ViewerType = GraphQL::ObjectType.define do
   # Fetch all posts
   connection :posts, PostType.connection_type do
     argument :filter, types.String
+    argument :tag, types.String
     description 'Post connection to fetch paginated posts collection.'
-    resolve ->(object, args, ctx){
-      args["filter"] ? Post.send(args["filter"]).includes(:user) : Post.includes(:user)
+    resolve ->(object, args, ctx) {
+      if args["tag"]
+        Post.where("'#{args["tag"]}' = ANY (tags)").includes(:user)
+      elsif args["filter"]
+        Post.send(args["filter"]).includes(:user)
+      else
+        Post.includes(:user)
+      end
+    }
+  end
+
+  field :tags do
+    type types[types.String]
+    description "List of tags for the post"
+    resolve -> (object, args, ctx) {
+      Post.pluck(:tags).flatten.uniq
     }
   end
 

@@ -18,20 +18,26 @@ class PostPreview extends React.Component {
 
   render() {
     const { post } = this.props;
-
     const voted = classNames({
       'fa fa-thumbs-up voted': this.props.post.voted,
       'fa fa-thumbs-o-up': !this.props.post.voted,
     });
 
+    const tags = post.tags.map((tag) => {
+      return (<a key={Math.random()} className="post-tag" href={Routes.tag_path(tag)}>{tag}</a>);
+    });
+
     return (
         <div className="post-preview">
           <a href={Routes.post_path(post.id)}>
-              <h2 className="post-title">
-                {post.title}
-              </h2>
-              <div className="post-body" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+            <h2 className="post-title">
+              {post.title}
+            </h2>
           </a>
+          <div className="post-body" dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+          <div className="tags">
+            {tags}
+          </div>
           <p className="post-meta">
             <span className="count votes">
               <a onClick={this._handleVote}>
@@ -79,9 +85,6 @@ module.exports = PostPreview;
 */
 
 const PostContainer = Relay.createContainer(PostPreview, {
-  initialVariables: {
-    count: 1000,
-  },
   fragments: {
     post: () => Relay.QL`
       fragment on Post {
@@ -92,6 +95,7 @@ const PostContainer = Relay.createContainer(PostPreview, {
         voted,
         created_at,
         comments_count,
+        tags,
         votes_count,
         user {
           name

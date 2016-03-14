@@ -14,6 +14,7 @@ PostType = GraphQL::ObjectType.define do
   field :votes_count, types.String,  "The total numner of votes on this post"
   field :created_at, types.String, "The time at which this post was created"
   field :user, UserType, "Owner of this post"
+  field :tags, types[types.String], "List of tags for the post"
 
   # Define a connection on comments
   connection :comments, CommentType.connection_type do
