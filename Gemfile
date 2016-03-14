@@ -20,9 +20,6 @@ gem 'graphiql-rails'
 # Javascript routes
 gem 'js-routes'
 
-# Jquery turblinks
-gem 'jquery-turbolinks'
-
 # Authorization
 gem 'pundit'
 
@@ -33,7 +30,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 #Speed up links
-gem 'turbolinks', '~> 5.0.0.beta'
+gem 'turbolinks', '~> 5.x'
 
 # Slug
 gem 'stringex'

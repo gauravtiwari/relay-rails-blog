@@ -22,7 +22,7 @@ const CurrentUser = function CurrentUser(props) {
             <a href={Routes.root_path()}>Home</a>
           </li>
           <li>
-            <a href="/editor">Editor</a>
+            <a href="/editor" data-turbolinks="false">Editor</a>
           </li>
           <li>
             <a href="#">{root.current_user.name}</a>
@@ -33,7 +33,7 @@ const CurrentUser = function CurrentUser(props) {
             </a>
           </li>
           <li>
-            <a href="https://github.com/gauravtiwari/relay-rails-blog">
+            <a href="https://github.com/gauravtiwari/relay-rails-blog" target="_blank" data-turbolinks="false">
               <span className="fa fa-github"></span> Code
             </a>
           </li>
@@ -43,7 +43,7 @@ const CurrentUser = function CurrentUser(props) {
             <a href={Routes.root_path()}>Home</a>
           </li>
           <li>
-            <a href="/editor">Editor</a>
+            <a href="/editor" data-turbolinks="false">Editor</a>
           </li>
           <li>
             <a href={Routes.new_user_registration_path()}>Signup</a>
@@ -52,7 +52,7 @@ const CurrentUser = function CurrentUser(props) {
             <a href={Routes.new_user_session_path()}>Login</a>
           </li>
           <li>
-            <a href="https://github.com/gauravtiwari/relay-rails-blog">
+            <a href="https://github.com/gauravtiwari/relay-rails-blog" target="_blank" data-turbolinks="false">
             <span className="fa fa-github"></span> Code
             </a>
           </li>
