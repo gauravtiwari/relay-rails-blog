@@ -28,8 +28,9 @@ const CurrentUser = function CurrentUser(props) {
             <a href="#">{root.current_user.name}</a>
           </li>
           <li>
-            <a href={Routes.destroy_user_session_path()} data-method="delete">
-              Logout
+            <a href={Routes.destroy_user_session_path()}
+              data-turbolinks="false" data-method="delete"
+            >Logout
             </a>
           </li>
           <li>
