@@ -38,20 +38,19 @@ class Posts extends React.Component {
   }
 
   render() {
+    const { root } = this.props;
     const classes = classNames({
       'filter': true,
       'active': this.state.popular,
     });
-
-    const { root } = this.props;
-
     const tags = root.tags.map((tag) => {
       return (<li key={Math.random()} className={
-                window.location.pathname === Routes.tag_path(tag) ?
-                  'tag active' : 'tag'
-                }><a href={Routes.tag_path(tag)}>
-                {tag}
-              </a></li>
+                  window.location.pathname === Routes.tag_path(tag) ?
+                  'tag active' : 'tag'}>
+                <a href={Routes.tag_path(tag)}>
+                  {tag}
+                </a>
+              </li>
             );
     });
     return (
