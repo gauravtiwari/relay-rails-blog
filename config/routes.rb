@@ -15,6 +15,4 @@ Rails.application.routes.draw do
   get 'tag/:tag', to: 'posts#tag', as: :tag
 
   resources :queries
-  mount GraphiQL::Rails::Engine, at: "/editor", graphql_path: "/graphql"
-
 end

@@ -22,9 +22,6 @@ const CurrentUser = function CurrentUser(props) {
             <a href={Routes.root_path()}>Home</a>
           </li>
           <li>
-            <a href="/editor" data-turbolinks="false">Editor</a>
-          </li>
-          <li>
             <a href="#">{root.current_user.name}</a>
           </li>
           <li>
@@ -42,9 +39,6 @@ const CurrentUser = function CurrentUser(props) {
         <ul className="nav navbar-nav navbar-right">
           <li>
             <a href={Routes.root_path()}>Home</a>
-          </li>
-          <li>
-            <a href="/editor" data-turbolinks="false">Editor</a>
           </li>
           <li>
             <a href={Routes.new_user_registration_path()}>Signup</a>
