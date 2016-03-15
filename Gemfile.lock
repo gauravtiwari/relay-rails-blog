@@ -10,13 +10,6 @@ GIT
       rainbow (~> 2.1)
 
 GIT
-  remote: git://github.com/rmosolgo/graphql-relay-ruby.git
-  revision: 2fb893f2e65e12ce130a710f1d3810018072c8fd
-  specs:
-    graphql-relay (0.7.1)
-      graphql (~> 0.8)
-
-GIT
   remote: git://github.com/rmosolgo/graphql-ruby.git
   revision: 81227fe890e135570b88d61efc14378d4b8c2a6a
   specs:
@@ -98,6 +91,8 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    graphql-relay (0.7.1)
+      graphql (~> 0.8)
     i18n (0.7.0)
     js-routes (1.2.4)
       railties (>= 3.2)
@@ -210,7 +205,7 @@ DEPENDENCIES
   figaro
   foreman
   graphql!
-  graphql-relay!
+  graphql-relay
   js-routes
   kgio
   local_time
