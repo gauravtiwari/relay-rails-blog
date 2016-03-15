@@ -2,7 +2,7 @@ ruby '2.3.0'
 source 'https://rubygems.org'
 
 # Setup Rails and API
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.6'
 gem 'pg'
 
 # Asset compilation and NPM modules
@@ -15,7 +15,6 @@ gem 'therubyracer', platforms: :ruby
 # Graphql
 gem 'graphql', github: 'rmosolgo/graphql-ruby'
 gem 'graphql-relay', github: 'rmosolgo/graphql-relay-ruby'
-gem 'graphiql-rails'
 
 # Javascript routes
 gem 'js-routes'
