@@ -504,7 +504,6 @@ body {
 		margin: 10px;
 		font-size: 13px;
 		border: 1px solid rgba(0,0,0,0.15);
-		padding: 10px 20px;
 		border-radius: 25px;
 		&:hover {
 			border-color: rgba(0,0,0,0.3);
@@ -520,6 +519,7 @@ body {
 		}
 		a {
 			display: block;
+      padding: 10px 20px;
 			text-decoration: none;
 			color: rgba(0,0,0,0.44);
 		}
