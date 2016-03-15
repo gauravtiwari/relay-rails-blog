@@ -1,5 +1,5 @@
 // Run like this:
-// cd client && npm run build:dev
+// cd client && npm run build:dev:client
 // Note that Foreman (Procfile.dev) has also been configured to take care of this.
 
 // NOTE: All style sheets handled by the asset pipeline in rails
@@ -19,6 +19,9 @@ config.entry.vendor.unshift(
   'es5-shim/es5-shim',
   'es5-shim/es5-sham'
 );
+
+// jquery-ujs MUST GO AFTER jquery, so must use 'push'
+config.entry.vendor.push('jquery-ujs');
 
 // See webpack.common.config for adding modules common to both the webpack dev server and rails
 config.module.loaders.push(

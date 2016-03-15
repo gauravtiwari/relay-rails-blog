@@ -1,15 +1,14 @@
 {
-  "name": "react-webpack-rails-tutorial",
+  "name": "relay-rails-blog-tutorial",
   "version": "1.1.0",
-  "description": "Built using the react_on_rails generator.",
-  "main": "server.js",
+  "description": "A graphql, relay and standard rails application powered demo weblog. We are using Graphql server and relay for our react component data needs.",
   "engines": {
     "node": "5.0.0",
     "npm": "3.7.5"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shakacode/react-webpack-rails-tutorial.git"
+    "url": "https://github.com/gauravtiwari/relay-rails-blog.git"
   },
   "keywords": [
     "react",
@@ -17,15 +16,14 @@
     "comment",
     "example"
   ],
-  "author": "justin808",
+  "author": "None",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shakacode/react-webpack-rails-tutorial/issues"
+    "url": "https://github.com/gauravtiwari/relay-rails-blog/issues"
   },
-  "homepage": "https://github.com/shakacode/react-webpack-rails-tutorial",
+  "homepage": "https://relay-rails-blog.herokuapp.com/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "build:client": "NODE_ENV=production webpack --config webpack.client.rails.config.js",
     "build:server": "NODE_ENV=production webpack --config webpack.server.rails.config.js",
     "build:dev:client": "webpack -w --config webpack.client.rails.config.js",

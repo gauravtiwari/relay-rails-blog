@@ -6,9 +6,6 @@ Rails.application.config.assets.version = '1.0'
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
-# Precompile additional assets.
-# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( graphiql.js graphiql.css )
 # Add client/assets/ folders to asset pipeline's search path.
 # If you do not want to move existing images and fonts from your Rails app
 # you could also consider creating symlinks there that point to the original
@@ -20,4 +17,24 @@ Rails.application.config.assets.precompile += %w( graphiql.js graphiql.css )
 Rails.application.config.assets.paths << Rails.root.join("client", "assets", "stylesheets")
 Rails.application.config.assets.paths << Rails.root.join("client", "assets", "images")
 Rails.application.config.assets.paths << Rails.root.join("client", "assets", "fonts")
-Rails.application.config.assets.precompile += %w( generated/server-bundle.js )
+
+# Add folder with webpack generated assets to assets.paths
+Rails.application.config.assets.paths << Rails.root.join("app", "assets", "webpack")
+
+# Precompile additional assets.
+# application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+Rails.application.config.assets.precompile += %w(
+  server-bundle.js
+)
+
+if ENV["REACT_ON_RAILS_ENV"] != "HOT"
+  Rails.application.config.assets.precompile += %w(
+    application_static.js.erb
+    application_static.css.erb
+  )
+else
+  Rails.application.config.assets.precompile += %w(
+    application_non_webpack.js.erb
+    application_non_webpack.css.erb
+  )
+end
