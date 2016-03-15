@@ -4,9 +4,4 @@ class PagesController < ApplicationController
   def home
   end
 
-  def editor
-    # Render the graphiql editor
-    render :layout => 'editor'
-  end
-
 end

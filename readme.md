@@ -25,14 +25,12 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c
 * List comments of the posts
 * Infinite Scroll - posts and comments
 * Show author info, votes and comments count
-* Live Query editor to run graphql queries
 * Mutations to create comments and votes
 * Edit and Update comments
 * Add a react native app [https://github.com/gauravtiwari/graphql-blog-mobile](https://github.com/gauravtiwari/graphql-blog-mobile)
 
 ### Demo Links
 * [Demo blog](https://relay-rails-blog.herokuapp.com/)
-* [GraphiQL query editor](https://relay-rails-blog.herokuapp.com/editor)
 
 ### Resources
 
