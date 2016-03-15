@@ -13,7 +13,7 @@ gem 'uglifier'
 gem 'therubyracer', platforms: :ruby
 
 # Graphql
-gem 'graphql', github: 'rmosolgo/graphql-ruby'
+gem 'graphql'
 gem 'graphql-relay'
 
 # Javascript routes
