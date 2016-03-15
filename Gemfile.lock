@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/gauravtiwari/react_on_rails.git
-  revision: 1905e8f4b7c4127137ace8219ae90c12834e5a41
+  revision: e3dde5ded8332822ebbbb3c49def941381e77f22
   specs:
-    react_on_rails (3.0.6)
+    react_on_rails (4.0.0)
       connection_pool
       execjs (~> 2.5)
       foreman
