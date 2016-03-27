@@ -13,7 +13,7 @@ module CommentMutations
 
     # Resolve block to create comment and return hash of post and comment
     resolve -> (inputs, ctx) {
-      post = NodeIdentification.object_from_id_proc.call(inputs[:post_id], ctx)
+      post = NodeIdentification.object_from_id(inputs[:post_id], ctx)
       user = ctx[:current_user]
       comment = post.comments.create({
         body: inputs[:body],
@@ -23,7 +23,10 @@ module CommentMutations
       connection = GraphQL::Relay::RelationConnection.new(post, {})
       edge = GraphQL::Relay::Edge.new(comment, connection)
 
-      { post: post, commentEdge: edge }
+      {
+        post: post.reload,
+        commentEdge: edge
+      }
     }
   end
 
@@ -40,12 +43,14 @@ module CommentMutations
     return_field :post, PostType
 
     resolve -> (inputs, ctx) {
-     post = NodeIdentification.object_from_id_proc.call(inputs[:post_id], ctx)
-     comment = NodeIdentification.object_from_id_proc.call(inputs[:id], ctx)
-
+     post = NodeIdentification.object_from_id(inputs[:post_id], ctx)
+     comment = NodeIdentification.object_from_id(inputs[:id], ctx)
      comment.destroy
 
-     { post: post, deletedId: inputs[:id] }
+     {
+       post: post.reload,
+       deletedId: inputs[:id]
+     }
    }
   end
 
@@ -61,9 +66,13 @@ module CommentMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      comment = NodeIdentification.object_from_id_proc.call(inputs[:id], ctx)
-      valid_inputs = inputs.instance_variable_get(:@argument_values).select { |k, _| comment.respond_to? "#{k}=" }.except('id')
-        comment.update(valid_inputs)
+      comment = NodeIdentification.object_from_id(inputs[:id], ctx)
+      valid_inputs = inputs.instance_variable_get(:@argument_values).select {
+        |k, _| comment.respond_to? "#{k}="
+      }.except('id')
+
+      comment.update(valid_inputs)
+
       { comment: comment }
     }
   end

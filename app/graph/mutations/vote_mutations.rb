@@ -8,13 +8,13 @@ module VoteMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      votable = NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx)
+      votable = NodeIdentification.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
       votable.votes.create({
         user: user
       })
 
-      { "#{votable.class.to_s.downcase}".to_sym => NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx) }
+      { "#{votable.class.to_s.downcase}".to_sym => votable.reload }
 
     }
   end
@@ -28,7 +28,7 @@ module VoteMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      votable = NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx)
+      votable = NodeIdentification.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
       vote = user.votes.where({
         votable: votable
@@ -36,7 +36,7 @@ module VoteMutations
 
       vote.destroy
 
-      { "#{votable.class.to_s.downcase}".to_sym => NodeIdentification.object_from_id_proc.call(inputs[:votable_id], ctx) }
+      { "#{votable.class.to_s.downcase}".to_sym => votable.reload  }
     }
   end
 end
