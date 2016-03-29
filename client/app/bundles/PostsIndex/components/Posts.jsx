@@ -2,6 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import PostPreview from './PostPreview';
+import PostMutations from '../../Mutations/PostMutations';
+import NewPost from '../../NewPost/components/NewPost';
 
 /* global App, Routes */
 
@@ -15,6 +17,7 @@ class Posts extends React.Component {
     super(props);
     this._handleScrollLoad = this._handleScrollLoad.bind(this);
     this._loadFilter = this._loadFilter.bind(this);
+    this._handleCreatePost = this._handleCreatePost.bind(this);
     this._loadTaggedPosts = this._loadTaggedPosts.bind(this);
     this.state = {
       loading: false,
@@ -57,6 +60,7 @@ class Posts extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-7 col-md-7">
+            <NewPost _handleCreatePost={this._handleCreatePost} />
             {root.posts.edges.map(({ node }) => (
               <PostPreview key={node.id} post={node} root={root} />
             ))}
@@ -88,11 +92,20 @@ class Posts extends React.Component {
     );
   }
 
+  _handleCreatePost(data) {
+    console.log(data);
+    console.log(this.props.root);
+    Relay.Store.commitUpdate(new PostMutations({
+      viewer: this.props.root,
+      data: data,
+    }));
+  }
+
   _handleScrollLoad() {
     if (App.scrolledToBottom() && !this.state.loading) {
       if(this.props.root.posts.pageInfo.hasNextPage) {
         this.setState({
-          loading: true
+          loading: true,
         });
         this.props.relay.setVariables({
           count: this.props.relay.variables.count + 20
