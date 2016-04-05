@@ -205,16 +205,6 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "order",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
                   "name": "filter",
                   "description": null,
                   "type": {
@@ -233,6 +223,16 @@
                     "ofType": null
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "order",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": "\"id\""
                 }
               ],
               "type": {
@@ -434,7 +434,7 @@
                     "name": "String",
                     "ofType": null
                   },
-                  "defaultValue": null
+                  "defaultValue": "\"id\""
                 }
               ],
               "type": {

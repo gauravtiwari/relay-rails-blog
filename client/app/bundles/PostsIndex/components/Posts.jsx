@@ -17,11 +17,13 @@ class Posts extends React.Component {
     super(props);
     this._handleScrollLoad = this._handleScrollLoad.bind(this);
     this._loadFilter = this._loadFilter.bind(this);
+    this._toggleNewPost = this._toggleNewPost.bind(this);
     this._handleCreatePost = this._handleCreatePost.bind(this);
     this._loadTaggedPosts = this._loadTaggedPosts.bind(this);
     this.state = {
       loading: false,
       done: false,
+      formToggled: false,
       popular: false,
     };
   }
@@ -56,11 +58,17 @@ class Posts extends React.Component {
               </li>
             );
     });
+
+    const linkText = this.state.formToggled ? 'Close Form' : 'New Post';
+
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-7 col-md-7">
-            <NewPost _handleCreatePost={this._handleCreatePost} />
+            <a href="#" onClick={this._toggleNewPost} className="new-post-link pull-right">
+              {linkText}
+            </a>
+            <NewPost _handleCreatePost={this._handleCreatePost} formToggled={this.state.formToggled} />
             {root.posts.edges.map(({ node }) => (
               <PostPreview key={node.id} post={node} root={root} />
             ))}
@@ -92,13 +100,34 @@ class Posts extends React.Component {
     );
   }
 
+  _toggleNewPost(event) {
+    event.preventDefault();
+    this.setState({
+      formToggled: !this.state.formToggled
+    });
+  }
+
   _handleCreatePost(data) {
-    console.log(data);
-    console.log(this.props.root);
     Relay.Store.commitUpdate(new PostMutations({
       viewer: this.props.root,
       data: data,
-    }));
+    }), {onFailure, onSuccess});
+
+    const _this = this;
+
+    const onSuccess = () => {
+      _this.setState({
+        formToggled: false,
+      });
+    };
+
+    const onFailure = (transaction) => {
+      const error = transaction.getError() || new Error('Mutation failed.');
+      console.error(error);
+      _this.setState({
+        formToggled: false,
+      });
+    };
   }
 
   _handleScrollLoad() {

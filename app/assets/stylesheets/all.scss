@@ -566,6 +566,30 @@ body {
     }
   }
 }
+.new-post-link {
+  display: inline-block;
+  margin: 10px;
+  font-size: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 5px 10px;
+  background-color: #00ab6b;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  &:hover, &:active, &::selection, &:focus {
+    background: rgba(0, 171, 107, 0.8);
+    outline: 0;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.show {
+  display: block!important;
+}
+.hidden {
+  display: none!important;
+}
 .form-container {
   max-width: 400px;
   margin: 0 auto;

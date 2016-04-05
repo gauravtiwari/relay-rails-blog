@@ -26,7 +26,7 @@ export default class extends Relay.Mutation {
         edgeName: 'postEdge',
         rangeBehaviors: {
           '': 'append',
-          'order(-id)': 'prepend',
+          'order(-id)': 'append',
         },
       },
     ];

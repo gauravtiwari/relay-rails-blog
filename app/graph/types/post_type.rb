@@ -18,9 +18,10 @@ PostType = GraphQL::ObjectType.define do
 
   # Define a connection on comments
   connection :comments, CommentType.connection_type do
+    argument :order, types.String, default_value: "id"
     description "All comments association with this post. Returns comments collection and accepts arguments."
     resolve ->(post, args, ctx){
-      post.comments.includes(:user)
+      post.comments.includes(:user).order(args[:order])
     }
   end
 

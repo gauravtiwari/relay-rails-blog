@@ -28,7 +28,6 @@ module PostMutations
 
       {
         postEdge: edge,
-        node: edge,
         viewer: viewer
       }
     }
