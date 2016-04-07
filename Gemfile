@@ -14,7 +14,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Graphql
 gem 'graphql'
-gem 'graphql-relay', '0.8.1'
+gem 'graphql-relay'
 
 # Javascript routes
 gem 'js-routes'

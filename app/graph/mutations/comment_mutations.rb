@@ -20,8 +20,8 @@ module CommentMutations
         user: user
       })
 
-      connection = GraphQL::Relay::RelationConnection.new(post, {})
-      edge = GraphQL::Relay::Edge.new(comment, connection)
+      comments_connection = GraphQL::Relay::RelationConnection.new(post.comments, {})
+      edge = GraphQL::Relay::Edge.new(comment, comments_connection)
 
       {
         post: post.reload,
