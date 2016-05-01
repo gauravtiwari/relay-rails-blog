@@ -566,6 +566,20 @@
               "deprecationReason": null
             },
             {
+              "name": "user_id",
+              "description": "The id of this post author",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "voted",
               "description": "Is this post voted by current user?",
               "args": [
@@ -608,6 +622,16 @@
         {
           "kind": "SCALAR",
           "name": "String",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -957,16 +981,6 @@
           "interfaces": [
 
           ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "Int",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -1763,14 +1777,14 @@
               "deprecationReason": null
             },
             {
-              "name": "post",
+              "name": "viewer",
               "description": null,
               "args": [
 
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "Post",
+                "name": "Viewer",
                 "ofType": null
               },
               "isDeprecated": false,

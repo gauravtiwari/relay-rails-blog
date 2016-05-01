@@ -4,7 +4,7 @@
 
 App.currentUser = ->
   id:
-    $('meta[name=current_user]').attr('id')
+    parseInt($('meta[name=current_user]').attr('id'))
 
   name:
     $('meta[name=current_user]').attr('username')
@@ -13,4 +13,4 @@ App.currentUser = ->
     $('meta[name=current_user]').attr('email')
 
   isCurrent: (id) ->
-    this.getId() == id
+    App.currentUser().id == id

@@ -277,6 +277,9 @@ hr.small {
 .post-preview > .post-meta > a {
   text-decoration: none;
   color: #404040;
+  &.delete {
+    color: red
+  }
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {

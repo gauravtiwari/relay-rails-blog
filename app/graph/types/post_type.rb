@@ -8,6 +8,7 @@ PostType = GraphQL::ObjectType.define do
   # Expose fields associated with Post model
   field :title, types.String, "The title of this post"
   field :slug, types.String, "The slug of this post"
+  field :user_id, types.Int, "The id of this post author"
   field :body, types.String, "The body of this post"
   field :excerpt, types.String, "The short description of this post"
   field :comments_count, types.String,  "The total numner of comments on this post"

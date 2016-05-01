@@ -42,14 +42,14 @@ module PostMutations
 
     # Define return parameters
     return_field :deletedId, !types.ID
-    return_field :post, PostType
+    return_field :viewer, ViewerType
 
     resolve -> (inputs, ctx) {
      post = NodeIdentification.object_from_id(inputs[:id], ctx)
      post.destroy
 
      {
-       post: post.reload,
+       viewer: Viewer::STATIC,
        deletedId: inputs[:id]
      }
    }

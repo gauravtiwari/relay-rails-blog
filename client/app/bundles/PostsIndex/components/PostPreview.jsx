@@ -2,6 +2,7 @@ import React from 'react';
 import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import VoteMutations from '../../Mutations/VoteMutations';
+import DeletePost from '../../Mutations/DeletePost';
 
 /* global LocalTime, Routes, App */
 
@@ -14,6 +15,7 @@ class PostPreview extends React.Component {
   constructor(props) {
     super(props);
     this._handleVote = this._handleVote.bind(this);
+    this._deletePost = this._deletePost.bind(this);
   }
 
   render() {
@@ -54,9 +56,24 @@ class PostPreview extends React.Component {
             <span className="count comments">
               <span>|</span> Comments: {post.comments_count}
             </span>
+            <a href="#" className="delete" onClick={this._deletePost}>
+              <span>|</span> Delete
+            </a>
           </p>
         </div>
     );
+  }
+
+  _deletePost(event) {
+    event.preventDefault();
+    if (App.loggedIn() && App.currentUser().isCurrent(this.props.post.user_id)) {
+      Relay.Store.commitUpdate(new DeletePost({
+        post: this.props.post,
+        viewer: this.props.root,
+      }));
+    } else {
+      window.location.href = Routes.new_user_session_path();
+    }
   }
 
 
@@ -93,12 +110,13 @@ const PostContainer = Relay.createContainer(PostPreview, {
         slug,
         excerpt,
         voted,
+        user_id,
         created_at,
         comments_count,
         tags,
         votes_count,
         user {
-          name
+          name,
         }
       }
     `,
