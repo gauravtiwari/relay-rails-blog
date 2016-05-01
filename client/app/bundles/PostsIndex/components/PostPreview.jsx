@@ -56,9 +56,11 @@ class PostPreview extends React.Component {
             <span className="count comments">
               <span>|</span> Comments: {post.comments_count}
             </span>
-            <a href="#" className="delete" onClick={this._deletePost}>
-              <span>|</span> Delete
-            </a>
+            {App.currentUser().isCurrent(this.props.post.user_id) ?
+              <a href="#" className="delete" onClick={this._deletePost}>
+                <span>|</span> Delete
+              </a> : ''
+            }
           </p>
         </div>
     );
