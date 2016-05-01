@@ -4,8 +4,7 @@ class GraphqlController < ApplicationController
   def create
     result = RelaySchema.execute(
       params[:query],
-      debug: true,
-      variables: params[:variables],
+      variables: ensure_hash(params[:variables]),
       context: {
         current_user: set_current_user
       }
@@ -20,6 +19,16 @@ class GraphqlController < ApplicationController
       verified_user
     else
       nil
+    end
+  end
+
+  def ensure_hash(query_variables)
+    if query_variables.blank?
+      {}
+    elsif query_variables.is_a?(String)
+      JSON.parse(query_variables)
+    else
+      query_variables
     end
   end
 end

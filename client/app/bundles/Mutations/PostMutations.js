@@ -3,16 +3,16 @@ import Relay from 'react-relay';
 export default class extends Relay.Mutation {
 
   getMutation() {
-    return Relay.QL`mutation {CreatePost}`;
+    return Relay.QL`mutation { CreatePost }`;
   }
 
   getFatQuery() {
     return Relay.QL`
       fragment on CreatePostPayload {
+        postEdge,
         viewer {
           posts,
         },
-        postEdge,
     }`;
   }
 

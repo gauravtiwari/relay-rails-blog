@@ -15,7 +15,7 @@ module PostMutations
     # Resolve block to create Post and return hash of post and Post
     resolve -> (inputs, ctx) {
       user = ctx[:current_user]
-      viewer = NodeIdentification.object_from_id(inputs[:viewer_id], ctx)
+      viewer = Viewer::STATIC
       post = user.posts.create({
         title: inputs[:title],
         excerpt: inputs[:excerpt],
@@ -27,8 +27,8 @@ module PostMutations
       edge = GraphQL::Relay::Edge.new(post, connection)
 
       {
-        postEdge: edge,
-        viewer: viewer
+        viewer: viewer,
+        postEdge: edge
       }
     }
   end
