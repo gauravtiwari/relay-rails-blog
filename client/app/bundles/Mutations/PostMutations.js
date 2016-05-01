@@ -25,8 +25,9 @@ export default class extends Relay.Mutation {
         connectionName: 'posts',
         edgeName: 'postEdge',
         rangeBehaviors: {
-          '': 'append',
-          'order(-id)': 'append',
+          'filter(null)': 'ignore',
+          'tag(null)': 'ignore',
+          'order(-id)': 'prepend',
         },
       },
     ];

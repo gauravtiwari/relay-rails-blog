@@ -20,13 +20,13 @@ ReactOnRails.registerRoute({
   PostRoute,
 });
 
-$(document).on('turbolinks:load', () => {
-  Relay.injectNetworkLayer(
-    new Relay.DefaultNetworkLayer('/graphql', {
-      credentials: 'same-origin',
-      headers: {
-        'X-CSRF-Token': App.csrfToken(),
-      },
-    })
-  );
-});
+// $(document).on('turbolinks:load', () => {
+//   Relay.injectNetworkLayer(
+//     new Relay.DefaultNetworkLayer('/graphql', {
+//       credentials: 'same-origin',
+//       headers: {
+//         'X-CSRF-Token': App.csrfToken(),
+//       },
+//     })
+//   );
+// });

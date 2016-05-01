@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import ReactOnRails from 'react-relay-on-rails';
 import Posts from '../PostsIndex/components/Posts';
 import Post from '../PostsShow/components/Post';

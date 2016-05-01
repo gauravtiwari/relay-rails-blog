@@ -33,9 +33,6 @@
     "eslint-plugin-react": "^4.2.0"
   },
   "dependencies": {
-    "babel-relay-plugin": "^0.8.1",
-    "babel-relay-plugin-loader": "^0.8.0",
-    "eslint-plugin-react": "^4.2.0",
-    "react-relay": "^0.8.1"
+    "eslint-plugin-react": "^4.2.0"
   }
 }
