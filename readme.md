@@ -19,6 +19,8 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-dynamic-component-re
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-authentication-and-authorisation-f7c07ebb47b3#.2y1h14x2p
 4. **Part5** - Integrating Webpack with `react-on-rails`
 https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c6a420b4eea#.60z7xg1j0
+5. **Final** - Wrap up
+https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-wrap-up-500c67522cd2#.gt0b65fa7
 
 #### Current features
 * List posts
@@ -27,6 +29,7 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c
 * Show author info, votes and comments count
 * Mutations to create comments and votes
 * Edit and Update comments
+* Create and Delete posts
 * Add a react native app [https://github.com/gauravtiwari/graphql-blog-mobile](https://github.com/gauravtiwari/graphql-blog-mobile)
 
 ### Demo Links
@@ -37,7 +40,7 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-moving-to-webpack-9c
 * [Facebook Relay](https://facebook.github.io/relay/): Official relay docs
 * [GraphQL](http://facebook.github.io/graphql/): Official GraphQL spec
 * [graphql-ruby](https://github.com/rmosolgo/graphql-ruby) & [graphql-relay-ruby](https://github.com/rmosolgo/graphql-relay-ruby): For defining GraphQL schema and Relay implementation in Ruby GraphQL classes, and getting Rails to speak GraphQL.
-* ```browserify-rails```: Command-line options required to do transpilation, e.g., —plugin, etc.
+* ```Webpack```: Module loader
 
 ### TODOs
 * Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
