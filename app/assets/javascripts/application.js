@@ -5,5 +5,4 @@
 //= require js-routes
 //= require local_time
 //= require app-bundle
-//= require turbolinks
 //= require bootstrap-sprockets
