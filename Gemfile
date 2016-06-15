@@ -7,6 +7,7 @@ gem 'pg'
 
 # Asset compilation and NPM modules
 gem 'sass-rails'
+gem 'coffee-rails'
 gem 'uglifier'
 
 # Setup react and dependencies
@@ -33,9 +34,6 @@ gem 'turbolinks', '~> 5.x'
 
 # Slug
 gem 'stringex'
-
-# Time
-gem 'local_time'
 
 # React integration
 gem 'react_on_rails', github: "gauravtiwari/react_on_rails"

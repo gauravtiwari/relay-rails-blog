@@ -34,6 +34,7 @@
     "eslint-plugin-react": "^4.2.0"
   },
   "dependencies": {
-    "eslint-plugin-react": "^4.2.0"
+    "eslint-plugin-react": "^4.2.0",
+    "moment": "^2.13.0"
   }
 }

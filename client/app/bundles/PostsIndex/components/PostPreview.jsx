@@ -3,6 +3,7 @@ import Relay from 'react-relay';
 import classNames from 'classnames/bind';
 import VoteMutations from '../../Mutations/VoteMutations';
 import DeletePost from '../../Mutations/DeletePost';
+import Moment from 'moment';
 
 /* global LocalTime, Routes, App */
 
@@ -51,7 +52,7 @@ class PostPreview extends React.Component {
               Posted by:<em>{post.user.name}</em>
             </span>
             <span className="date">
-              | {LocalTime.relativeTimeAgo(new Date(post.created_at))}
+              | {Moment(new Date(post.created_at)).fromNow()}
             </span>
             <span className="count comments">
               <span>|</span> Comments: {post.comments_count}

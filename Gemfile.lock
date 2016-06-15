@@ -92,8 +92,6 @@ GEM
     json (1.8.3)
     kgio (2.10.0)
     libv8 (3.16.14.15)
-    local_time (1.0.3)
-      coffee-rails
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -190,6 +188,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  coffee-rails
   dalli
   devise
   faker
@@ -199,7 +198,6 @@ DEPENDENCIES
   graphql-relay
   js-routes
   kgio
-  local_time
   pg
   puma
   pundit
@@ -219,4 +217,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.3
+   1.12.5

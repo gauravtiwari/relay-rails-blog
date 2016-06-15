@@ -9,17 +9,18 @@ const nodeEnv = devBuild ? 'development' : 'production';
 module.exports = {
   // the project dir
   context: __dirname,
+  devtool: 'inline-source-map',
 
   // Vendor and entry point of the app
   entry: [
     'react-dom/server',
     'react',
-    './app/assets/javascripts/components',
+    './app/bundles/startup/serverRegistration',
   ],
   // Bundled output path
   output: {
     filename: 'server-bundle.js',
-    path: './app/assets/webpack',
+    path: '../app/assets/webpack',
   },
 
   // Extensions to resolve
