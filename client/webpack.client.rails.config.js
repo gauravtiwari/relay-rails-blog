@@ -13,25 +13,6 @@ config.output = {
   path: '../app/assets/webpack',
 };
 
-// You can add entry points specific to rails here
-// The es5-shim/sham is for capybara testing
-config.entry.vendor.unshift(
-  'es5-shim/es5-shim',
-  'es5-shim/es5-sham'
-);
-
-// See webpack.common.config for adding modules common to both the webpack dev server and rails
-config.module.loaders.push(
-  {
-    test: /\.jsx?$/,
-    loader: 'babel-loader',
-    exclude: /node_modules/,
-  },
-  {
-    test: require.resolve('react'),
-    loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
-  }
-);
 
 module.exports = config;
 

@@ -14,7 +14,6 @@ module.exports = {
 
     // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
     vendor: [
-      'babel-polyfill',
       'jquery',
       'jquery-ujs',
     ],
@@ -59,8 +58,15 @@ module.exports = {
 
       // Not all apps require jQuery. Many Rails apps do, such as those using TurboLinks or
       // bootstrap js
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      },
       { test: require.resolve('jquery'), loader: 'expose?jQuery' },
       { test: require.resolve('jquery'), loader: 'expose?$' },
+      { test: require.resolve('react'), loader: 'expose?React' },
+      { test: require.resolve('react-dom'), loader: 'expose?ReactDOM' },
     ],
   },
 };
