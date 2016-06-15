@@ -1,4 +1,4 @@
-/* global LocalTime, App, Routes */
+/* global App, Routes */
 
 import React from 'react';
 import Relay from 'react-relay';
@@ -8,6 +8,7 @@ import EditComment from '../../Mutations/EditComment';
 import DeleteComment from '../../Mutations/DeleteComment';
 import showdown from 'showdown';
 const converter = new showdown.Converter();
+import Moment from 'moment';
 
 /*
   Component: Comment
@@ -50,7 +51,7 @@ class Comment extends React.Component {
           <h4 className="media-heading">
             {comment.user.name}
             <small>
-              {LocalTime.relativeTimeAgo(new Date(comment.created_at))}
+              {Moment(new Date(comment.created_at)).fromNow()}
             </small>
             <div className={manageClasses}>
               <a href="#" onClick={this._toggleForm}>{toggleText}</a>

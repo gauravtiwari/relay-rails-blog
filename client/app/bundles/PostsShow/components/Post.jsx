@@ -1,7 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import classNames from 'classnames/bind';
-
+import Moment from 'moment';
 // Import components
 import Comment from '../../Comments/components/Comment';
 import CreateComment from '../../Mutations/CreateComment';
@@ -9,7 +9,7 @@ import VoteMutations from '../../Mutations/VoteMutations';
 import showdown from 'showdown';
 const converter = new showdown.Converter();
 
-/* global LocalTime, Routes, App */
+/* globalRoutes, App */
 
 /*
   Component: Post

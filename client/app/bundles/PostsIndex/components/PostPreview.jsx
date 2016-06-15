@@ -5,7 +5,7 @@ import VoteMutations from '../../Mutations/VoteMutations';
 import DeletePost from '../../Mutations/DeletePost';
 import Moment from 'moment';
 
-/* global LocalTime, Routes, App */
+/* global Routes, App */
 
 /*
   Component: PostPreview
