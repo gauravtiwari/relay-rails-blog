@@ -1,35 +1,49 @@
-// Run like this:
-// cd client && npm run build:dev:client
-// Note that Foreman (Procfile.dev) has also been configured to take care of this.
-
-// NOTE: All style sheets handled by the asset pipeline in rails
+// Webpack configuration for server bundle
 
 const webpack = require('webpack');
-const config = require('./webpack.client.base.config');
+const path = require('path');
+
 const devBuild = process.env.NODE_ENV !== 'production';
+const nodeEnv = devBuild ? 'development' : 'production';
 
-config.output = {
-  filename: '[name]-bundle.js',
-  path: '../app/assets/webpack',
-};
+module.exports = {
+  // the project dir
+  context: __dirname,
 
-// See webpack.common.config for adding modules common to both the webpack dev server and rails
-config.module.loaders.push(
-  {
-    test: /\.jsx?$/,
-    loader: 'babel-loader',
-    exclude: /node_modules/,
+  // Vendor and entry point of the app
+  entry: [
+    'react-dom/server',
+    'react',
+    './app/assets/javascripts/components',
+  ],
+  // Bundled output path
+  output: {
+    filename: 'server-bundle.js',
+    path: './app/assets/webpack',
   },
-);
 
-module.exports = config;
-
-if (devBuild) {
-  console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
-  module.exports.devtool = 'eval-source-map';
-} else {
-  config.plugins.push(
-    new webpack.optimize.DedupePlugin()
-  );
-  console.log('Webpack production build for Rails'); // eslint-disable-line no-console
-}
+  // Extensions to resolve
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.es6.js'],
+    alias: {
+      lib: path.join(process.cwd(), 'app', 'lib'),
+    },
+  },
+  // Add plugins
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(nodeEnv),
+      },
+    }),
+  ],
+  module: {
+    loaders: [
+      // react-rails would need certain global objects plus we need to use babel loader
+      // for ES6 code
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: require.resolve('react'), loader: 'expose?React' },
+      { test: require.resolve('react-dom/server'), loader: 'expose?ReactDOMServer' }
+    ],
+  },
+};
