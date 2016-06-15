@@ -44,14 +44,13 @@ class Comment extends React.Component {
     });
 
     const toggleText = this.state.editing ? 'Close' : 'Edit';
-
     return (
       <div key={comment.id} className={commentClasses}>
         <div className="media-body">
           <h4 className="media-heading">
             {comment.user.name}
             <small>
-              {Moment(new Date(comment.created_at)).fromNow()}
+              {Moment(Moment.utc(comment.created_at).toDate()).fromNow().toString()}
             </small>
             <div className={manageClasses}>
               <a href="#" onClick={this._toggleForm}>{toggleText}</a>

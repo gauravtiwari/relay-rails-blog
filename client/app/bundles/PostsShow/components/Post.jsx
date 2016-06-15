@@ -62,7 +62,7 @@ class Post extends React.Component {
                      Posted by: <em>{post.user.name}</em>
                    </span>
                    <span className="date">
-                    {Moment(new Date(post.created_at)).fromNow()}
+                    {Moment(Moment.utc(post.created_at).toDate()).fromNow().toString()}
                    </span>
                    <span className="counters">
                      Comments: {post.comments_count}
