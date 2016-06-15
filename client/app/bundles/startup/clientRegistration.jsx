@@ -6,6 +6,8 @@ import RootRoute from '../PostsIndex/routes/RootRoute';
 import PostRoute from '../PostsShow/routes/PostRoute';
 import CurrentUser from '../Header/components/CurrentUser';
 import Relay from 'react-relay';
+import Turbolinks from 'turbolinks';
+Turbolinks.start();
 
 /* global $, App */
 

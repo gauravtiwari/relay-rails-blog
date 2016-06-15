@@ -12,8 +12,10 @@ module.exports = {
   entry: {
     // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
     vendor: [
+      'babel-polyfill',
       'jquery',
       'jquery-ujs',
+      'turbolinks',
       'react-dom',
       'react',
     ],
@@ -65,6 +67,7 @@ module.exports = {
       { test: require.resolve('react'), loader: 'expose?React' },
       { test: require.resolve('jquery'), loader: 'expose?$' },
       { test: require.resolve('jquery'), loader: 'expose?jQuery' },
+      { test: require.resolve('turbolinks'), loader: 'expose?Turbolinks' },
       { test: require.resolve('react-dom'), loader: 'expose?ReactDOM' },
     ],
   },

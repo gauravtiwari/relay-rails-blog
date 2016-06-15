@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "eslint-plugin-react": "^4.2.0",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "turbolinks": "^5.0.0-beta5"
   }
 }
