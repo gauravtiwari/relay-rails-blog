@@ -13,6 +13,7 @@ module.exports = {
     // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
     vendor: [
       'jquery',
+      'jquery-ujs',
       'react-dom',
       'react',
     ],
