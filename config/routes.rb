@@ -13,6 +13,4 @@ Rails.application.routes.draw do
   resources :posts
 
   get 'tag/:tag', to: 'posts#tag', as: :tag
-
-  resources :queries
 end
