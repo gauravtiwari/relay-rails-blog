@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post "/", to: "graphql#create"
   end
 
-  resources :posts
+  resources :posts, only: :show
 
   get 'tag/:tag', to: 'posts#tag', as: :tag
 end
