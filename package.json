@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/gauravtiwari/relay-rails-blog",
   "devDependencies": {
-    "eslint": "^2.11.0",
+    "eslint": "^2.13.1",
     "eslint-plugin-react": "^4.2.0"
   },
   "dependencies": {
