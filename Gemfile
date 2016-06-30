@@ -11,7 +11,7 @@ gem 'coffee-rails'
 gem 'uglifier'
 
 # Setup react and dependencies
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer'
 
 # Graphql
 gem 'graphql'
