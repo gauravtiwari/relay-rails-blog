@@ -1,6 +1,6 @@
 include ActionView::Helpers::TextHelper
 
-class Post < ActiveRecord::Base
+class Post < ApplicationRecord
 
   before_create :set_excerpt, unless: :excerpt?
 
