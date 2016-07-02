@@ -2,7 +2,7 @@ ruby '2.3.1'
 source 'https://rubygems.org'
 
 # Setup Rails and API
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0'
 gem 'pg'
 
 # Asset compilation and NPM modules
