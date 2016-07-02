@@ -1,15 +1,7 @@
 $: << File.expand_path('../lib', __dir__)
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
+require 'rails/all'
 # require "rails/test_unit/railtie"
 require 'graphql_reloader'
 
@@ -25,6 +17,7 @@ module GraphqlBlog
     config.autoload_paths << Rails.root.join('app/graph/mutations')
     config.autoload_paths << Rails.root.join('app/graph/types')
     config.active_record.raise_in_transactional_callbacks = true
+    ActiveSupport.halt_callback_chains_on_return_false = false
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.schema_format = :sql
