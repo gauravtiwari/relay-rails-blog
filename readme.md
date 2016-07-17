@@ -1,10 +1,9 @@
 ### Demo blog application powered by Rails, react, graphql and Relay.
 
-This blog is an exploration excerise to understand two new technologies - GraphQL and Relay. We are using standard rails application together with npm for handling front-end dependencies.
+This blog is an exploration exercise to understand two new technologies - GraphQL and Relay. We are using standard rails application together with webpack for handling front-end dependencies.
 
 ### Status
-
-**Currently**, the application supports reading and creating data from and on server.
+Application supports reading and creating data from and on server using GraphQL.
 
 # Tutorial:
 1. **Introduction:** https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-getting-started-955a49d251de
