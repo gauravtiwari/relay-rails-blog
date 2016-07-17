@@ -1,3 +1,4 @@
+# Initialize base type to define a PostType using given fields
 PostType = BaseType.new(Post).to_graphql_type(
   [:title, :slug, :user_id, :body, :excerpt, :comments_count,
   :votes_count, :created_at]

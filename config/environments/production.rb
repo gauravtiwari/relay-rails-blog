@@ -36,17 +36,9 @@ Rails.application.configure do
      :socket_failure_delay => 0.2
      }
 
-    # Enable Rack::Cache to put a simple HTTP cache in front of your application
-    # Add `rack-cache` to your Gemfile before enabling this.
-    # For large-scale production use, consider using a caching reverse proxy like
-    # NGINX, varnish or squid.
-    # config.action_dispatch.rack_cache = true
+  config.public_file_server.enabled = true
 
-    # Disable serving static files from the `/public` folder by default since
-    # Apache or NGINX already handles this.
-    config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
-
-  config.static_cache_control = "public, max-age=2592000"
+  config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=2592000' }
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
