@@ -126,7 +126,7 @@
         {
           "kind": "OBJECT",
           "name": "Viewer",
-          "description": "Support unassociated root queries that fetches collections. Supports fetching posts and users collection",
+          "description": "Support unassociated root queries that fetches collections.",
           "fields": [
             {
               "name": "current_user",
@@ -245,7 +245,7 @@
             },
             {
               "name": "tags",
-              "description": "List of tags for the post",
+              "description": "List of tags for all posts",
               "args": [
 
               ],
@@ -257,6 +257,107 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "User",
+          "description": "A single User type",
+          "fields": [
+            {
+              "name": "created_at",
+              "description": "created_at field for the User model",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "email",
+              "description": "email field for the User model",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "id",
+              "description": null,
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "name",
+              "description": "name field for the User model",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "username",
+              "description": "username field for the User model",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -366,11 +467,11 @@
         {
           "kind": "OBJECT",
           "name": "Post",
-          "description": "A single post entry returns a post with author, total votes and comments",
+          "description": "A single Post type",
           "fields": [
             {
               "name": "body",
-              "description": "The body of this post",
+              "description": "body field for the Post model",
               "args": [
 
               ],
@@ -384,7 +485,7 @@
             },
             {
               "name": "comments",
-              "description": "All comments association with this post. Returns comments collection and accepts arguments.",
+              "description": "The comments associated with the post",
               "args": [
                 {
                   "name": "first",
@@ -447,13 +548,13 @@
             },
             {
               "name": "comments_count",
-              "description": "The total numner of comments on this post",
+              "description": "comments_count field for the Post model",
               "args": [
 
               ],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -461,7 +562,7 @@
             },
             {
               "name": "created_at",
-              "description": "The time at which this post was created",
+              "description": "created_at field for the Post model",
               "args": [
 
               ],
@@ -475,7 +576,7 @@
             },
             {
               "name": "excerpt",
-              "description": "The short description of this post",
+              "description": "excerpt field for the Post model",
               "args": [
 
               ],
@@ -507,7 +608,7 @@
             },
             {
               "name": "slug",
-              "description": "The slug of this post",
+              "description": "slug field for the Post model",
               "args": [
 
               ],
@@ -521,7 +622,7 @@
             },
             {
               "name": "tags",
-              "description": "List of tags for the post",
+              "description": "The tags associated with the post",
               "args": [
 
               ],
@@ -539,7 +640,7 @@
             },
             {
               "name": "title",
-              "description": "The title of this post",
+              "description": "title field for the Post model",
               "args": [
 
               ],
@@ -553,7 +654,7 @@
             },
             {
               "name": "user",
-              "description": "Owner of this post",
+              "description": "The user of the comment",
               "args": [
 
               ],
@@ -567,7 +668,7 @@
             },
             {
               "name": "user_id",
-              "description": "The id of this post author",
+              "description": "user_id field for the Post model",
               "args": [
 
               ],
@@ -581,7 +682,7 @@
             },
             {
               "name": "voted",
-              "description": "Is this post voted by current user?",
+              "description": "Is this record voted by current user?",
               "args": [
 
               ],
@@ -595,13 +696,13 @@
             },
             {
               "name": "votes_count",
-              "description": "The total numner of votes on this post",
+              "description": "votes_count field for the Post model",
               "args": [
 
               ],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -616,16 +717,6 @@
               "ofType": null
             }
           ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "String",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -640,93 +731,12 @@
           "possibleTypes": null
         },
         {
-          "kind": "OBJECT",
-          "name": "User",
-          "description": "Generated programmatically from model: User",
-          "fields": [
-            {
-              "name": "created_at",
-              "description": "created_at for the User model",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "email",
-              "description": "email for the User model",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "id",
-              "description": null,
-              "args": [
-
-              ],
-              "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "name",
-              "description": "name for the User model",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "user_name",
-              "description": "user_name for the User model",
-              "args": [
-
-              ],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "description": null,
+          "fields": null,
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -823,11 +833,11 @@
         {
           "kind": "OBJECT",
           "name": "Comment",
-          "description": "A single comment entry returns a comment with author and total votes",
+          "description": "A single Comment type",
           "fields": [
             {
               "name": "body",
-              "description": "The body of this comment",
+              "description": "body field for the Comment model",
               "args": [
 
               ],
@@ -841,7 +851,7 @@
             },
             {
               "name": "created_at",
-              "description": "The date on which the comment was posted",
+              "description": "created_at field for the Comment model",
               "args": [
 
               ],
@@ -887,7 +897,7 @@
             },
             {
               "name": "user",
-              "description": "Owner of this comment",
+              "description": "The user of the comment",
               "args": [
 
               ],
@@ -901,7 +911,7 @@
             },
             {
               "name": "voted",
-              "description": "Is this comment voted by current user?",
+              "description": "Is this record voted by current user?",
               "args": [
 
               ],
@@ -915,13 +925,13 @@
             },
             {
               "name": "votes_count",
-              "description": "The total number of votes on this comment",
+              "description": "votes_count field for the Comment model",
               "args": [
 
               ],
               "type": {
                 "kind": "SCALAR",
-                "name": "String",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -936,16 +946,6 @@
               "ofType": null
             }
           ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "Boolean",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
