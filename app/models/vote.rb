@@ -1,5 +1,4 @@
 class Vote < ApplicationRecord
-
   # Associations
   belongs_to :user
   belongs_to :votable, polymorphic: true, touch: true, counter_cache: true
@@ -19,5 +18,4 @@ class Vote < ApplicationRecord
     votable.voter_ids.delete(user_id.to_s)
     votable.save
   end
-
 end

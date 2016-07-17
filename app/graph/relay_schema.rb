@@ -1,4 +1,7 @@
-RelaySchema = GraphQL::Schema.new(query: QueryType, mutation: MutationType)
+RelaySchema = GraphQL::Schema.new(
+  query: QueryType,
+  mutation: MutationType
+)
 
 # Responsible for dumping Schema.json to app/assets/javascripts/relay/
 module RelaySchemaHelpers
@@ -14,7 +17,7 @@ module RelaySchemaHelpers
   end
 
   def checksum
-    files   = Dir["app/graph/**/*.rb"].reject { |f| File.directory?(f) }
+    files   = Dir['app/graph/**/*.rb'].reject { |f| File.directory?(f) }
     content = files.map { |f| File.read(f) }.join
     Digest::SHA256.hexdigest(content).to_s
   end

@@ -4,9 +4,9 @@ PostType = BaseType.new(Post).to_graphql_type(
 )
 
 # Add custom fields and connection to the PostType
-PostType.fields["user"] = UserField
-PostType.fields["voted"] = VotedField
-PostType.fields["tags"] = TagsField
-PostType.fields["comments"] = GraphQL::Relay::ConnectionField.create(
+PostType.fields['user'] = UserField
+PostType.fields['voted'] = VotedField
+PostType.fields['tags'] = TagsField
+PostType.fields['comments'] = GraphQL::Relay::ConnectionField.create(
   CommentsField
 )
