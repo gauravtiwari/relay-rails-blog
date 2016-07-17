@@ -1,4 +1,4 @@
-class BaseType
+class DefineType
   def initialize(model)
     @model = model
   end
