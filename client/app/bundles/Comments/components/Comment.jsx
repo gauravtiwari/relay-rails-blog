@@ -152,8 +152,8 @@ const CommentContainer = Relay.createContainer(Comment, {
         voted,
         created_at,
         user {
-          name
-        }
+          name,
+        },
       }
     `,
   },

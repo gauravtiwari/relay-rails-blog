@@ -166,7 +166,7 @@
               "args": [
                 {
                   "name": "first",
-                  "description": null,
+                  "description": "Returns the first _n_ elements from the list.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -176,7 +176,7 @@
                 },
                 {
                   "name": "after",
-                  "description": null,
+                  "description": "Returns the elements in the list that come after the specified global ID.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -186,7 +186,7 @@
                 },
                 {
                   "name": "last",
-                  "description": null,
+                  "description": "Returns the last _n_ elements from the list.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -196,7 +196,7 @@
                 },
                 {
                   "name": "before",
-                  "description": null,
+                  "description": "Returns the elements in the list that come before the specified global ID.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -388,7 +388,7 @@
               "args": [
                 {
                   "name": "first",
-                  "description": null,
+                  "description": "Returns the first _n_ elements from the list.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -398,7 +398,7 @@
                 },
                 {
                   "name": "after",
-                  "description": null,
+                  "description": "Returns the elements in the list that come after the specified global ID.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -408,7 +408,7 @@
                 },
                 {
                   "name": "last",
-                  "description": null,
+                  "description": "Returns the last _n_ elements from the list.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "Int",
@@ -418,7 +418,7 @@
                 },
                 {
                   "name": "before",
-                  "description": null,
+                  "description": "Returns the elements in the list that come before the specified global ID.",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String",
@@ -642,11 +642,11 @@
         {
           "kind": "OBJECT",
           "name": "User",
-          "description": "An user entry, returns basic user information",
+          "description": "Generated programmatically from model: User",
           "fields": [
             {
               "name": "created_at",
-              "description": "The date this user created an account",
+              "description": "created_at for the User model",
               "args": [
 
               ],
@@ -660,7 +660,7 @@
             },
             {
               "name": "email",
-              "description": "The email of this user",
+              "description": "email for the User model",
               "args": [
 
               ],
@@ -692,7 +692,21 @@
             },
             {
               "name": "name",
-              "description": "The name of this user",
+              "description": "name for the User model",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "user_name",
+              "description": "user_name for the User model",
               "args": [
 
               ],
@@ -942,7 +956,7 @@
           "fields": [
             {
               "name": "hasNextPage",
-              "description": null,
+              "description": "Indicates if there are more pages to fetch",
               "args": [
 
               ],
@@ -960,7 +974,7 @@
             },
             {
               "name": "hasPreviousPage",
-              "description": null,
+              "description": "Indicates if there are any pages prior to the current page",
               "args": [
 
               ],
@@ -1220,18 +1234,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1266,15 +1276,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1318,18 +1324,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1382,15 +1384,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1434,18 +1432,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1494,15 +1488,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1546,18 +1536,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1606,15 +1592,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1644,18 +1626,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1704,15 +1682,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1742,18 +1716,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1806,15 +1776,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1844,18 +1810,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1904,15 +1866,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1984,18 +1942,14 @@
           "fields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "args": [
 
               ],
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2030,15 +1984,11 @@
           "inputFields": [
             {
               "name": "clientMutationId",
-              "description": null,
+              "description": "A unique identifier for the client performing the mutation.",
               "type": {
-                "kind": "NON_NULL",
-                "name": "Non-Null",
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2790,6 +2740,60 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "onField",
+              "description": "Does this directive apply to fields?",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Moved to 'locations' field"
+            },
+            {
+              "name": "onFragment",
+              "description": "Does this directive apply to fragments?",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Moved to 'locations' field"
+            },
+            {
+              "name": "onOperation",
+              "description": "Does this directive apply to operations?",
+              "args": [
+
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": "Non-Null",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Moved to 'locations' field"
             }
           ],
           "inputFields": null,
