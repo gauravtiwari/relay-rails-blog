@@ -232,7 +232,7 @@
                     "name": "String",
                     "ofType": null
                   },
-                  "defaultValue": "\"id\""
+                  "defaultValue": "\"-id\""
                 }
               ],
               "type": {
