@@ -15,7 +15,6 @@ export default class extends Relay.Mutation {
         commentEdge,
         post {
           comments_count
-          comments
         }
     }
     `;

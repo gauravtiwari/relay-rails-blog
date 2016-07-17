@@ -10,7 +10,6 @@ export default class extends Relay.Mutation {
       fragment on DestroyCommentPayload {
         post {
           comments_count
-          comments
         },
         deletedId
       }
