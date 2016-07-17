@@ -14,6 +14,7 @@ module GraphqlBlog
     config.middleware.use GraphQLReloader
     config.autoload_paths << Rails.root.join('app/graph')
     config.autoload_paths << Rails.root.join('app/lib')
+     config.autoload_paths << Rails.root.join('app/graph/fields')
     config.autoload_paths << Rails.root.join('app/graph/mutations')
     config.autoload_paths << Rails.root.join('app/graph/types')
     config.active_record.raise_in_transactional_callbacks = true
