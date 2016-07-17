@@ -27,6 +27,8 @@ def convert_type(database_type)
   case database_type
   when :integer
     types.Int
+  when :boolean
+    types.Boolean
   else
     types.String
   end
