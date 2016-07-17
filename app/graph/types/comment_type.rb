@@ -1,34 +1,9 @@
-include ActionView::Helpers::TextHelper
+# Initialize base type to define a type using given fields
+CommentType = BaseType.new(Comment).to_graphql_type(
+  [:body, :votes_count, :created_at]
+)
 
-CommentType = GraphQL::ObjectType.define do
-
-  name "Comment"
-  description "A single comment entry returns a comment with author and total votes"
-
-  interfaces [NodeIdentification.interface]
-  # `id` exposes the UUID for fetching/re-fetching
-  global_id_field :id
-
-  # Expose fields associated with Comment model
-  field :created_at, types.String, "The date on which the comment was posted"
-  field :body, types.String, "The body of this comment"
-  field :votes_count, types.String,  "The total number of votes on this comment"
-  field :user, UserType, "Owner of this comment"
-
-  # Custom field using resolve block
-  field :voted do
-    type types.Boolean
-    description "Is this comment voted by current user?"
-    resolve -> (comment, arguments, ctx) {
-      ctx[:current_user] ? comment.voted?(ctx[:current_user].id) : false
-    }
-  end
-
-  field :is_owner do
-    type types.Boolean
-    description "Is the comment belongs to current user?"
-    resolve -> (comment, arguments, ctx) {
-      ctx[:current_user] ? comment.is_owner?(ctx[:current_user].id) : false
-    }
-  end
-end
+# Add custom fields and connection to the PostType
+CommentType.fields["user"] = UserField
+CommentType.fields["voted"] = VotedField
+CommentType.fields["is_owner"] = IsOwnerField

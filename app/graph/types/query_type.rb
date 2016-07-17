@@ -10,5 +10,4 @@ QueryType = GraphQL::ObjectType.define do
     description 'Root object to get viewer related collections'
     resolve -> (obj, args, ctx) { Viewer::STATIC }
   end
-
 end
