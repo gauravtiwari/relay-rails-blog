@@ -1,7 +1,7 @@
 module PostMutations
   Create = GraphQL::Relay::Mutation.define do
-    name "CreatePost"
-    description "Create Post"
+    name 'CreatePost'
+    description 'Create Post'
 
     # Define input parameters
     input_field :title, !types.String
@@ -34,8 +34,8 @@ module PostMutations
   end
 
   Destroy = GraphQL::Relay::Mutation.define do
-    name "DestroyPost"
-    description "Delete a Post"
+    name 'DestroyPost'
+    description 'Delete a Post'
 
     # Define input parameters
     input_field :id, !types.ID
@@ -56,8 +56,8 @@ module PostMutations
   end
 
   Edit = GraphQL::Relay::Mutation.define do
-    name "EditPost"
-    description "Edit a Post and return Post"
+    name 'EditPost'
+    description 'Edit a Post and return Post'
 
     # Define input parameters
     input_field :id, !types.ID

@@ -1,7 +1,7 @@
 module CommentMutations
   Create = GraphQL::Relay::Mutation.define do
-    name "CreateComment"
-    description "Create comment for a post and return post and new comment"
+    name 'CreateComment'
+    description 'Create comment for a post and return post and new comment'
 
     # Define input parameters
     input_field :post_id, !types.ID
@@ -31,8 +31,8 @@ module CommentMutations
   end
 
   Destroy = GraphQL::Relay::Mutation.define do
-    name "DestroyComment"
-    description "Delete a comment and return post and deleted comment ID"
+    name 'DestroyComment'
+    description 'Delete a comment and return post and deleted comment ID'
 
     # Define input parameters
     input_field :id, !types.ID
@@ -55,8 +55,8 @@ module CommentMutations
   end
 
   Edit = GraphQL::Relay::Mutation.define do
-    name "EditComment"
-    description "Edit a comment and return comment"
+    name 'EditComment'
+    description 'Edit a comment and return comment'
 
     # Define input parameters
     input_field :id, !types.ID

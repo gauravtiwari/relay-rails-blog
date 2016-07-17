@@ -1,6 +1,6 @@
 module VoteMutations
   Create = GraphQL::Relay::Mutation.define do
-    name "CreateVote"
+    name 'CreateVote'
 
     input_field :votable_id, !types.ID
 
@@ -14,13 +14,13 @@ module VoteMutations
         user: user
       })
 
-      { "#{votable.class.to_s.downcase}".to_sym => votable.reload }
+      { votable.class.to_s.downcase.to_sym => votable.reload }
 
     }
   end
 
   Destroy = GraphQL::Relay::Mutation.define do
-    name "DestroyVote"
+    name 'DestroyVote'
 
     input_field :votable_id, !types.ID
 
@@ -36,7 +36,7 @@ module VoteMutations
 
       vote.destroy
 
-      { "#{votable.class.to_s.downcase}".to_sym => votable.reload  }
+      { vote.votable_type.downcase.to_sym => votable.reload  }
     }
   end
 end
