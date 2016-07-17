@@ -12,11 +12,12 @@ Bundler.require(*Rails.groups)
 module GraphqlBlog
   class Application < Rails::Application
     config.middleware.use GraphQLReloader
-    config.autoload_paths << Rails.root.join('app/graph')
+    config.autoload_paths << Rails.root.join('app/api')
     config.autoload_paths << Rails.root.join('app/lib')
-     config.autoload_paths << Rails.root.join('app/graph/fields')
-    config.autoload_paths << Rails.root.join('app/graph/mutations')
-    config.autoload_paths << Rails.root.join('app/graph/types')
+     config.autoload_paths << Rails.root.join('app/api/fields')
+    config.autoload_paths << Rails.root.join('app/api/mutations')
+    config.autoload_paths << Rails.root.join('app/api/types')
+
     config.active_record.raise_in_transactional_callbacks = true
     ActiveSupport.halt_callback_chains_on_return_false = false
 
@@ -31,5 +32,4 @@ module GraphqlBlog
       g.helper_specs    false
     end
   end
-
 end
