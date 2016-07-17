@@ -1,4 +1,8 @@
 ActiveRecord::Base.transaction do
+  User.destroy_all
+  Post.destroy_all
+  Comment.destroy_all
+
   10.times do |i|
     User.create!(
       name: Faker::Name.name,
