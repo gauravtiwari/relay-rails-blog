@@ -3,20 +3,14 @@ module Graphqlable
 
   module ClassMethods
 
-    # Make a {ObjectType} which wraps the model fields
-    #
-    # @example generating a type
-
-    # Without given fields - all model fields are added
-    # =>  UserType = User.to_graphql_type
-    #
-    # With given fields - only specific fields are added
-    # => UserType = User.to_graphql_type([:name, :email])
+    # @example usage
+    # => UserType = User.to_graphql_type
+    # => UserType = User.to_graphql_type([:name, :email], true)
     # => UserType.inspect
     # => "User"
     #
     # @optional param: array of model fields [:name, :email]
-    # @optional param: Boolean to support relay
+    # @optional param: Relay support
     # @return A {ObjectType} for a model
 
     def to_graphql_type(fields=[], relay=false)
@@ -59,6 +53,13 @@ module Graphqlable
     end
   end
 end
+
+# @example usage
+# =>  graphql_type = convert_type(:integer)
+# => types.Int
+#
+# @param database_type
+# @return A valid graphql type
 
 def convert_type(database_type)
   case database_type
