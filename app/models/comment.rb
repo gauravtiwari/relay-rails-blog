@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  include Graphqlable
   # Associations
   belongs_to :user
   belongs_to :post, touch: true, counter_cache: true

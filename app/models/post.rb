@@ -1,5 +1,6 @@
 include ActionView::Helpers::TextHelper
 class Post < ApplicationRecord
+  include Graphqlable
   before_create :set_excerpt, unless: :excerpt?
 
   # Slug for posts

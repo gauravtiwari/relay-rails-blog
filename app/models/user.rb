@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Graphqlable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
