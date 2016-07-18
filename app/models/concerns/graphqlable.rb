@@ -1,3 +1,7 @@
+# GraphQL Type Generator
+# Arguments: optional array of model fields
+# Returns a GraphQL type
+
 module Graphqlable
   extend ActiveSupport::Concern
 
