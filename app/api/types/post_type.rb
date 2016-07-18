@@ -1,5 +1,5 @@
 # Generate a graphql type based on given model fields
-PostType = Api::GenerateGraphqlType.new(Post).with_fields(
+PostType = Post.to_graphql_type(
   [:title, :slug, :user_id, :body, :excerpt, :comments_count,
   :votes_count, :created_at]
 )

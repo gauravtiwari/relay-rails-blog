@@ -1,5 +1,5 @@
 # Generate a graphql type based on given model fields
-CommentType = Api::GenerateGraphqlType.new(Comment).with_fields(
+CommentType = Comment.to_graphql_type(
   [:body, :votes_count, :created_at]
 )
 
