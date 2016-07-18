@@ -9,6 +9,7 @@ module Graphqlable
     def to_graphql_type(fields=[])
       model = self
       model_fields = model.columns_hash
+
       GraphQL::ObjectType.define do
         name(model.name)
         description("A single #{model.name} type")
