@@ -1,5 +1,5 @@
 # Initialize base type to define a CommentType using given fields
-CommentType = DefineType.new(Comment).to_graphql_type(
+CommentType = Api::GenerateGraphqlType.new(Comment).with_fields(
   [:body, :votes_count, :created_at]
 )
 

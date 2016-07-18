@@ -1,4 +1,4 @@
 # Initialize base type to define a UserType using given fields
-UserType = DefineType.new(User).to_graphql_type(
+UserType = Api::GenerateGraphqlType.new(User).with_fields(
   [:name, :email, :username, :created_at]
 )
