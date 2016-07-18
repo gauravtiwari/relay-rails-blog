@@ -13,7 +13,6 @@ module GraphqlBlog
   class Application < Rails::Application
     config.middleware.use GraphQLReloader
     config.autoload_paths << Rails.root.join('app/api')
-    config.autoload_paths << Rails.root.join('app/lib')
     config.autoload_paths << Rails.root.join('app/api/fields')
     config.autoload_paths << Rails.root.join('app/api/mutations')
     config.autoload_paths << Rails.root.join('app/api/types')
