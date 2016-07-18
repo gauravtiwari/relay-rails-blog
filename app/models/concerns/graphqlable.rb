@@ -18,7 +18,7 @@ module Graphqlable
         raise ArgumentError unless fields and fields.is_a?(Array)
 
         model = self
-        model_fields = model.columns_hash
+        model_fields = model.columns_hash.except('id') if relay
 
         GraphQL::ObjectType.define do
           name(model.name)
