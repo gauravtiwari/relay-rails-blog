@@ -27,10 +27,7 @@ gem 'pundit'
 gem 'devise'
 
 # Bootstrap
-gem 'bootstrap-sass', '~> 3.3.6'
-
-#Speed up links
-gem 'turbolinks', '~> 5.x'
+gem 'bootstrap-sass'
 
 # Slug
 gem 'stringex'
