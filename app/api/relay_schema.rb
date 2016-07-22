@@ -3,6 +3,8 @@ RelaySchema = GraphQL::Schema.new(
   mutation: MutationType
 )
 
+RelaySchema.node_identification = NodeIdentification
+
 # Responsible for dumping Schema.json to app/assets/javascripts/relay/
 module RelaySchemaHelpers
   # Schema.json location
