@@ -50,7 +50,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.1)
-    autoprefixer-rails (6.3.7)
+    autoprefixer-rails (6.4.0.1)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -84,11 +84,9 @@ GEM
       thor (~> 0.19.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    graphql (0.17.2)
-    graphql-relay (0.12.0)
-      graphql (~> 0.17)
+    graphql (0.18.0)
     i18n (0.7.0)
-    js-routes (1.2.7)
+    js-routes (1.2.8)
       railties (>= 3.2)
       sprockets-rails
     kgio (2.10.0)
@@ -198,7 +196,6 @@ DEPENDENCIES
   figaro
   foreman
   graphql
-  graphql-relay
   js-routes
   kgio
   mini_racer

@@ -15,7 +15,6 @@ gem 'mini_racer'
 
 # Graphql
 gem 'graphql'
-gem 'graphql-relay'
 
 # Javascript routes
 gem 'js-routes'
