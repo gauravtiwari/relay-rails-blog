@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.1
--- Dumped by pg_dump version 9.5.1
+-- Dumped from database version 9.5.3
+-- Dumped by pg_dump version 9.5.3
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -32,6 +32,18 @@ SET search_path = public, pg_catalog;
 SET default_tablespace = '';
 
 SET default_with_oids = false;
+
+--
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE ar_internal_metadata (
+    key character varying NOT NULL,
+    value character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
 
 --
 -- Name: comments; Type: TABLE; Schema: public; Owner: -
@@ -144,7 +156,8 @@ CREATE TABLE users (
     "User" character varying,
     token character varying,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    roles text[] DEFAULT '{}'::text[]
 );
 
 
@@ -226,6 +239,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 --
 
 ALTER TABLE ONLY votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
+
+
+--
+-- Name: ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY ar_internal_metadata
+    ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
 
 
 --
@@ -324,6 +345,13 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (re
 
 
 --
+-- Name: index_users_on_roles; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_users_on_roles ON users USING gin (roles);
+
+
+--
 -- Name: index_users_on_username; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -396,15 +424,6 @@ ALTER TABLE ONLY votes
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20151030195110');
+INSERT INTO schema_migrations (version) VALUES ('20151030195110'), ('20151205163217'), ('20151205163301'), ('20151206085221'), ('20160309182028'), ('20160314185648'), ('20160813165451');
 
-INSERT INTO schema_migrations (version) VALUES ('20151205163217');
-
-INSERT INTO schema_migrations (version) VALUES ('20151205163301');
-
-INSERT INTO schema_migrations (version) VALUES ('20151206085221');
-
-INSERT INTO schema_migrations (version) VALUES ('20160309182028');
-
-INSERT INTO schema_migrations (version) VALUES ('20160314185648');
 

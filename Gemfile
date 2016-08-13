@@ -42,6 +42,10 @@ gem 'dalli'
 # Fake data
 gem 'faker'
 
+gem 'cancancan'
+
+gem 'enumerize'
+
 group :production do
   gem 'rails_12factor'
   gem 'puma'

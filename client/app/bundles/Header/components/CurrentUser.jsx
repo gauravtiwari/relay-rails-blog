@@ -73,7 +73,8 @@ const CurrentUserContainer = Relay.createContainer(CurrentUser, {
     root: () => Relay.QL`
       fragment on Viewer {
         current_user {
-          name
+          name,
+          is_moderator,
         }
       }
     `,

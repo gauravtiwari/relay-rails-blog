@@ -57,6 +57,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
+    cancancan (1.15.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -74,6 +75,8 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    enumerize (2.0.0)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.6.6)
@@ -189,9 +192,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  cancancan
   coffee-rails
   dalli
   devise
+  enumerize
   faker
   figaro
   foreman
