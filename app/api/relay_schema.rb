@@ -1,9 +1,23 @@
-RelaySchema = GraphQL::Schema.new(
-  query: QueryType,
-  mutation: MutationType
-)
+RelaySchema = GraphQL::Schema.define do
+  query QueryType
+  mutation MutationType
+  max_depth 7
 
-RelaySchema.node_identification = NodeIdentification
+  rescue_from(ActiveRecord::RecordInvalid) do |error|
+    "Some data could not be saved"
+  end
+
+  rescue_from(ActiveRecord::RecordNotFound) do |error|
+    "Could not find the record"
+  end
+
+  resolve_type -> (object, ctx) do
+    type_name = object.class.name
+    RelaySchema.types[type_name]
+  end
+
+  node_identification NodeIdentification
+end
 
 # Responsible for dumping Schema.json to app/assets/javascripts/relay/
 module RelaySchemaHelpers
