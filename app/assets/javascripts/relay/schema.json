@@ -1055,7 +1055,7 @@
           "fields": [
             {
               "name": "CreateComment",
-              "description": null,
+              "description": "Create comment for a post and return post and new comment",
               "args": [
                 {
                   "name": "input",
@@ -1082,7 +1082,7 @@
             },
             {
               "name": "CreatePost",
-              "description": null,
+              "description": "Create Post",
               "args": [
                 {
                   "name": "input",
@@ -1136,7 +1136,7 @@
             },
             {
               "name": "DestroyComment",
-              "description": null,
+              "description": "Delete a comment and return post and deleted comment ID",
               "args": [
                 {
                   "name": "input",
@@ -1163,7 +1163,7 @@
             },
             {
               "name": "DestroyPost",
-              "description": null,
+              "description": "Delete a Post",
               "args": [
                 {
                   "name": "input",
@@ -1217,7 +1217,7 @@
             },
             {
               "name": "EditComment",
-              "description": null,
+              "description": "Edit a comment and return comment",
               "args": [
                 {
                   "name": "input",
@@ -1244,7 +1244,7 @@
             },
             {
               "name": "EditPost",
-              "description": null,
+              "description": "Edit a Post and return Post",
               "args": [
                 {
                   "name": "input",
