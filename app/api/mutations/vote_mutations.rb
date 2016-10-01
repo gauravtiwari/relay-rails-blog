@@ -8,7 +8,7 @@ module VoteMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      votable = NodeIdentification.object_from_id(inputs[:votable_id], ctx)
+      votable = RelaySchema.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
       votable.votes.create({
         user: user
@@ -28,7 +28,7 @@ module VoteMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      votable = NodeIdentification.object_from_id(inputs[:votable_id], ctx)
+      votable = RelaySchema.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
       vote = user.votes.where({
         votable: votable

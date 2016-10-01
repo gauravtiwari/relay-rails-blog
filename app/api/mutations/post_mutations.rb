@@ -45,7 +45,7 @@ module PostMutations
     return_field :viewer, ViewerType
 
     resolve -> (inputs, ctx) {
-     post = NodeIdentification.object_from_id(inputs[:id], ctx)
+     post = RelaySchema.object_from_id(inputs[:id], ctx)
      post.destroy
 
      {
@@ -66,7 +66,7 @@ module PostMutations
     return_field :post, PostType
 
     resolve -> (inputs, ctx) {
-      post = NodeIdentification.object_from_id(inputs[:id], ctx)
+      post = RelaySchema.object_from_id(inputs[:id], ctx)
       valid_inputs = inputs.instance_variable_get(:@argument_values).select {
         |k, _| post.respond_to? "#{k}="
       }.except('id')

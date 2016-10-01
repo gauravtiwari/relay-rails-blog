@@ -13,7 +13,7 @@ module CommentMutations
 
     # Resolve block to create comment and return hash of post and comment
     resolve -> (inputs, ctx) {
-      post = NodeIdentification.object_from_id(inputs[:post_id], ctx)
+      post = RelaySchema.object_from_id(inputs[:post_id], ctx)
       user = ctx[:current_user]
       comment = post.comments.create({
         body: inputs[:body],
@@ -47,8 +47,8 @@ module CommentMutations
     return_field :post, PostType
 
     resolve -> (inputs, ctx) {
-     post = NodeIdentification.object_from_id(inputs[:post_id], ctx)
-     comment = NodeIdentification.object_from_id(inputs[:id], ctx)
+     post = RelaySchema.object_from_id(inputs[:post_id], ctx)
+     comment = RelaySchema.object_from_id(inputs[:id], ctx)
      comment.destroy
 
      {
@@ -70,7 +70,7 @@ module CommentMutations
     return_field :comment, CommentType
 
     resolve -> (inputs, ctx) {
-      comment = NodeIdentification.object_from_id(inputs[:id], ctx)
+      comment = RelaySchema.object_from_id(inputs[:id], ctx)
       valid_inputs = inputs.instance_variable_get(:@argument_values).select {
         |k, _| comment.respond_to? "#{k}="
       }.except('id')
