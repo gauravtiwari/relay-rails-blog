@@ -25,7 +25,7 @@ module Graphqlable
           description("A single #{model.name} type")
 
           if relay
-            interfaces [NodeIdentification.interface]
+            interfaces [GraphQL::Relay::Node.interface]
             global_id_field(:id)
           end
 
