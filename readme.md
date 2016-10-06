@@ -42,7 +42,6 @@ https://medium.com/@gauravtiwari/graphql-and-relay-on-rails-wrap-up-500c67522cd2
 
 ### TODOs
 * Explore Relay subscriptions to hook it with ActionCable [http://graphql.org/blog/subscriptions-in-graphql-and-relay/](http://graphql.org/blog/subscriptions-in-graphql-and-relay/)
-* Probably more...
 
 ### Running locally
 To run the application, please just clone the repo and run it like so:
