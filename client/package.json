@@ -69,10 +69,12 @@
     }
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0",
+    "babel-eslint": "^7.0.0",
     "babel-runtime": "^6.6.1",
-    "eslint": "^2.3.0",
-    "eslint-config-shakacode": "^3.0.0",
-    "eslint-plugin-react": "^4.2.0"
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1"
   }
 }
