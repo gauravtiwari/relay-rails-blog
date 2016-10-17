@@ -12,7 +12,7 @@ module CommentMutations
     return_field :post, PostType
 
     # Resolve block to create comment and return hash of post and comment
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:post_id], ctx)
       user = ctx[:current_user]
       comment = post.comments.create({
@@ -46,7 +46,7 @@ module CommentMutations
     return_field :deletedId, !types.ID
     return_field :post, PostType
 
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
      post = RelaySchema.object_from_id(inputs[:post_id], ctx)
      comment = RelaySchema.object_from_id(inputs[:id], ctx)
      comment.destroy
@@ -69,7 +69,7 @@ module CommentMutations
     # Define return parameters
     return_field :comment, CommentType
 
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
       comment = RelaySchema.object_from_id(inputs[:id], ctx)
       valid_inputs = inputs.instance_variable_get(:@argument_values).select {
         |k, _| comment.respond_to? "#{k}="

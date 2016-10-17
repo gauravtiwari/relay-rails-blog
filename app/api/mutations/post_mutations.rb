@@ -13,7 +13,7 @@ module PostMutations
     return_field :viewer, ViewerType
 
     # Resolve block to create Post and return hash of post and Post
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
       user = ctx[:current_user]
       viewer = Viewer::STATIC
       post = user.posts.create({
@@ -44,7 +44,7 @@ module PostMutations
     return_field :deletedId, !types.ID
     return_field :viewer, ViewerType
 
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
      post = RelaySchema.object_from_id(inputs[:id], ctx)
      post.destroy
 
@@ -65,7 +65,7 @@ module PostMutations
     # Define return parameters
     return_field :post, PostType
 
-    resolve -> (inputs, ctx) {
+    resolve -> (obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:id], ctx)
       valid_inputs = inputs.instance_variable_get(:@argument_values).select {
         |k, _| post.respond_to? "#{k}="
