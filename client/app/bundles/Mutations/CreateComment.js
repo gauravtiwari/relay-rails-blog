@@ -61,7 +61,7 @@ export default class extends Relay.Mutation {
         node: {
           body: converter.makeHtml(body),
           is_owner: true,
-          created_at: new Date().toUTCString(),
+          created_at: new Date(),
           user: {
             name: App.currentUser().name,
           },
