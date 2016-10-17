@@ -13,4 +13,4 @@ App.currentUser = ->
     $('meta[name=current_user]').attr('email')
 
   isCurrent: (id) ->
-    App.currentUser().id == id
+    this.id == id
