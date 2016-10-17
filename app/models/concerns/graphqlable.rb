@@ -62,8 +62,10 @@ end
 # @return A valid graphql type
 
 def convert_type(database_type)
-  case database_type
+  case database_type.type
   when :integer
+    types.Int
+  when :number
     types.Int
   when :boolean
     types.Boolean
