@@ -71,9 +71,14 @@ module CommentMutations
 
     resolve -> (obj, inputs, ctx) {
       comment = RelaySchema.object_from_id(inputs[:id], ctx)
-      valid_inputs = inputs.instance_variable_get(:@argument_values).select {
-        |k, _| comment.respond_to? "#{k}="
-      }.except('id')
+
+      valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
+        inputs.instance_variable_get(
+        :@original_values
+        ).select do |k, _|
+          record.respond_to? "#{k}="
+        end
+      ).except(:id)
 
       comment.update(valid_inputs)
 

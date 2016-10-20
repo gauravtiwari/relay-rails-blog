@@ -67,9 +67,15 @@ module PostMutations
 
     resolve -> (obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:id], ctx)
-      valid_inputs = inputs.instance_variable_get(:@argument_values).select {
-        |k, _| post.respond_to? "#{k}="
-      }.except('id')
+
+      valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
+        inputs.instance_variable_get(
+        :@original_values
+        ).select do |k, _|
+          record.respond_to? "#{k}="
+        end
+      ).except(:id)
+
 
       post.update(valid_inputs)
 
