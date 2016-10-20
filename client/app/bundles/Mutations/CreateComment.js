@@ -1,5 +1,6 @@
 import Relay from 'react-relay';
 import showdown from 'showdown';
+import moment from 'moment';
 const converter = new showdown.Converter();
 
 /* global App */
@@ -55,13 +56,15 @@ export default class extends Relay.Mutation {
     return {
       post: {
         id: post.id,
-        comments_count: parseInt(post.comments_count, 0) + 1,
+        comments_count: post.comments_count + 1,
       },
       commentEdge: {
         node: {
           body: converter.makeHtml(body),
           is_owner: true,
-          created_at: new Date(),
+          voted: false,
+          votes_count: 0,
+          created_at: moment().utc().valueOf(),
           user: {
             name: App.currentUser().name,
           },

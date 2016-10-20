@@ -72,8 +72,8 @@ export default class extends Relay.Mutation {
   getOptimisticResponse() {
     const { votable } = this.props;
     const count = this.props.votable.voted ?
-      parseInt(votable.votes_count, 0) - 1 :
-      parseInt(votable.votes_count, 0) + 1;
+      votable.votes_count - 1 :
+      votable.votes_count + 1;
 
     if (this.props.type === 'Post') {
       return {

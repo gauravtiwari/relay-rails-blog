@@ -43,7 +43,7 @@ export default class extends Relay.Mutation {
 
   getOptimisticResponse() {
     const { post, comment } = this.props;
-    const postPayload = { id: post.id, comments_count: parseInt(post.comments_count, 0) - 1 };
+    const postPayload = { id: post.id, comments_count: post.comments_count - 1 };
     return {
       post: postPayload,
       deletedId: comment.id,
