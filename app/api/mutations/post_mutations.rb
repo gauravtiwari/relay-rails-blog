@@ -72,7 +72,7 @@ module PostMutations
         inputs.instance_variable_get(
         :@original_values
         ).select do |k, _|
-          record.respond_to? "#{k}="
+          post.respond_to? "#{k}="
         end
       ).except(:id)
 

@@ -76,7 +76,7 @@ module CommentMutations
         inputs.instance_variable_get(
         :@original_values
         ).select do |k, _|
-          record.respond_to? "#{k}="
+          comment.respond_to? "#{k}="
         end
       ).except(:id)
 
