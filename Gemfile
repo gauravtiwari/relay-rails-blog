@@ -14,7 +14,7 @@ gem 'uglifier'
 gem 'mini_racer'
 
 # Graphql
-gem 'graphql'
+gem 'graphql', '1.0.0'
 
 # Javascript routes
 gem 'js-routes'
