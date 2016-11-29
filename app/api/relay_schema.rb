@@ -1,17 +1,15 @@
 RelaySchema = GraphQL::Schema.define do
   query QueryType
   mutation MutationType
-  max_depth 7
-
-  object_from_id -> (id, ctx) { decode_object(id) }
-  id_from_object -> (obj, type, ctx) { encode_object(obj, type) }
-  rescue_from ActiveRecord::RecordInvalid, &:message
-  rescue_from CanCan::AccessDenied, &:message
+  max_depth 8
+  rescue_from ActiveRecord::RecordInvalid, &:messag
   rescue_from ActiveRecord::Rollback, &:message
   rescue_from StandardError, &:message
   rescue_from ActiveRecord::RecordNotUnique, &:message
   rescue_from ActiveRecord::RecordNotFound, &:message
-  resolve_type -> (object, _ctx) { RelaySchema.types[type_name(object)] }
+  object_from_id ->(id, _ctx) { decode_object(id) }
+  id_from_object ->(obj, type, _ctx) { encode_object(obj, type) }
+  resolve_type ->(object, _ctx) { RelaySchema.types[type_name(object)] }
 end
 
 def type_name(object)
@@ -19,11 +17,18 @@ def type_name(object)
 end
 
 def encode_object(object, type)
-  GraphQL::Schema::UniqueWithinType.encode(type.name, object.id)
+  GraphQL::Schema::UniqueWithinType.encode(
+    type.name,
+    object.id,
+    separator: '---'
+  )
 end
 
 def decode_object(id)
-  type_name, object_id = GraphQL::Schema::UniqueWithinType.decode(id)
+  type_name, object_id = GraphQL::Schema::UniqueWithinType.decode(
+    id,
+    separator: '---'
+  )
   Object.const_get(type_name).find(object_id)
 end
 
