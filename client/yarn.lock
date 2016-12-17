@@ -854,23 +854,17 @@ babel-register@^6.18.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-relay-plugin-loader@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/babel-relay-plugin-loader/-/babel-relay-plugin-loader-0.9.0.tgz#2f05d44d211173b828968541df4e93912f17aba6"
+babel-relay-plugin-loader@gauravtiwari/babel-relay-plugin-loader:
+  version "0.10.0"
+  resolved "https://codeload.github.com/gauravtiwari/babel-relay-plugin-loader/tar.gz/5b5a1b23dbc41aacb9277e6f474b561dc1ee9306"
   dependencies:
-    babel-relay-plugin "^0.9.0"
+    babel-relay-plugin "^0.10.0"
 
 babel-relay-plugin@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/babel-relay-plugin/-/babel-relay-plugin-0.10.0.tgz#c7adede2b27dcc4aeedcb1ae760e364b2bacfaa0"
   dependencies:
     graphql "0.8.2"
-
-babel-relay-plugin@^0.9.0:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/babel-relay-plugin/-/babel-relay-plugin-0.9.3.tgz#4dd92693f68b00cd1cb68a705470f8f9cfaed5d6"
-  dependencies:
-    graphql "^0.6.0"
 
 babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.6.1, babel-runtime@^6.9.0, babel-runtime@^6.9.1:
   version "6.20.0"
@@ -1915,12 +1909,6 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.4:
 graphql@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.8.2.tgz#eb1bb524b38104bbf2c9157f9abc67db2feba7d2"
-  dependencies:
-    iterall "1.0.2"
-
-graphql@^0.6.0:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.6.2.tgz#19cdcb17e5862d64396a0684f92f7be64e90e7af"
   dependencies:
     iterall "1.0.2"
 
