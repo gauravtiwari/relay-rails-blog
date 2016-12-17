@@ -14,7 +14,7 @@ gem 'uglifier'
 gem 'mini_racer'
 
 # Graphql
-gem 'graphql', '1.0.0'
+gem 'graphql'
 
 # Javascript routes
 gem 'js-routes'
@@ -32,7 +32,7 @@ gem 'bootstrap-sass'
 gem 'stringex'
 
 # React integration
-gem 'react_on_rails', github: "gauravtiwari/react_on_rails"
+gem 'react_on_rails', github: 'gauravtiwari/react_on_rails'
 
 # Caching
 gem 'rack-cache'
