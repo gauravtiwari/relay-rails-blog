@@ -7,9 +7,10 @@ import Comment from '../../Comments/components/Comment';
 import CreateComment from '../../Mutations/CreateComment';
 import VoteMutations from '../../Mutations/VoteMutations';
 import showdown from 'showdown';
+
 const converter = new showdown.Converter();
 
-/* globalRoutes, App */
+/* global Routes, App */
 
 /*
   Component: Post
@@ -17,7 +18,6 @@ const converter = new showdown.Converter();
 */
 
 class Post extends React.Component {
-
   constructor(props) {
     super(props);
     this._handleScrollLoad = this._handleScrollLoad.bind(this);
@@ -46,13 +46,15 @@ class Post extends React.Component {
          <div className="container">
            <div className="row">
              <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-               <h2 className="section-heading">
+              <h2 className="section-heading">
                 {post.title}
-                </h2>
-                <div dangerouslySetInnerHTML={{ __html: converter.makeHtml(post.body) }} />
-               <div className="post-preview show">
-                 <div className="post-meta">
-                   <span className="counters">
+              </h2>
+              <div
+                dangerouslySetInnerHTML={{ __html: converter.makeHtml(post.body) }}
+              />
+              <div className="post-preview show">
+                <div className="post-meta">
+                  <span className="counters">
                     <a onClick={this._handleVote}>
                       <span className={voted}></span>
                     </a>
