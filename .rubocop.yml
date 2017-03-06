@@ -1,0 +1,34 @@
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'vendor/bundle/**/*'
+    - 'debugging.rb'
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'node_modules/**/*'
+    - 'test/**/*'
+    - 'spec/**/*'
+    - 'bin/*'
+    - 'config/initializers/*'
+    - 'config/environments/**/*'
+    - 'config/locals/*'
+    - 'scripts/*'
+    - 'spec/spec_helper.rb'
+    - 'lib/generators/api_versions/templates/controller.rb'
+    - 'config/initializers/postgresql_adapter.rb'
+    - !ruby/regexp /old_and_unused\.rb$/
+Rails/Date:
+  Exclude:
+    - 'lib/**/*'
+Style/Documentation:
+  Enabled: false
+Style/Lambda:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/IndentArray:
+  EnforcedStyle: consistent
