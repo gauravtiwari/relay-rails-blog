@@ -32,9 +32,13 @@ def decode_object(id)
   Object.const_get(type_name).find(object_id)
 end
 
-def authorize(user, resource)
+def authorize(user, resource, action = :manage)
   ability = Ability.new(user)
-  raise StandardError, 'Unauthorised' if ability.can?(:manage, resource)
+  raise StandardError, 'Unauthorised' unless ability.can?(action, resource)
+end
+
+def validate_object(resource, type)
+  raise StandardError, 'Resource mismatch' unless resource.class.name == type
 end
 
 # Responsible for dumping Schema.json to app/assets/javascripts/relay/

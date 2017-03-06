@@ -7,8 +7,7 @@ class GraphqlController < ApplicationController
       params[:query],
       variables: ensure_hash(params[:variables]),
       context: {
-        current_user: set_current_user,
-        ability: Ability.new(set_current_user)
+        current_user: set_current_user
       }
     )
     render json: result

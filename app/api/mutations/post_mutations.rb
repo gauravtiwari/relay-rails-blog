@@ -44,13 +44,12 @@ module PostMutations
 
     resolve ->(_obj, inputs, ctx) {
               post = RelaySchema.object_from_id(inputs[:id], ctx)
-              authorize(ctx[:current_user], post)
-              post.destroy
 
-              {
-                viewer: Viewer::STATIC,
-                deletedId: inputs[:id]
-              }
+              validate_object(post, 'Post')
+              authorize(ctx[:current_user], post, :destroy)
+
+              post.destroy
+              { viewer: Viewer::STATIC, deletedId: inputs[:id] }
             }
   end
 
@@ -66,7 +65,8 @@ module PostMutations
 
     resolve ->(_obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:id], ctx)
-      authorize(ctx[:current_user], post)
+      validate_object(post, 'Post')
+      authorize(ctx[:current_user], post, :edit)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(

@@ -14,6 +14,8 @@ module CommentMutations
     # Resolve block to create comment and return hash of post and comment
     resolve ->(_obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:post_id], ctx)
+      validate_object(post, 'Post')
+
       user = ctx[:current_user]
       comment = post.comments.create(body: inputs[:body],
                                      user: user)
@@ -46,10 +48,12 @@ module CommentMutations
 
     resolve ->(_obj, inputs, ctx) {
               post = RelaySchema.object_from_id(inputs[:post_id], ctx)
-              authorize(ctx[:current_user], post)
-              comment = RelaySchema.object_from_id(inputs[:id], ctx)
+              validate_object(post, 'Post')
 
-              authorize(ctx[:current_user], comment)
+              comment = RelaySchema.object_from_id(inputs[:id], ctx)
+              validate_object(comment, 'Comment')
+
+              authorize(ctx[:current_user], comment, :destroy)
               comment.destroy
 
               {
@@ -73,7 +77,8 @@ module CommentMutations
     resolve ->(_obj, inputs, ctx) {
       comment = RelaySchema.object_from_id(inputs[:id], ctx)
 
-      authorize(ctx[:current_user], comment)
+      validate_object(comment, 'Comment')
+      authorize(ctx[:current_user], comment, :edit)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(
