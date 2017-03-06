@@ -44,6 +44,7 @@ module PostMutations
 
     resolve ->(_obj, inputs, ctx) {
               post = RelaySchema.object_from_id(inputs[:id], ctx)
+              authorize(ctx[:current_user], post)
               post.destroy
 
               {
@@ -65,6 +66,7 @@ module PostMutations
 
     resolve ->(_obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:id], ctx)
+      authorize(ctx[:current_user], post)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(

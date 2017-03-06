@@ -1,9 +1,7 @@
 module VoteMutations
   Create = GraphQL::Relay::Mutation.define do
     name 'CreateVote'
-
     input_field :votable_id, !types.ID
-
     return_field :post, PostType
     return_field :comment, CommentType
 
@@ -18,9 +16,7 @@ module VoteMutations
 
   Destroy = GraphQL::Relay::Mutation.define do
     name 'DestroyVote'
-
     input_field :votable_id, !types.ID
-
     return_field :post, PostType
     return_field :comment, CommentType
 

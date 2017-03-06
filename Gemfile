@@ -15,12 +15,10 @@ gem 'mini_racer'
 
 # Graphql
 gem 'graphql'
+gem 'graphiql-rails'
 
 # Javascript routes
 gem 'js-routes'
-
-# Authorization
-gem 'pundit'
 
 # User auth
 gem 'devise'

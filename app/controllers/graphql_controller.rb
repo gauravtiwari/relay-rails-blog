@@ -7,7 +7,8 @@ class GraphqlController < ApplicationController
       params[:query],
       variables: ensure_hash(params[:variables]),
       context: {
-        current_user: set_current_user
+        current_user: set_current_user,
+        ability: Ability.new(set_current_user)
       }
     )
     render json: result
@@ -16,9 +17,7 @@ class GraphqlController < ApplicationController
   private
 
   def set_current_user
-    if verified_user = User.find_by(id: cookies.signed['user.id'])
-      verified_user
-    end
+    User.find_by(id: cookies.signed['user.id'])
   end
 
   def ensure_hash(query_variables)

@@ -1,7 +1,7 @@
 RelaySchema = GraphQL::Schema.define do
   query QueryType
   mutation MutationType
-  max_depth 8
+  max_depth 9
   rescue_from ActiveRecord::RecordInvalid, &:messag
   rescue_from ActiveRecord::Rollback, &:message
   rescue_from StandardError, &:message
@@ -30,6 +30,11 @@ def decode_object(id)
     separator: '---'
   )
   Object.const_get(type_name).find(object_id)
+end
+
+def authorize(user, resource)
+  ability = Ability.new(user)
+  raise StandardError, 'Unauthorised' if ability.can?(:manage, resource)
 end
 
 # Responsible for dumping Schema.json to app/assets/javascripts/relay/

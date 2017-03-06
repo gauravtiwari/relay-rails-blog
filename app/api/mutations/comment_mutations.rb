@@ -46,7 +46,10 @@ module CommentMutations
 
     resolve ->(_obj, inputs, ctx) {
               post = RelaySchema.object_from_id(inputs[:post_id], ctx)
+              authorize(ctx[:current_user], post)
               comment = RelaySchema.object_from_id(inputs[:id], ctx)
+
+              authorize(ctx[:current_user], comment)
               comment.destroy
 
               {
@@ -69,6 +72,8 @@ module CommentMutations
 
     resolve ->(_obj, inputs, ctx) {
       comment = RelaySchema.object_from_id(inputs[:id], ctx)
+
+      authorize(ctx[:current_user], comment)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(

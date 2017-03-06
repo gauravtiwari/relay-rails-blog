@@ -2,12 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :update, :destroy, to: :moderate
-
-    if user.moderator?
-      can :moderate, Comment
-    else
-      can :crud, :all
-    end
+    can :manage, Post, user_id: user.id
+    can :manage, Comment, user_id: user.id
   end
 end

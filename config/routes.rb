@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   resources :posts, only: :show
 
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
+  end
+
   get 'tag/:tag', to: 'posts#tag', as: :tag
 end
