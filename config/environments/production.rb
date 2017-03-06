@@ -14,27 +14,26 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
-                             :username => ENV["MEMCACHIER_USERNAME"],
-                             :password => ENV["MEMCACHIER_PASSWORD"],
-                             :failover => true,
-                             :socket_timeout => 1.5,
-                             :socket_failure_delay => 0.2,
-                             :value_max_bytes => 10485760)
+  client = Dalli::Client.new((ENV['MEMCACHIER_SERVERS'] || '').split(','),
+                             username: ENV['MEMCACHIER_USERNAME'],
+                             password: ENV['MEMCACHIER_PASSWORD'],
+                             failover: true,
+                             socket_timeout: 1.5,
+                             socket_failure_delay: 0.2,
+                             value_max_bytes: 10_485_760)
 
   config.action_dispatch.rack_cache = {
-    :metastore    => client,
-    :entitystore  => client
+    metastore: client,
+    entitystore: client
   }
 
   config.cache_store = :dalli_store,
-    (ENV["MEMCACHIER_SERVERS"] || "").split(","),
-    {:username => ENV["MEMCACHIER_USERNAME"],
-     :password => ENV["MEMCACHIER_PASSWORD"],
-     :failover => true,
-     :socket_timeout => 1.5,
-     :socket_failure_delay => 0.2
-     }
+                       (ENV['MEMCACHIER_SERVERS'] || '').split(','),
+                       { username: ENV['MEMCACHIER_USERNAME'],
+                         password: ENV['MEMCACHIER_PASSWORD'],
+                         failover: true,
+                         socket_timeout: 1.5,
+                         socket_failure_delay: 0.2 }
 
   config.public_file_server.enabled = true
 

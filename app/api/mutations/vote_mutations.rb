@@ -7,15 +7,12 @@ module VoteMutations
     return_field :post, PostType
     return_field :comment, CommentType
 
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       votable = RelaySchema.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
-      votable.votes.create({
-        user: user
-      })
+      votable.votes.create(user: user)
 
       { votable.class.to_s.downcase.to_sym => votable.reload }
-
     }
   end
 
@@ -27,16 +24,14 @@ module VoteMutations
     return_field :post, PostType
     return_field :comment, CommentType
 
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       votable = RelaySchema.object_from_id(inputs[:votable_id], ctx)
       user = ctx[:current_user]
-      vote = user.votes.where({
-        votable: votable
-      }).first
+      vote = user.votes.where(votable: votable).first
 
       vote.destroy
 
-      { vote.votable_type.downcase.to_sym => votable.reload  }
+      { vote.votable_type.downcase.to_sym => votable.reload }
     }
   end
 end

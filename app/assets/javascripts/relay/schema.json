@@ -401,7 +401,7 @@
         {
           "kind": "OBJECT",
           "name": "PostConnection",
-          "description": null,
+          "description": "The connection type for Post.",
           "fields": [
             {
               "name": "edges",
@@ -761,7 +761,7 @@
         {
           "kind": "OBJECT",
           "name": "CommentConnection",
-          "description": null,
+          "description": "The connection type for Comment.",
           "fields": [
             {
               "name": "edges",

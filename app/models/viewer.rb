@@ -1,5 +1,5 @@
 class Viewer < Struct.new :id
-  # HACK:// For relay root queries
+  # HACK: // For relay root queries
   STATIC = new(id: 'root').freeze
 
   def self.find(_)

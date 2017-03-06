@@ -5,11 +5,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     build_resource({})
-    respond_with self.resource
+    respond_with resource
   end
 
-  def join_with_social
-  end
+  def join_with_social; end
 
   def create
     super
@@ -26,10 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.update_with_password(devise_parameter_sanitizer.sanitize(:account_update))
     if @user.encrypted_password_changed?
       set_flash_message :notice, :updated
-      sign_in @user, :bypass => true
+      sign_in @user, bypass: true
       render :edit
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -40,5 +39,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me, :password_confirmation) }
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :terms_accepted, :username, :email, :password, :password_confirmation, :current_password) }
   end
-
 end

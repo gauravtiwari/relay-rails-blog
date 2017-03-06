@@ -18,8 +18,6 @@ class GraphqlController < ApplicationController
   def set_current_user
     if verified_user = User.find_by(id: cookies.signed['user.id'])
       verified_user
-    else
-      nil
     end
   end
 

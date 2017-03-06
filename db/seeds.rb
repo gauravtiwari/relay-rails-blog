@@ -12,7 +12,7 @@ ActiveRecord::Base.transaction do
     )
   end
 
-  tags = ['ruby', 'react', 'javascript', 'relay', 'graphql', 'sessions', 'code', 'remote']
+  tags = %w(ruby react javascript relay graphql sessions code remote)
 
   100.times do
     Post.create!(
@@ -24,7 +24,6 @@ ActiveRecord::Base.transaction do
     )
   end
 
-
   5000.times do
     Comment.create!(
       body: Faker::Lorem.sentence(10),
@@ -32,7 +31,6 @@ ActiveRecord::Base.transaction do
       post_id: (1..100).to_a.sample
     )
   end
-
 
   Post.find((1..100).to_a).each do |votable|
     Vote.create!(

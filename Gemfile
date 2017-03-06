@@ -2,12 +2,12 @@ ruby '2.2.5'
 source 'https://rubygems.org'
 
 # Setup Rails and API
-gem 'rails', '5.0.0.1'
 gem 'pg'
+gem 'rails', '5.0.0.1'
 
 # Asset compilation and NPM modules
-gem 'sass-rails'
 gem 'coffee-rails'
+gem 'sass-rails'
 gem 'uglifier'
 
 # Setup react and dependencies
@@ -35,9 +35,9 @@ gem 'stringex'
 gem 'react_on_rails', github: 'gauravtiwari/react_on_rails'
 
 # Caching
-gem 'rack-cache'
-gem 'kgio'
 gem 'dalli'
+gem 'kgio'
+gem 'rack-cache'
 
 # Fake data
 gem 'faker'
@@ -47,13 +47,13 @@ gem 'cancancan'
 gem 'enumerize'
 
 group :production do
-  gem 'rails_12factor'
   gem 'puma'
+  gem 'rails_12factor'
 end
 
 group :development do
+  gem 'figaro'
+  gem 'foreman'
   gem 'spring'
   gem 'web-console'
-  gem 'foreman'
-  gem 'figaro'
 end

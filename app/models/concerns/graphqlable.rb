@@ -2,7 +2,6 @@ module Graphqlable
   extend ActiveSupport::Concern
 
   module ClassMethods
-
     # @example usage
     # => UserType = User.to_graphql_type
     # => UserType = User.to_graphql_type([:name, :email], true)
@@ -13,9 +12,9 @@ module Graphqlable
     # @optional param: Relay support
     # @return A {ObjectType} for a model
 
-    def to_graphql_type(fields=[], relay=false)
+    def to_graphql_type(fields = [], relay = false)
       begin
-        raise ArgumentError unless fields and fields.is_a?(Array)
+        raise ArgumentError unless fields && fields.is_a?(Array)
 
         model = self
         model_fields = model.columns_hash.except('id') if relay
@@ -31,11 +30,11 @@ module Graphqlable
 
           # Check if the fields are given or use default fields
           @exposed_fields = if fields.any?
-            model_fields.select do |column|
-              fields.include?(column.to_sym)
-            end
-          else
-            model_fields
+                              model_fields.select do |column|
+                                fields.include?(column.to_sym)
+                              end
+                            else
+                              model_fields
           end
 
           # Make the fields available for this model

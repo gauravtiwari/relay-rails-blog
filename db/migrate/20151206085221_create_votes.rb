@@ -4,7 +4,6 @@ class CreateVotes < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :votable, index: true, polymorphic: true
 
-
       t.timestamps
     end
 

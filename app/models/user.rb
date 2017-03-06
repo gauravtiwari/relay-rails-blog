@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   include Graphqlable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   # Associations
   has_many :posts, dependent: :destroy

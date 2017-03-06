@@ -13,15 +13,13 @@ module PostMutations
     return_field :viewer, ViewerType
 
     # Resolve block to create Post and return hash of post and Post
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       user = ctx[:current_user]
       viewer = Viewer::STATIC
-      post = user.posts.create({
-        title: inputs[:title],
-        excerpt: inputs[:excerpt],
-        body: inputs[:body],
-        user: user
-      })
+      post = user.posts.create(title: inputs[:title],
+                               excerpt: inputs[:excerpt],
+                               body: inputs[:body],
+                               user: user)
 
       connection = GraphQL::Relay::RelationConnection.new(viewer, {})
       edge = GraphQL::Relay::Edge.new(post, connection)
@@ -44,15 +42,15 @@ module PostMutations
     return_field :deletedId, !types.ID
     return_field :viewer, ViewerType
 
-    resolve -> (obj, inputs, ctx) {
-     post = RelaySchema.object_from_id(inputs[:id], ctx)
-     post.destroy
+    resolve ->(_obj, inputs, ctx) {
+              post = RelaySchema.object_from_id(inputs[:id], ctx)
+              post.destroy
 
-     {
-       viewer: Viewer::STATIC,
-       deletedId: inputs[:id]
-     }
-   }
+              {
+                viewer: Viewer::STATIC,
+                deletedId: inputs[:id]
+              }
+            }
   end
 
   Edit = GraphQL::Relay::Mutation.define do
@@ -65,17 +63,16 @@ module PostMutations
     # Define return parameters
     return_field :post, PostType
 
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:id], ctx)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(
-        :@original_values
+          :@original_values
         ).select do |k, _|
           post.respond_to? "#{k}="
         end
       ).except(:id)
-
 
       post.update(valid_inputs)
 

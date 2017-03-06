@@ -1,4 +1,4 @@
-$: << File.expand_path('../lib', __dir__)
+$LOAD_PATH << File.expand_path('../lib', __dir__)
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'

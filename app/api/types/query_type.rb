@@ -8,6 +8,6 @@ QueryType = GraphQL::ObjectType.define do
   # Hack until relay has lookup for root fields
   field :root, ViewerType do
     description 'Root object to get viewer related collections'
-    resolve -> (obj, args, ctx) { Viewer::STATIC }
+    resolve ->(_obj, _args, _ctx) { Viewer::STATIC }
   end
 end

@@ -12,13 +12,11 @@ module CommentMutations
     return_field :post, PostType
 
     # Resolve block to create comment and return hash of post and comment
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       post = RelaySchema.object_from_id(inputs[:post_id], ctx)
       user = ctx[:current_user]
-      comment = post.comments.create({
-        body: inputs[:body],
-        user: user
-      })
+      comment = post.comments.create(body: inputs[:body],
+                                     user: user)
 
       comments_connection = GraphQL::Relay::RelationConnection.new(
         post.comments,
@@ -46,16 +44,16 @@ module CommentMutations
     return_field :deletedId, !types.ID
     return_field :post, PostType
 
-    resolve -> (obj, inputs, ctx) {
-     post = RelaySchema.object_from_id(inputs[:post_id], ctx)
-     comment = RelaySchema.object_from_id(inputs[:id], ctx)
-     comment.destroy
+    resolve ->(_obj, inputs, ctx) {
+              post = RelaySchema.object_from_id(inputs[:post_id], ctx)
+              comment = RelaySchema.object_from_id(inputs[:id], ctx)
+              comment.destroy
 
-     {
-       post: post.reload,
-       deletedId: inputs[:id]
-     }
-   }
+              {
+                post: post.reload,
+                deletedId: inputs[:id]
+              }
+            }
   end
 
   Edit = GraphQL::Relay::Mutation.define do
@@ -69,12 +67,12 @@ module CommentMutations
     # Define return parameters
     return_field :comment, CommentType
 
-    resolve -> (obj, inputs, ctx) {
+    resolve ->(_obj, inputs, ctx) {
       comment = RelaySchema.object_from_id(inputs[:id], ctx)
 
       valid_inputs = ActiveSupport::HashWithIndifferentAccess.new(
         inputs.instance_variable_get(
-        :@original_values
+          :@original_values
         ).select do |k, _|
           comment.respond_to? "#{k}="
         end
